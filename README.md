@@ -1,6 +1,6 @@
 # GeoActivity - customizable tools/armor,ore quadrupling and more
 
-!(http://i.imgur.com/0KtR3do.png)
+![Image](http://i.imgur.com/0KtR3do.png)
 
 ## Features
 - 3 new coal types
