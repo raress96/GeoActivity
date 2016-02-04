@@ -27,4 +27,4 @@ To install, just place the .zip file in the "mods" folder in your .minecraft fol
 ## Mod Showcase (v1.4)
 https://www.youtube.com/watch?v=hbpYyVw6cqk
  
-### This mod is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International license.
+#### This mod is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International license.
