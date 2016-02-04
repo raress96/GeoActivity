@@ -1,0 +1,174 @@
+Version 2.2:
+Changes:
+- updated to MC 1.8.9 and Forge 11.15.1.1722
+Fixes:
+- small fixes for Redstone Tools not mining properly
+
+Version 2.1.1:
+Fixes:
+- fixed coal ores not dropping the proper item
+- other small bug fixes
+
+Version 2.1:
+Changes:
+- updated to recommended Forge 11.14.3.1450
+- added Geothermal Generator;needs to be placed in lava pools;generates 4 RF/t per lava block;works better at lower altitudes;scans for lava blocks recursively up to a distance of 25 meters from the generator;
+outputs power to bottom/top only and searches for lava blocks starting from its sides only;has a 40% to turn lava into obsidian in a 3x3x3 cube centered on it, so it will eventually stop working;
+- added Thermic Melter;transforms obsidian into lava in a 5x5x5 cube centered on it;uses 10 RF/t passively and 50k RF per obsidian block;
+Fixes:
+- implemented proper interfaces for machines that use RF
+- fixed Advanced Redstone BattleMiner GUI and added detailed power information to the power bar
+
+Version 2.0:
+Changes:
+- updated to MC 1.8 and Forge 11.14.1.1334
+- increased Advanced Redstone BattleMiner energy capacity to 5 million RF and transfer rate to 20k RF/t
+- Chemistry Machine DOES NOT give back coal ore the element containers
+- ToolCharger can now charge RF tools with up to 20k RF/t and can hold 10 million RF
+Fixes:
+- LOTS of bug fixes
+- performance improvements
+
+Version 1.6:
+Changes:
+- updated to MC 1.7.10 and Forge 10.13.0.1199
+- added an Advanced Redstone BattleMiner, an RF powered tool, more expensive than the Redstone BattleMiner, that can be upgraded with up to 12 perks;it also supports up to 4 Wider Mining Radius perks 
+which can increase the radius to 3x3x1, 5x5x1, 7x7x2 and 9x9x3
+- added a Thermal Hardened Brick that is used together with the Thermic Generator to produce RF;place the bricks adjacent to the generator and for each brick it creates 20RF/t;power can only
+be extracted through the bottom 
+- added a Tool Charger that can accept up to 10000 RF/t and can only charge RF powered Redstone Tools
+
+Version 1.5:
+Changes:
+- updated to Forge 10.12.1.1060
+- added more useful recipes to the Chemistry Machine
+Fixes:
+- added back compatibility with NEI
+
+Version 1.4:
+Changes:
+- updated to Forge 10.12.0.1047
+- Advanced Tools can now be enchanted;enchantments do not stack with perks of the same type or other perks(like fortune enchant with auto-smelt)
+like they do in the Redstone Tools
+- decreased the enchantability of Advanced Tools and nerfed fuel values since they are pretty OP when they are enchanted
+- buffed fuel values in Redstone Tools
+- added config options for Ore Generation
+- added Drop Teleportation Perk that can be bound to an inventory and when placed in a tool, drops will get automatically inserted into that
+inventory and will not be dropped on the ground(unless there is no space left in the inventory)
+- added Bypass Armor Perk which makes 1/3 of the tool damage bypass armor
+- added Advanced Armor which can be customized with perks and function similar to Advanced Tools
+- added General Protection Perk, Blast Protection Perk, Fire Protection Perk, Magic Protection Perk, Projectile Protection Perk, No Fall Damage Perk, Respiration Perk for armor
+Fixes:
+- tweaked tools damages
+
+Version 1.3:
+Changes:
+- updated to MC 1.7.2 and Forge 10.12.0.1034
+- nerfed the Coal Refiner so that the Advanced Coal Refiner is useful
+Fixes
+- small bug fixes and improvements
+
+Version 1.2
+Changes:
+- changed some recipes for better balance
+- added block of coal as fuel source and changed fuel burn times in the Crafting Machine
+Fixes:
+- more tool bug fixes
+
+Version 1.1:
+Fixes:
+- tools work properly now
+- LOTS of bug fixes
+
+Version 1.0:
+Changes:
+- removed Crafting Machine I and moved it's recipes to the vanilla workbench
+- removed Magma Ore and nerfed the generation of the coal ores
+- the new coal ores can no longer be used as fuel
+- coal exchange recipes were removed from the Crafting Machine
+- coal can be crafted with 4 graphite in a square
+- diamonds have a new recipe
+- Coal Refiner has some new recipes
+- coal ores give double output if they are put in the Coal Refiner
+- new Advanced Ore Refiner, a complicated multiblock structure that acts like a furnace, doubling your output with a chance of tripling it or tripling your output 
+with a chance of quadrupling it if you use a certain special item;works on ores that drop themselves only
+- new Auto Stone Builder that can auto smelts/2x2 craft(or both) one block
+into a specific block and then place that block in the world(useful for
+transforming cobblestone into stone/stone bricks directly;has a 64 blocks 
+internal capacity;uses coal to recharge)
+- new Redstone Miner(pick+shovel) and Redstone BattleAxe(sword+axe+hoe)
+(both can be upgraded with up to 4 perks and have 4 slots for holding fuel)
+- new Advanced Redstone BattleAxe that acts like a pick,shovel,axe,hoe and sword
+in one tool(can be upgraded with up to 8 perks)
+IMPORTANT:Do not apply perks for these tools in the Crafting Machine!They will not work and will waste your perk!
+
+- Reinforced Tools can no longer mine obsidian
+- Advanced Tools are no longer destroyed completly, instead they show
+a little tooltip saying if they are destroyed(when they are destroyed, the
+tools can not be used to mine/attack)
+- buffed fuel values in the Advanced Tools
+- damage of tools slighty nerfed
+- added Damage, Experience, Fortune, Silk-Touch, Auto-Smelt, Wider Radius, Capitator, No-Drops Perks
+- Perks now have a tooltip saying on what items they work
+(keep in mind that you CAN put the perk on other items, but they will
+not do anything)
+- added higher tier of Precious Alloy Ingots
+- changes to some recipes for better balance between mods
+- added Chemistry:
+ - new Atom Extractor machine
+ - it's speed can be upgraded with up to 4 Advanced Reinforced Brick by placing them
+ next to it
+ - new Element Containers, represanting elements in the periodic table
+   (currently 19 elements)
+ - new Chemistry Machine, used to combine elements and insert them into
+   other items;it is a fancy multiblock structure, with the Chemistry Machine
+   in the middle, 4 Advanced Reinforced Brick in the corners and item frames
+   on the Bricks;the crafting is done by placing elements in the item frames
+   and 1 OR 2 items in the GUI of the machine;crafting is activated by putting
+   a coal block on top of the machine;after this you will get the output and
+   also some coal back and the element containers used become empty
+Fixes:
+- balanced the mod to work better with other mods installed
+- added NEI plugin!If NEI is installed you can now lookup recipes for the custom machines this mod adds!
+- LOTS of bug fixes
+- Advanced Coal Refiner now has a different texture when it is succesfully formed
+- machines can now be partially automated
+
+Version 0.7.1:
+Changes:
+- changed Advanced Coal Refiner recipe
+- the Reinforced Miner can now be crafted with damaged tools
+
+Version 0.7:
+Changes:
+- added creative tab
+- added an Advanced Coal Refiner multiblock structure
+- added Machine Perks
+- added chest loot
+- added "Small Precious Alloy Ingot"
+- changed recipes of Advanced Tools
+- new textures
+Fixes:
+- fixed Coal Refiner strange rotation bug
+- you can now upgrade tools with perks after you first crafted them
+
+Version 0.6.3:
+- fixed crash on multiplayer
+
+Version 0.6:
+- added Graphite Base, base block for all advanced machines
+- added Crafting Machine II
+- added a new tier of tools that work on coal and can be upgraded with perks
+- added a perk system(currently speed and efficiency perks)
+
+Version 0.5:
+- updated config file
+- added a new tool, Reinforced Miner, that is a pickaxe and a shovel in one;it uses the new types of coal to recharge
+- updated to MC 1.6.2 and forge 9.10.0.789
+- bug fixes
+
+Version 0.4:
+- changed Hardened Stone to Hardened Brick
+- updated textures
+- updated to MC 1.5 and Forge 7.7.0.591
+- bug fixes
