@@ -1,0 +1,81 @@
+*.class
+dist
+download
+push.sh
+remotebuild.py
+/libs
+
+## Gradle
+/.gradle
+/build
+/eclipse
+/gradlew.bat
+
+## ForgeGradle
+/run
+/out
+
+## Idea
+*.iml
+*.ipr
+*.iws
+
+## Eclipse
+/.settings
+/.metadata
+/.classpath
+/.project
+/bin
+/.idea
+/client/
+/Server/
+/classes/
+## misc
+TCDEOBF.jar*
+
+## Ignore OS cache files
+*.DS_Store
+_MACOSX
+Thumbs.db
+
+## Ignore unnecessary files
+*.log
+*.lck
+
+## Forge
+/CREDITS-fml.txt
+/LICENSE-fml.txt
+/MinecraftForge-Credits.txt
+/MinecraftForge-License.txt
+/lib
+
+##Minecraft
+options.txt
+/saves
+/logs
+/config
+/crash-reports
+mods/
+reports/
+recipes/
+dumps/
+*.zip
+world/
+screenshots/
+/banned-ips.json
+/banned-ips.txt.converted
+/banned-players.json
+/banned-players.txt.converted
+/eula.txt
+asm/
+structures/
+/ops.json
+/ops.txt.converted
+/resourcepacks
+/server.properties
+/servers.dat
+/CoroPets
+/usercache.json
+/usernamecache.json
+/white-list.txt.converted
+/whitelist.json

@@ -1,0 +1,7 @@
+{
+    "parent": "geoactivity:block/cube_bottom",
+    "textures": {
+        "bottom": "geoactivity:blocks/thermicgenerator_bottom",
+        "side": "geoactivity:blocks/thermicgenerator_side"
+    }
+}

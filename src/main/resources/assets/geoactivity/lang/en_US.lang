@@ -1,0 +1,126 @@
+#Items
+lignitecoal.name=Lignite Coal
+bituminouscoal.name=Bituminous Coal
+anthracitecoal.name=Anthracite Coal
+
+graphitecoal.name=Graphite
+carbonfiber.name=Carbon Fiber
+carbonstick.name=Carbon Stick
+carbonorecutter.name=Carbon Ore Cutter
+
+preciousalloyingot_small.name=Small Precious Alloy Ingot
+preciousalloyingot_normal.name=Precious Alloy Ingot
+preciousalloyingot_large.name=Large Precious Alloy Ingot
+
+#Perks
+perk_blank.name=Blank Perk
+perk_speed.name=Speed Perk
+perk_efficiency.name=Efficiency Perk
+perk_damage.name=Damage Perk
+perk_experience.name=Experience Perk
+perk_smelting.name=Auto-Smelt Perk
+perk_fortune.name=Fortune Perk
+perk_silktouch.name=Silk-Touch Perk
+perk_radius.name=Wider Radius Perk
+perk_capitator.name=Capitator Perk
+perk_nodrops.name=No Drops Perk
+perk_droptp.name=Drop Teleportation Perk
+perk_bypassarmor.name=Armor Bypass Perk
+
+perk_m_speed.name=Speed Perk (Machine)
+perk_m_efficiency.name=Efficiency Perk (Machine)
+
+perk_a_general.name=General Protection Perk (Armor)
+perk_a_blast.name=Blast Protection Perk (Armor)
+perk_a_fire.name=Fire Protection Perk (Armor)
+perk_a_magic.name=Magic Protection Perk (Armor)
+perk_a_projectile.name=Projectile Protection Perk (Armor)
+perk_a_nofall.name=No Fall Damage Perk (Armor)
+perk_a_respiration.name=Respiration Perk (Armor)
+
+#Elements
+elementcontainer_empty.name=Empty Element Container
+elementcontainer_hydrogen.name=Hydrogen Element Container
+elementcontainer_helium.name=Helium Element Container
+elementcontainer_lithium.name=Lithium Element Container
+elementcontainer_carbon.name=Carbon Element Container
+elementcontainer_nitrogen.name=Nitrogen Element Container
+elementcontainer_oxygen.name=Oxygen Element Container
+elementcontainer_neon.name=Neon Element Container
+elementcontainer_sodium.name=Sodium Element Container
+elementcontainer_magnesium.name=Magnesium Element Container
+elementcontainer_aluminium.name=Aluminium Element Container
+elementcontainer_silicon.name=Silicon Element Container
+elementcontainer_phosphorus.name=Phosphorus Element Container
+elementcontainer_sulfur.name=Sulfur Element Container
+elementcontainer_chlorine.name=Chlorine Element Container
+elementcontainer_potassium.name=Potassium Element Container
+elementcontainer_calcium.name=Calcium Element Container
+elementcontainer_iron.name=Iron Element Container
+elementcontainer_iodine.name=Iodine Element Container
+elementcontainer_gold.name=Gold Element Container
+
+#Tools (reinforced)
+item.reinforcedsword.name=Reinforced Sword
+item.reinforcedpickaxe.name=Reinforced Pickaxe
+item.reinforcedaxe.name=Reinforced Axe
+item.reinforcedshovel.name=Reinforced Shovel
+item.reinforcedhoe.name=Reinforced Hoe
+item.reinforcedminer.name=Reinforced Miner
+
+#Tools (advanced)
+item.advancedsword.name=Advanced Sword
+item.advancedpick.name=Advanced Pickaxe
+item.advancedaxe.name=Advanced Axe
+item.advancedshovel.name=Advanced Shovel
+
+#Tools (redstone)
+item.redstoneminer.name=Redstone Miner
+item.redstonebattleaxe.name=Redstone BattleAxe
+item.redstonebattleminer.name=Redstone BattleMiner
+item.aredstonebattleminer.name=Advanced Redstone BattleMiner
+
+#Tools (misc)
+autostonebuilder.name=Auto Stone Builder
+
+#Armor (reinforced)
+item.reinforcedhelmet.name=Reinforced Helmet
+item.reinforcedchest.name=Reinforced Chestplate
+item.reinforcedpants.name=Reinforced Leggings
+item.reinforcedboots.name=Reinforced Boots
+
+#Armor (advanced)
+item.advancedhelmet.name=Advanced Helmet
+item.advancedchest.name=Advanced ChestPlate
+item.advancedpants.name=Advanced Leggings
+item.advancedboots.name=Advanced Boots
+
+#Blocks
+tile.anthraciteore.name=Anthracite Ore
+tile.bituminousore.name=Bituminous Ore
+tile.ligniteore.name=Lignite Ore
+
+tile.hardenedglass.name=Hardened Glass
+tile.graphitebase.name=Graphite Base
+hardenedbrick_normal.name=Hardened Brick
+hardenedbrick_advanced.name=Advanced Hardened Brick
+hardenedbrick_thermal.name=Thermal Hardened Brick
+
+#Blocks (machines)
+tile.coalrefiner.name=Coal Refiner
+tile.craftingmachine.name=Crafting Machine
+tile.atomextractor.name=Atom Extractor
+tile.chemistrymachine.name=Chemistry Machine
+tile.advancedcoalrefiner.name=Advanced Coal Refiner
+tile.advancedorerefiner.name=Advanced Ore Refiner
+tile.thermicgenerator.name=Thermic Generator
+tile.toolcharger.name=Tool Charger
+tile.geothermalgenerator.name=Geothermal Generator
+tile.thermicmelter.name=Thermic Melter
+
+#Creative Tabs
+itemGroup.geoactivity=Geo Activity
+itemGroup.geoactivityelement=Geo Activity Chemistry
+
+#Custom
+ga.perks.droptp=The perk was succesfully bound to that inventory.

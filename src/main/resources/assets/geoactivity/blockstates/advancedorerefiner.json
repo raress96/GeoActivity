@@ -1,0 +1,13 @@
+{
+    "variants": {
+        "core=true,facing=north,formed=false": { "model": "geoactivity:advancedorerefiner_core" },
+        "core=true,facing=north,formed=true": { "model": "geoactivity:advancedorerefiner_core_formed" },
+		"core=true,facing=south,formed=false": { "model": "geoactivity:advancedorerefiner_core" },
+        "core=true,facing=south,formed=true": { "model": "geoactivity:advancedorerefiner_core_formed" },
+		"core=true,facing=east,formed=false": { "model": "geoactivity:advancedorerefiner_core" },
+        "core=true,facing=east,formed=true": { "model": "geoactivity:advancedorerefiner_core_formed" },
+		"core=true,facing=west,formed=false": { "model": "geoactivity:advancedorerefiner_core" },
+        "core=true,facing=west,formed=true": { "model": "geoactivity:advancedorerefiner_core_formed" },
+        "core=false,facing=south,formed=true": { "model": "geoactivity:advancedorerefiner_formed" }
+    }
+}
