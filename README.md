@@ -1,5 +1,7 @@
 # GeoActivity - customizable tools/armor,ore quadrupling and more
 
+!(http://i.imgur.com/0KtR3do.png)
+
 ## Features
 - 3 new coal types
 - new armor/tools sets that can be customized
@@ -26,5 +28,7 @@ To install, just place the .zip file in the "mods" folder in your .minecraft fol
  
 ## Mod Showcase (v1.4)
 https://www.youtube.com/watch?v=hbpYyVw6cqk
- 
+
+
+
 ##### This mod is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International license](http://creativecommons.org/licenses/by-nc-sa/4.0/).
