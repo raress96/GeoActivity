@@ -2,7 +2,7 @@
 
 ![Image](http://i.imgur.com/0KtR3do.png)
 
-## Download for the latest version can be found on [CurseForge](http://minecraft.curseforge.com/projects/geoactivity).
+## Downloads for the latest versions can be found on [CurseForge](http://minecraft.curseforge.com/projects/geoactivity).
 
 ## Features
 - 3 new coal types
