@@ -1,4 +1,5 @@
 # GeoActivity - customizable tools/armor,ore quadrupling and more
+## Download for the latest version can be found on [CurseForge](http://minecraft.curseforge.com/projects/geoactivity).
 
 ![Image](http://i.imgur.com/0KtR3do.png)
 
