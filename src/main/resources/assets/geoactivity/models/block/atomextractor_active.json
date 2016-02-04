@@ -1,0 +1,8 @@
+{
+    "parent": "block/orientable",
+    "textures": {
+        "top": "geoactivity:blocks/atomextractor_top",
+        "front": "geoactivity:blocks/atomextractor_front_on",
+        "side": "geoactivity:blocks/atomextractor_side"
+    }
+}

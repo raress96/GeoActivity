@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_top",
+    "textures": {
+		"top": "geoactivity:blocks/hardenedbrick_thermal_top",
+        "side": "geoactivity:blocks/hardenedbrick_thermal"
+    }
+}

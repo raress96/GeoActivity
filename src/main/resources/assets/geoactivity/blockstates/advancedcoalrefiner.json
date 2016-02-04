@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "formed=false,keepinv=false": { "model": "geoactivity:advancedcoalrefiner" },
+        "formed=true,keepinv=false": { "model": "geoactivity:advancedcoalrefiner_formed" }
+    }
+}

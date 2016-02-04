@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=normal": { "model": "geoactivity:hardenedbrick_normal" },
+        "type=advanced": { "model": "geoactivity:hardenedbrick_advanced" },
+        "type=thermal":  { "model": "geoactivity:hardenedbrick_thermal" }
+    }
+}

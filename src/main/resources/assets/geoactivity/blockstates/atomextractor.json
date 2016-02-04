@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "active=false,facing=north,keepinv=false": { "model": "geoactivity:atomextractor" },
+        "active=false,facing=south,keepinv=false": { "model": "geoactivity:atomextractor", "y": 180 },
+        "active=false,facing=west,keepinv=false":  { "model": "geoactivity:atomextractor", "y": 270 },
+        "active=false,facing=east,keepinv=false":  { "model": "geoactivity:atomextractor", "y": 90 },
+        "active=true,facing=north,keepinv=false": { "model": "geoactivity:atomextractor_active" },
+        "active=true,facing=south,keepinv=false": { "model": "geoactivity:atomextractor_active", "y": 180 },
+        "active=true,facing=west,keepinv=false":  { "model": "geoactivity:atomextractor_active", "y": 270 },
+        "active=true,facing=east,keepinv=false":  { "model": "geoactivity:atomextractor_active", "y": 90 }
+    }
+}

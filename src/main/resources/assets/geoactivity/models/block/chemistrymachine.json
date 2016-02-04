@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_top",
+    "textures": {
+		"top": "geoactivity:blocks/chemistrymachine_top",
+        "side": "geoactivity:blocks/chemistrymachine_side"
+    }
+}
