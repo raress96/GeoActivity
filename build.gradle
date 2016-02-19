@@ -27,6 +27,11 @@ version = "2.2.1"
 group= "com.entirecraft" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "geoactivity"
 
+allprojects {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
 minecraft {
 	useDepAts = true
     version = "1.8.9-11.15.1.1722"
