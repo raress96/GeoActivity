@@ -16,7 +16,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
 import com.entirecraft.general.GeoActivity;
-import com.entirecraft.general.blocks.Machines.CrM.CMTileE;
+import com.entirecraft.general.blocks.Machines.CrM.CrMTileE;
 import com.entirecraft.lib.GuiIDs;
 
 public class CraftingMachine extends BaseContainerBlock
@@ -34,7 +34,7 @@ public class CraftingMachine extends BaseContainerBlock
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta)
 	{
-		return new CMTileE();
+		return new CrMTileE();
 	}
 
 	@Override
@@ -56,7 +56,7 @@ public class CraftingMachine extends BaseContainerBlock
 	@Override
 	public void breakBlock(World world, BlockPos pos, IBlockState state)
 	{
-		CMTileE tile = (CMTileE) world.getTileEntity(pos);
+		CrMTileE tile = (CrMTileE) world.getTileEntity(pos);
 
 		if(tile != null)
 		{

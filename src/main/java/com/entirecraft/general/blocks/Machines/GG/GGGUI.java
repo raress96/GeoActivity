@@ -7,7 +7,7 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import com.entirecraft.general.blocks.Machines.CrM.CMTileE;
+import com.entirecraft.general.blocks.Machines.CrM.CrMTileE;
 import com.entirecraft.util.GeneralHelper;
 
 public class GGGUI extends GuiContainer

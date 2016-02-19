@@ -25,7 +25,7 @@ import com.entirecraft.general.blocks.Machines.AE.AETileE;
 import com.entirecraft.general.blocks.Machines.AOR.AORTileE;
 import com.entirecraft.general.blocks.Machines.CR.CRTileE;
 import com.entirecraft.general.blocks.Machines.ChM.ChMTileE;
-import com.entirecraft.general.blocks.Machines.CrM.CMTileE;
+import com.entirecraft.general.blocks.Machines.CrM.CrMTileE;
 import com.entirecraft.general.blocks.Machines.GG.GGTileE;
 import com.entirecraft.general.blocks.Machines.TC.TCTileE;
 import com.entirecraft.general.blocks.Machines.Tiles.TGTileE;
@@ -84,7 +84,7 @@ public class GAInit
 
 	private static void registerEntities()
 	{
-		GameRegistry.registerTileEntity(CMTileE.class, "CrMTileE");
+		GameRegistry.registerTileEntity(CrMTileE.class, "CrMTileE");
 		GameRegistry.registerTileEntity(CRTileE.class, "CRTileE");
 		GameRegistry.registerTileEntity(ACRTileE.class, "ACRTileE");
 		GameRegistry.registerTileEntity(AETileE.class, "AETileE");

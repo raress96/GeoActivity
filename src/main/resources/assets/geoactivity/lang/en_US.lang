@@ -124,3 +124,5 @@ itemGroup.geoactivityelement=Geo Activity Chemistry
 
 #Custom
 ga.perks.droptp=The perk was succesfully bound to that inventory.
+
+ga.jei.category.crafting_machine=Crafting Machine
