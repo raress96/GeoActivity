@@ -1,10 +1,11 @@
 package com.entirecraft.general.integration.jei;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import com.entirecraft.general.blocks.Machines.CrM.CrMShapedRecipe;
+import javax.annotation.Nonnull;
+
+import com.entirecraft.general.blocks.Machines.CrM.CrMShapelessRecipe;
 import com.entirecraft.util.Translator;
 
 import mezz.jei.api.recipe.IRecipeWrapper;
@@ -12,38 +13,43 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
-public class CrMShapedRecipeWrapper implements IRecipeWrapper
+public class CrMShapelessRecipeWrapper implements IRecipeWrapper
 {
-	private final CrMShapedRecipe recipe;
+	private final CrMShapelessRecipe recipe;
 	private final List<String> perkSlotTooltip;
 	private final List<String> tempSlotTooltip;
 
-	public CrMShapedRecipeWrapper(CrMShapedRecipe recipe)
+	public CrMShapelessRecipeWrapper(CrMShapelessRecipe recipe)
 	{
 		this.recipe = recipe;
-
-		for (ItemStack itemStack : this.recipe.recipeItems) {
-			if (itemStack != null && itemStack.stackSize != 1) {
-				itemStack.stackSize = 1;
+		
+		for (Object input : this.recipe.recipeItems) {
+			if (input instanceof ItemStack) {
+				ItemStack itemStack = (ItemStack) input;
+				if (itemStack.stackSize != 1) {
+					itemStack.stackSize = 1;
+				}
 			}
 		}
-
+		
 		perkSlotTooltip = Translator.getWrappedTranslation("ga.jei.crafting_machine.perk.slot");
 		tempSlotTooltip = Translator.getWrappedTranslation("ga.jei.crafting_machine.temp.slot");
 	}
 
+	@Nonnull
 	@Override
 	public List getInputs()
 	{
-		return Arrays.asList(recipe.recipeItems);
+		return recipe.recipeItems;
 	}
 
+	@Nonnull
 	@Override
-	public List getOutputs()
+	public List<ItemStack> getOutputs()
 	{
 		return Collections.singletonList(recipe.getRecipeOutput());
 	}
-
+	
 	@Override
 	public List<FluidStack> getFluidInputs()
 	{

@@ -46,8 +46,8 @@ public class CrMRecipeCategory implements IRecipeCategory
 	}
 
 	@Override
-	@Nonnull
-	public String getUid() {
+	public String getUid()
+	{
 		return GeoActivityRecipeCategoryUid.CRAFTING_MACHINE;
 	}
 
@@ -77,6 +77,7 @@ public class CrMRecipeCategory implements IRecipeCategory
 	@Override
 	public void setRecipe(IRecipeLayout recipeLayout, IRecipeWrapper recipeWrapper)
 	{
+		recipeLayout.setRecipeTransferButton(148, 60);
 		IGuiItemStackGroup guiItemStacks = recipeLayout.getItemStacks();
 
 		guiItemStacks.init(9, false, 145, 37); //init output slot
@@ -89,11 +90,10 @@ public class CrMRecipeCategory implements IRecipeCategory
 			}
 		}
 
-		if (recipeWrapper instanceof CrMShapedRecipeWrapper)
+		if (recipeWrapper instanceof CrMShapedRecipeWrapper || recipeWrapper instanceof CrMShapelessRecipeWrapper)
 		{
-			CrMShapedRecipeWrapper wrapper = (CrMShapedRecipeWrapper) recipeWrapper;
-			craftingGridHelper.setInput(guiItemStacks, wrapper.getInputs()); //set input slots
-			craftingGridHelper.setOutput(guiItemStacks, wrapper.getOutputs()); //set output slots
+			craftingGridHelper.setInput(guiItemStacks, recipeWrapper.getInputs()); //set input slots
+			craftingGridHelper.setOutput(guiItemStacks, recipeWrapper.getOutputs()); //set output slots
 			guiItemStacks.set(10, GeneralHelper.getCraftingMachineFuels()); //set fuel slot
 		}
 		else
