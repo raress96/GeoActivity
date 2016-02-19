@@ -31,6 +31,9 @@ remotebuild.py
 /client/
 /Server/
 /classes/
+GeoActivity_Client.launch
+GeoActivity_Server.launch
+
 ## misc
 TCDEOBF.jar*
 

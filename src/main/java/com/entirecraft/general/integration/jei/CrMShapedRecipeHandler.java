@@ -42,5 +42,4 @@ public class CrMShapedRecipeHandler implements IRecipeHandler<CrMShapedRecipe>
 
 		return inputCount > 0;
 	}
-
 }

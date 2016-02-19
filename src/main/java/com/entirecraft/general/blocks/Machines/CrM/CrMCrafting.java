@@ -211,7 +211,7 @@ public class CrMCrafting
 			}
 		}
 
-		this.recipes.add(new ShapelessRecipes(stack, arraylist));
+		this.recipes.add(new CrMShapelessRecipe(stack, arraylist));
 	}
 
 	public ItemStack findMatchingRecipe(InventoryCrafting craftingInv, World world)
