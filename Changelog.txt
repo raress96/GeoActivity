@@ -1,5 +1,7 @@
 Version 2.2.1:
-
+Changes:
+- HUGE refactoring of package names and GUI handler
+- added JEI support for the Crafting Machine recipes, with more machines to come in the future
 
 Version 2.2:
 Changes:
