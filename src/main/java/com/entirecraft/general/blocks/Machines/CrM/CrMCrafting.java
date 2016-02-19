@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.entirecraft.general.GAMod;
+import com.entirecraft.general.items.ArmorPerks.EnumArmorPerks;
+import com.entirecraft.general.items.MachinePerks.EnumMachinePerks;
+import com.entirecraft.general.items.ToolPerks.EnumToolPerks;
+import com.entirecraft.util.BaseElectricTool;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -11,16 +17,9 @@ import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
-
-import com.entirecraft.general.GAMod;
-import com.entirecraft.general.items.ArmorPerks.EnumArmorPerks;
-import com.entirecraft.general.items.MachinePerks.EnumMachinePerks;
-import com.entirecraft.general.items.ToolPerks.EnumToolPerks;
-import com.entirecraft.util.BaseElectricTool;
 
 public class CrMCrafting
 {
@@ -180,7 +179,7 @@ public class CrMCrafting
 				aItemStack[i1] = null;
 		}
 
-		recipes.add(new ShapedRecipes(j, k, aItemStack, stack));
+		recipes.add(new CrMShapedRecipe(j, k, aItemStack, stack));
 	}
 
 	public void addShapelessRecipe(ItemStack stack, Object... obj)
@@ -262,7 +261,7 @@ public class CrMCrafting
 		{
 			for(j = 0;j < this.recipes.size();++j)
 			{
-				IRecipe irecipe = (IRecipe) this.recipes.get(j);
+				IRecipe irecipe = this.recipes.get(j);
 
 				if(irecipe.matches(craftingInv, world))
 				{

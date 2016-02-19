@@ -9,9 +9,9 @@ import org.lwjgl.opengl.GL11;
 public class CrMGUI extends GuiContainer
 {
 	private static final ResourceLocation guitexture = new ResourceLocation("GeoActivity:textures/gui/CrM.png");
-	private CMTileE furnaceInventory;
+	private CrMTileE furnaceInventory;
 
-	public CrMGUI(InventoryPlayer playerInv, CMTileE tile)
+	public CrMGUI(InventoryPlayer playerInv, CrMTileE tile)
 	{
 		super(new CrMContainer(tile, playerInv));
 		furnaceInventory = tile;

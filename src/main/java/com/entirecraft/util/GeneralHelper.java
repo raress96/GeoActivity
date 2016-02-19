@@ -1,10 +1,16 @@
 package com.entirecraft.util;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.EnumSet;
 import java.util.List;
 
 import org.lwjgl.input.Keyboard;
+
+import com.entirecraft.general.GAMod;
+
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
 
 public class GeneralHelper
 {
@@ -37,19 +43,19 @@ public class GeneralHelper
 		if (temp >= 1000)
 		{
 			temp /= 1000f;
-			
+
 			if (temp < 100)
 				return String.format("%.1f", temp) + "M";
 			else
 				return (int)temp + "M";
 		}
-		
+
 		if (temp < 100)
 			return String.format("%.1f", temp) + "K";
 		else
 			return (int)temp + "K";
 	}
-	
+
 	public enum GuiColors
 	{
 		BLACK(0), BLUE(1), GREEN(2), CYAN(3), RED(4), PURPLE(5), ORANGE(6), LIGHTGRAY(7), GRAY(8), LIGHTBLUE(9),
@@ -67,5 +73,18 @@ public class GeneralHelper
 		{
 			return "\u00a7" + Integer.toHexString(number);
 		}
+	}
+
+	public static Collection<ItemStack> getCraftingMachineFuels()
+	{
+		Collection<ItemStack> fuels = new ArrayList<ItemStack>();
+
+		fuels.add(new ItemStack(Blocks.coal_block));
+		fuels.add(new ItemStack(GAMod.gemLigniteCoal));
+		fuels.add(new ItemStack(GAMod.gemBituminousCoal));
+		fuels.add(new ItemStack(GAMod.gemAnthraciteCoal));
+
+
+		return fuels;
 	}
 }

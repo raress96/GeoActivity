@@ -24,7 +24,7 @@ import com.entirecraft.general.items.ArmorPerks.EnumArmorPerks;
 import com.entirecraft.general.items.ToolPerks.EnumToolPerks;
 import com.entirecraft.util.BaseTileEntity;
 
-public class CMTileE extends BaseTileEntity
+public class CrMTileE extends BaseTileEntity
 {	
 	public int furnaceBurnTime = 0;
 	public int currentItemBurnTime = 0;
@@ -49,7 +49,7 @@ public class CMTileE extends BaseTileEntity
 	}, 3, 3);
 	public IInventory craftResult = new InventoryCraftResult();
 	
-	public CMTileE()
+	public CrMTileE()
 	{
 		super(13);
 	}

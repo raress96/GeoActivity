@@ -21,7 +21,7 @@ import com.entirecraft.general.blocks.Machines.CR.CRTileE;
 import com.entirecraft.general.blocks.Machines.ChM.ChMContainer;
 import com.entirecraft.general.blocks.Machines.ChM.ChMGUI;
 import com.entirecraft.general.blocks.Machines.ChM.ChMTileE;
-import com.entirecraft.general.blocks.Machines.CrM.CMTileE;
+import com.entirecraft.general.blocks.Machines.CrM.CrMTileE;
 import com.entirecraft.general.blocks.Machines.CrM.CrMContainer;
 import com.entirecraft.general.blocks.Machines.CrM.CrMGUI;
 import com.entirecraft.general.blocks.Machines.GG.GGContainer;
@@ -77,9 +77,9 @@ public class GUIHandler implements IGuiHandler
 				return new RMContainer(inv, player);
 			}
 			case GuiIDs.CrM:
-				if (!(tile_entity instanceof CMTileE))
+				if (!(tile_entity instanceof CrMTileE))
 					return null;
-				return new CrMContainer((CMTileE) tile_entity, player.inventory);
+				return new CrMContainer((CrMTileE) tile_entity, player.inventory);
 			case GuiIDs.ADV:
 			{
 				AdvTInventory inv = new AdvTInventory(player.inventory.getCurrentItem(), player);
@@ -161,9 +161,9 @@ public class GUIHandler implements IGuiHandler
 				return new RMGUI(inv, player);
 			}
 			case GuiIDs.CrM:
-				if (!(tile_entity instanceof CMTileE))
+				if (!(tile_entity instanceof CrMTileE))
 					return null;
-				return new CrMGUI(player.inventory, (CMTileE) tile_entity);
+				return new CrMGUI(player.inventory, (CrMTileE) tile_entity);
 			case GuiIDs.ADV:
 			{
 				AdvTInventory inv = new AdvTInventory(player.inventory.getCurrentItem(), player);

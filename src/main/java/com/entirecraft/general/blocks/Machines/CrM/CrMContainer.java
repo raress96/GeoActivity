@@ -15,14 +15,14 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class CrMContainer extends Container
 {
-	protected CMTileE tile_entity;
+	protected CrMTileE tile_entity;
 	private int lastCookTime = 0;
 	private int lastBurnTime = 0;
 	private int lastItemBurnTime = 0;
 	private World worldObj;
 	private BlockPos pos;
 
-	public CrMContainer(CMTileE tile, InventoryPlayer playerInv)
+	public CrMContainer(CrMTileE tile, InventoryPlayer playerInv)
 	{
 		tile_entity = tile;
 		int var6;
