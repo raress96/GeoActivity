@@ -9,11 +9,9 @@ import geoactivity.common.items.tools.Red.Logic.RedInventory;
 import geoactivity.common.lib.ToolsHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.Container;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
@@ -255,14 +253,14 @@ public abstract class BaseRedstoneTool extends BaseGUITool
     }
 
 	@Override
-	public GuiContainer getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
+	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{
 		RedInventory inv = new RedInventory(player.getHeldItem(), player, 8);
 		return new RedGUI(inv, player);
 	}
 	
 	@Override
-	public Container getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
+	public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{
 		RedInventory inv = new RedInventory(player.getHeldItem(), player, 8);
 		return new RedContainer(inv, player);

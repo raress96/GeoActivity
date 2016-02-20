@@ -7,10 +7,8 @@ import cofh.api.energy.IEnergyProvider;
 import cofh.api.energy.IEnergyReceiver;
 import geoactivity.common.GAMod;
 import geoactivity.common.lib.IOpenableGUI;
-import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.inventory.Container;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
@@ -203,13 +201,13 @@ public class GGTileE extends TileEntity implements ITickable, IEnergyProvider, I
 	}
 
 	@Override
-	public GuiContainer getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
+	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{
 		return new GGGUI(player.inventory, this);	
 	}
 
 	@Override
-	public Container getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
+	public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{
 		return new GGContainer(this, player.inventory);
 	}

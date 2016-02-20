@@ -6,9 +6,7 @@ import geoactivity.common.blocks.HardenedBrick.EnumHardenedBrick;
 import geoactivity.common.blocks.Machines.AtomExtractor;
 import geoactivity.common.items.ElementContainer.EnumElements;
 import geoactivity.common.util.BaseTileEntity;
-import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.BlockPos;
@@ -316,13 +314,13 @@ public class AETileE extends BaseTileEntity
 	}
 
 	@Override
-	public GuiContainer getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
+	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{
 		return new AEGUI(player.inventory, this);
 	}
 
 	@Override
-	public Container getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
+	public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{
 		return new AEContainer(this, player.inventory);
 	}

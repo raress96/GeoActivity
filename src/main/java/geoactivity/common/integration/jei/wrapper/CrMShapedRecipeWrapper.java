@@ -37,10 +37,10 @@ public class CrMShapedRecipeWrapper implements IRecipeWrapper
 	{
 		List list = new ArrayList();
 		list.addAll(Arrays.asList(recipe.recipeItems));
-		
+
 		if (this.getCompatiblePerks() != null)
 			list.addAll(this.getCompatiblePerks());
-		
+
 		return list;
 	}
 
@@ -81,12 +81,12 @@ public class CrMShapedRecipeWrapper implements IRecipeWrapper
 		{
 			return this.perkSlotTooltip;
 		}
-		
+
 		if (mouseX >= 38 && mouseX <= 54 && mouseY >= 58 && mouseY <= 74)
 		{
 			return this.tempSlotTooltip;
 		}
-		
+
 		return null;
 	}
 
@@ -95,12 +95,12 @@ public class CrMShapedRecipeWrapper implements IRecipeWrapper
 	{
 		return false;
 	}
-	
+
 	public List<ItemStack> getCompatiblePerks()
 	{
 		return this.recipe.getCompatiblePerks();
 	}
-	
+
 	public List getCraftingInputs()
 	{
 		return Arrays.asList(recipe.recipeItems);

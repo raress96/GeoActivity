@@ -14,13 +14,11 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.BlockPos;
@@ -296,14 +294,14 @@ public class RedstoneBattleMiner extends BaseRedstoneTool
     }
 
 	@Override
-	public GuiContainer getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
+	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{
 		BMInventory inv = new BMInventory(player.getHeldItem(), player);
 		return new BMGUI(inv, player);
 	}
 
 	@Override
-	public Container getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
+	public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{
 		BMInventory inv = new BMInventory(player.getHeldItem(), player);
 		return new BMContainer(inv, player);

@@ -10,9 +10,7 @@ import geoactivity.common.items.MachinePerks.EnumMachinePerks;
 import geoactivity.common.util.BaseTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.Container;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
@@ -712,13 +710,13 @@ public class AORTileE extends BaseTileEntity
 	}
 
 	@Override
-	public GuiContainer getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
+	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{
 		return new AORGUI(player.inventory, this);
 	}
 
 	@Override
-	public Container getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
+	public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{
 		return new AORContainer(this, player.inventory);
 	}
