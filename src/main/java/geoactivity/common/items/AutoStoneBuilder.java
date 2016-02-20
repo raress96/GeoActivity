@@ -2,6 +2,11 @@ package geoactivity.common.items;
 
 import java.util.List;
 
+import geoactivity.common.GeoActivity;
+import geoactivity.common.items.ASBLogic.ASBContainer;
+import geoactivity.common.items.ASBLogic.ASBGUI;
+import geoactivity.common.items.ASBLogic.ASBInventory;
+import geoactivity.common.lib.IOpenableGUI;
 import net.minecraft.block.Block;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,14 +21,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import geoactivity.client.GuiIDs;
-import geoactivity.common.GeoActivity;
-import geoactivity.common.items.ASBLogic.ASBContainer;
-import geoactivity.common.items.ASBLogic.ASBGUI;
-import geoactivity.common.items.ASBLogic.ASBInventory;
-import geoactivity.common.items.armor.AdvLogic.AdvAInventory;
-import geoactivity.common.items.tools.Adv.Logic.AdvTContainer;
-import geoactivity.common.lib.IOpenableGUI;
 
 public class AutoStoneBuilder extends BaseItem implements IOpenableGUI
 {
@@ -136,7 +133,7 @@ public class AutoStoneBuilder extends BaseItem implements IOpenableGUI
 	{
 		if(!world.isRemote)
 			if(player.isSneaking())
-				player.openGui(GeoActivity.instance, GuiIDs.ASB, world, (int) player.posX, (int) player.posY, (int) player.posZ);
+				player.openGui(GeoActivity.instance, 0, world, (int) player.posX, (int) player.posY, (int) player.posZ);
 			else if(stack.getItemDamage() > 150)
 			{
 				ASBInventory inv = new ASBInventory(player.inventory.getCurrentItem(), player);

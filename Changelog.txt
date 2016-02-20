@@ -1,3 +1,7 @@
+Version 2.2.2:
+Changes:
+
+
 Version 2.2.1:
 Changes:
 - HUGE refactoring of package names and GUI handler

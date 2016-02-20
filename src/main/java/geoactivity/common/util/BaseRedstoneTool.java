@@ -1,28 +1,26 @@
 package geoactivity.common.util;
 
 import java.util.List;
-import java.util.Random;
 
-import geoactivity.client.GuiIDs;
 import geoactivity.common.GeoActivity;
+import geoactivity.common.items.tools.Red.Logic.RedContainer;
+import geoactivity.common.items.tools.Red.Logic.RedGUI;
 import geoactivity.common.items.tools.Red.Logic.RedInventory;
-import geoactivity.common.lib.IHasName;
-import geoactivity.common.lib.IOpenableGUI;
 import geoactivity.common.lib.ToolsHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.Container;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemTool;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public abstract class BaseRedstoneTool extends BaseGUITool
 {
@@ -239,20 +237,34 @@ public abstract class BaseRedstoneTool extends BaseGUITool
 			stack.damageItem(1, entity);
 		return true;
 	}
-
+	
 	@Override
-	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
-	{
-		if(!world.isRemote)
-			if(player.isSneaking())
-				player.openGui(GeoActivity.instance, GuiIDs.REDM, world, (int) player.posX, (int) player.posY,
-					(int) player.posZ);
+    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
+    {
+		if (!world.isRemote)
+			if (player.isSneaking())
+				player.openGui(GeoActivity.instance, 0, world, (int) player.posX, (int) player.posY,
+						(int) player.posZ);
 			else
 			{
-				RedInventory inv = new RedInventory(player.inventory.getCurrentItem(), player, 8);
+				RedInventory inv = new RedInventory(player.getHeldItem(), player, 8);
 				inv.setCharge();
 			}
-		player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
-		return stack;
+        player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
+        return stack;
+    }
+
+	@Override
+	public GuiContainer getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
+	{
+		RedInventory inv = new RedInventory(player.getHeldItem(), player, 8);
+		return new RedGUI(inv, player);
+	}
+	
+	@Override
+	public Container getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
+	{
+		RedInventory inv = new RedInventory(player.getHeldItem(), player, 8);
+		return new RedContainer(inv, player);
 	}
 }

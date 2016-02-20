@@ -2,6 +2,10 @@ package geoactivity.common.blocks.Machines;
 
 import java.util.Random;
 
+import geoactivity.common.GAMod;
+import geoactivity.common.GeoActivity;
+import geoactivity.common.blocks.Machines.ACR.ACRTileE;
+import geoactivity.common.itemblocks.MultiItemBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -19,11 +23,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import geoactivity.client.GuiIDs;
-import geoactivity.common.GAMod;
-import geoactivity.common.GeoActivity;
-import geoactivity.common.blocks.Machines.ACR.ACRTileE;
-import geoactivity.common.itemblocks.MultiItemBlock;
 
 public class AdvancedCoalRefiner extends BaseContainerBlock
 {
@@ -74,7 +73,7 @@ public class AdvancedCoalRefiner extends BaseContainerBlock
 
 			if(core != null)
 			{
-				player.openGui(GeoActivity.instance, GuiIDs.ACR, world, core.getPos().getX(), core.getPos().getY(),
+				player.openGui(GeoActivity.instance, 0, world, core.getPos().getX(), core.getPos().getY(),
 						core.getPos().getZ());
 			}
 			else

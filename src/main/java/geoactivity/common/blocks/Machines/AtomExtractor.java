@@ -2,6 +2,9 @@ package geoactivity.common.blocks.Machines;
 
 import java.util.Random;
 
+import geoactivity.common.GAMod;
+import geoactivity.common.GeoActivity;
+import geoactivity.common.blocks.Machines.AE.AETileE;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -23,10 +26,6 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import geoactivity.client.GuiIDs;
-import geoactivity.common.GAMod;
-import geoactivity.common.GeoActivity;
-import geoactivity.common.blocks.Machines.AE.AETileE;
 
 public class AtomExtractor extends BaseContainerBlock
 {
@@ -145,7 +144,7 @@ public class AtomExtractor extends BaseContainerBlock
 			if(tile_entity == null || player.isSneaking())
 				return false;
 			
-			player.openGui(GeoActivity.instance, GuiIDs.AE, world, pos.getX(), pos.getY(), pos.getZ());
+			player.openGui(GeoActivity.instance, 0, world, pos.getX(), pos.getY(), pos.getZ());
 			return true;
 		}
 	}
