@@ -81,7 +81,7 @@ public class AdvTInventory extends BaseInventory
 		else if(myCompound.getBoolean("capitator"))
 			inventory[1] = new ItemStack(GAMod.tool_perks, 1, EnumToolPerks.CAPITATOR.getMetadata());
 		else if(myCompound.getBoolean("nodrops"))
-			inventory[1] = new ItemStack(GAMod.tool_perks, 1, EnumToolPerks.NODORPS.getMetadata());
+			inventory[1] = new ItemStack(GAMod.tool_perks, 1, EnumToolPerks.NODROPS.getMetadata());
 		else if(myCompound.getBoolean("barmor"))
 			inventory[1] = new ItemStack(GAMod.tool_perks, 1, EnumToolPerks.BYPASSARMOR.getMetadata());
 	}

@@ -268,7 +268,7 @@ public class CrMTileE extends BaseTileEntity
 					tag.setBoolean("capitator", true);
 					inventory[2].setTagCompound(tag);
 				}
-				else if(inventory[3].getMetadata() == EnumToolPerks.NODORPS.getMetadata())
+				else if(inventory[3].getMetadata() == EnumToolPerks.NODROPS.getMetadata())
 				{
 					NBTTagCompound tag = new NBTTagCompound();
 					tag.setBoolean("nodrops", true);
@@ -282,7 +282,7 @@ public class CrMTileE extends BaseTileEntity
 				}
 				
 				if((inventory[3].getMetadata() >= EnumToolPerks.SPEED.getMetadata()
-						&& inventory[3].getMetadata() <= EnumToolPerks.NODORPS.getMetadata())
+						&& inventory[3].getMetadata() <= EnumToolPerks.NODROPS.getMetadata())
 						|| inventory[3].getMetadata() == EnumToolPerks.BYPASSARMOR.getMetadata())
 					inventory[3] = null;
 			}

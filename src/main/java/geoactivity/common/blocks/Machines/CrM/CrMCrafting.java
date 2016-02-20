@@ -5,10 +5,13 @@ import java.util.HashMap;
 import java.util.List;
 
 import geoactivity.common.GAMod;
+import geoactivity.common.blocks.Machines.CrM.recipes.CrMShapedRecipe;
+import geoactivity.common.blocks.Machines.CrM.recipes.CrMShapelessRecipe;
 import geoactivity.common.items.ArmorPerks.EnumArmorPerks;
 import geoactivity.common.items.MachinePerks.EnumMachinePerks;
 import geoactivity.common.items.ToolPerks.EnumToolPerks;
 import geoactivity.common.util.BaseElectricTool;
+import geoactivity.common.util.PerkHelper;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -16,7 +19,6 @@ import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -70,13 +72,13 @@ public class CrMCrafting
 
 		//Tier II
 		addRecipe(new ItemStack(GAMod.advancedSword, 1, 998), new Object[] {" Y ", " Y ", " X ", 'X',
-				GAMod.carbonstick, 'Y', new ItemStack(GAMod.preciousAlloy, 1, 0)});
+				GAMod.carbonstick, 'Y', new ItemStack(GAMod.preciousAlloy, 1, 0)}, PerkHelper.getAdvancedSwordPerks());
 		addRecipe(new ItemStack(GAMod.advancedPickaxe, 1, 998), new Object[] {"YYY", " X ", " X ", 'X',
-				GAMod.carbonstick, 'Y', new ItemStack(GAMod.preciousAlloy, 1, 0)});
+				GAMod.carbonstick, 'Y', new ItemStack(GAMod.preciousAlloy, 1, 0)}, PerkHelper.getAdvancedPickaxePerks());
 		addRecipe(new ItemStack(GAMod.advancedAxe, 1, 998), new Object[] {"YY ", "YX ", " X ", 'X', GAMod.carbonstick,
-				'Y', new ItemStack(GAMod.preciousAlloy, 1, 0)});
+				'Y', new ItemStack(GAMod.preciousAlloy, 1, 0)}, PerkHelper.getAdvancedAxePerks());
 		addRecipe(new ItemStack(GAMod.advancedShovel, 1, 998), new Object[] {" Y ", " X ", " X ", 'X',
-				GAMod.carbonstick, 'Y', new ItemStack(GAMod.preciousAlloy, 1, 0)});
+				GAMod.carbonstick, 'Y', new ItemStack(GAMod.preciousAlloy, 1, 0)}, PerkHelper.getAdvancedShovelPerks());
 
 		//Tier III
 		addRecipe(new ItemStack(GAMod.redstoneMiner, 1, 998), new Object[] {"RYR", " X ", " X ", 'X',
@@ -103,13 +105,13 @@ public class CrMCrafting
 		/* Shapeless Recipes */
 
 		addShapelessRecipe(new ItemStack(GAMod.advancedSword, 1, 998), new Object[] {new ItemStack(GAMod.advancedSword,
-				1, OreDictionary.WILDCARD_VALUE)});
+				1, OreDictionary.WILDCARD_VALUE)}, PerkHelper.getAdvancedSwordPerks());
 		addShapelessRecipe(new ItemStack(GAMod.advancedPickaxe, 1, 998), new Object[] {new ItemStack(
-				GAMod.advancedPickaxe, 1, OreDictionary.WILDCARD_VALUE)});
+				GAMod.advancedPickaxe, 1, OreDictionary.WILDCARD_VALUE)}, PerkHelper.getAdvancedPickaxePerks());
 		addShapelessRecipe(new ItemStack(GAMod.advancedAxe, 1, 998), new Object[] {new ItemStack(GAMod.advancedAxe, 1,
-				OreDictionary.WILDCARD_VALUE)});
+				OreDictionary.WILDCARD_VALUE)}, PerkHelper.getAdvancedAxePerks());
 		addShapelessRecipe(new ItemStack(GAMod.advancedShovel, 1, 998), new Object[] {new ItemStack(
-				GAMod.advancedShovel, 1, OreDictionary.WILDCARD_VALUE)});
+				GAMod.advancedShovel, 1, OreDictionary.WILDCARD_VALUE)}, PerkHelper.getAdvancedShovelPerks());
 
 		addShapelessRecipe(new ItemStack(GAMod.advancedHelmet, 1, GAMod.advancedHelmet.getMaxDamage() - 2),
 				new Object[] {new ItemStack(GAMod.advancedHelmet, 1, OreDictionary.WILDCARD_VALUE)});
@@ -122,6 +124,11 @@ public class CrMCrafting
 	}
 
 	void addRecipe(ItemStack stack, Object obj[])
+	{
+		this.addRecipe(stack, obj, null);
+	}
+	
+	void addRecipe(ItemStack stack, Object obj[], List<ItemStack> compatiblePerks)
 	{
 		String s = "";
 		int i = 0;
@@ -178,10 +185,15 @@ public class CrMCrafting
 				aItemStack[i1] = null;
 		}
 
-		recipes.add(new CrMShapedRecipe(j, k, aItemStack, stack));
+		recipes.add(new CrMShapedRecipe(j, k, aItemStack, stack, compatiblePerks));
 	}
 
-	public void addShapelessRecipe(ItemStack stack, Object... obj)
+	public void addShapelessRecipe(ItemStack stack, Object obj[])
+	{
+		this.addShapelessRecipe(stack, obj, null);
+	}
+	
+	public void addShapelessRecipe(ItemStack stack, Object obj[], List<ItemStack> compatiblePerks)
 	{
 		ArrayList<ItemStack> arraylist = new ArrayList<ItemStack>();
 		Object[] aobject = obj;
@@ -210,7 +222,7 @@ public class CrMCrafting
 			}
 		}
 
-		this.recipes.add(new CrMShapelessRecipe(stack, arraylist));
+		this.recipes.add(new CrMShapelessRecipe(stack, arraylist, compatiblePerks));
 	}
 
 	public ItemStack findMatchingRecipe(InventoryCrafting craftingInv, World world)

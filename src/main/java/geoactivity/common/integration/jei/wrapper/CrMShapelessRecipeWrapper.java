@@ -1,11 +1,12 @@
 package geoactivity.common.integration.jei.wrapper;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import javax.annotation.Nonnull;
 
-import geoactivity.common.blocks.Machines.CrM.CrMShapelessRecipe;
+import geoactivity.common.blocks.Machines.CrM.recipes.CrMShapelessRecipe;
 import geoactivity.common.util.Translator;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.client.Minecraft;
@@ -39,7 +40,13 @@ public class CrMShapelessRecipeWrapper implements IRecipeWrapper
 	@Override
 	public List getInputs()
 	{
-		return recipe.recipeItems;
+		List list = new ArrayList();
+		list.addAll(recipe.recipeItems);
+		
+		if (this.getCompatiblePerks() != null)
+			list.addAll(this.getCompatiblePerks());
+		
+		return list;
 	}
 
 	@Nonnull
@@ -76,7 +83,7 @@ public class CrMShapelessRecipeWrapper implements IRecipeWrapper
 	@Override
 	public List<String> getTooltipStrings(int mouseX, int mouseY)
 	{
-		if (mouseX >= 85 && mouseX <= 101 && mouseY >= 20 && mouseY <= 36)
+		if (mouseX >= 85 && mouseX <= 101 && mouseY >= 20 && mouseY <= 36 && this.getCompatiblePerks() == null)
 		{
 			return this.perkSlotTooltip;
 		}
@@ -93,5 +100,15 @@ public class CrMShapelessRecipeWrapper implements IRecipeWrapper
 	public boolean handleClick(Minecraft minecraft, int mouseX, int mouseY, int mouseButton)
 	{
 		return false;
+	}
+	
+	public List<ItemStack> getCompatiblePerks()
+	{
+		return this.recipe.getCompatiblePerks();
+	}
+	
+	public List getCraftingInputs()
+	{
+		return this.recipe.recipeItems;
 	}
 }
