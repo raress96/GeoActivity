@@ -8,10 +8,8 @@ import geoactivity.common.items.ASBLogic.ASBGUI;
 import geoactivity.common.items.ASBLogic.ASBInventory;
 import geoactivity.common.lib.IOpenableGUI;
 import net.minecraft.block.Block;
-import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -144,14 +142,14 @@ public class AutoStoneBuilder extends BaseItem implements IOpenableGUI
 	}
 
 	@Override
-	public GuiContainer getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
+	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{
 		ASBInventory inv = new ASBInventory(player.getHeldItem(), player);
 		return new ASBGUI(inv, player);
 	}
 
 	@Override
-	public Container getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
+	public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{
 		ASBInventory inv = new ASBInventory(player.getHeldItem(), player);
 		return new ASBContainer(inv, player);

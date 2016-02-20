@@ -15,11 +15,9 @@ import geoactivity.common.lib.IOpenableGUI;
 import geoactivity.common.lib.ToolsHelper;
 import geoactivity.common.util.BaseRedstoneTool;
 import geoactivity.common.util.GeneralHelper;
-import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
@@ -165,14 +163,14 @@ public class AdvSword extends ItemSword implements IHasName, IOpenableGUI
 	}
 
 	@Override
-	public GuiContainer getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
+	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{
 		AdvTInventory inv = new AdvTInventory(player.getHeldItem(), player);
 		return new AdvTGUI(inv, player);
 	}
 	
 	@Override
-	public Container getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
+	public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{
 		AdvTInventory inv = new AdvTInventory(player.getHeldItem(), player);
 		return new AdvTContainer(inv, player);

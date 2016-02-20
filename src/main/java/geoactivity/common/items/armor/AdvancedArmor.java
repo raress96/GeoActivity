@@ -10,10 +10,8 @@ import geoactivity.common.items.tools.Adv.Logic.AdvTContainer;
 import geoactivity.common.lib.IHasName;
 import geoactivity.common.lib.IOpenableGUI;
 import geoactivity.common.util.GeneralHelper;
-import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -266,14 +264,14 @@ public class AdvancedArmor extends ItemArmor implements ISpecialArmor, IHasName,
 	}
 
 	@Override
-	public GuiContainer getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
+	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{
 		AdvAInventory inv = new AdvAInventory(player.getHeldItem(), player);
 		return new AdvAGUI(inv, player);
 	}
 
 	@Override
-	public Container getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
+	public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{
 		AdvAInventory inv = new AdvAInventory(player.getHeldItem(), player);
 		return new AdvTContainer(inv, player);

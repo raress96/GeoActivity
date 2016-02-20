@@ -4,10 +4,8 @@ import geoactivity.common.GAMod;
 import geoactivity.common.blocks.Machines.CoalRefiner;
 import geoactivity.common.blocks.Machines.ACR.FuelSlot;
 import geoactivity.common.util.BaseTileEntity;
-import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.inventory.Container;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -211,13 +209,13 @@ public class CRTileE extends BaseTileEntity
 	}
 
 	@Override
-	public GuiContainer getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
+	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{
 		return new CRGUI(player.inventory, this);
 	}
 
 	@Override
-	public Container getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
+	public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{
 		return new CRContainer(this, player.inventory);
 	}
