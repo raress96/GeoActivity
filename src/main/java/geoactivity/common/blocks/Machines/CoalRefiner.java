@@ -2,8 +2,10 @@ package geoactivity.common.blocks.Machines;
 
 import java.util.Random;
 
+import geoactivity.common.GAMod;
+import geoactivity.common.GeoActivity;
+import geoactivity.common.blocks.Machines.CR.CRTileE;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFurnace;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
@@ -12,7 +14,6 @@ import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryHelper;
@@ -25,10 +26,6 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import geoactivity.client.GuiIDs;
-import geoactivity.common.GAMod;
-import geoactivity.common.GeoActivity;
-import geoactivity.common.blocks.Machines.CR.CRTileE;
 
 public class CoalRefiner extends BaseContainerBlock
 {
@@ -143,7 +140,7 @@ public class CoalRefiner extends BaseContainerBlock
 			if(tile_entity == null || player.isSneaking())
 				return false;
 
-			player.openGui(GeoActivity.instance, GuiIDs.CR, world, pos.getX(), pos.getY(), pos.getZ());
+			player.openGui(GeoActivity.instance, 0, world, pos.getX(), pos.getY(), pos.getZ());
 
 			return true;
 		}

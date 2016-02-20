@@ -5,7 +5,6 @@ import java.util.List;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 
-import geoactivity.client.GuiIDs;
 import geoactivity.common.GAMod;
 import geoactivity.common.GeoActivity;
 import geoactivity.common.items.tools.Adv.Logic.AdvTContainer;
@@ -148,7 +147,7 @@ public class AdvSword extends ItemSword implements IHasName, IOpenableGUI
 	{
 		if(!world.isRemote)
 			if(player.isSneaking())
-				player.openGui(GeoActivity.instance, GuiIDs.ADV, world, (int) player.posX, (int) player.posY,
+				player.openGui(GeoActivity.instance, 0, world, (int) player.posX, (int) player.posY,
 					(int) player.posZ);
 			else
 			{

@@ -234,18 +234,4 @@ public class RedstoneBattleAxe extends BaseRedstoneTool
     {
 		return HashMultimap.create();
     }
-	
-	@Override
-	public GuiContainer getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
-	{
-		RedInventory inv = new RedInventory(player.getHeldItem(), player, 8);
-		return new RedGUI(inv, player);
-	}
-	
-	@Override
-	public Container getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
-	{
-		RedInventory inv = new RedInventory(player.getHeldItem(), player, 8);
-		return new RedContainer(inv, player);
-	}
 }

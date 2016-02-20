@@ -2,22 +2,17 @@ package geoactivity.common.blocks.Machines;
 
 import java.util.Random;
 
+import geoactivity.common.GeoActivity;
+import geoactivity.common.blocks.Machines.GG.GGTileE;
+import geoactivity.common.itemblocks.MultiItemBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.InventoryHelper;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import geoactivity.client.GuiIDs;
-import geoactivity.common.GeoActivity;
-import geoactivity.common.blocks.Machines.GG.GGTileE;
-import geoactivity.common.itemblocks.MultiItemBlock;
 
 public class GeothermalGenerator extends BaseContainerBlock
 {
@@ -48,7 +43,7 @@ public class GeothermalGenerator extends BaseContainerBlock
 			TileEntity tile_entity = world.getTileEntity(pos);
 			if(tile_entity == null || player.isSneaking())
 				return false;
-			player.openGui(GeoActivity.instance, GuiIDs.GG, world, pos.getX(), pos.getY(), pos.getZ());
+			player.openGui(GeoActivity.instance, 0, world, pos.getX(), pos.getY(), pos.getZ());
 			return true;
 		}
 	}

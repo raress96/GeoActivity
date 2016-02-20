@@ -2,7 +2,6 @@ package geoactivity.common.items.armor;
 
 import java.util.List;
 
-import geoactivity.client.GuiIDs;
 import geoactivity.common.GAMod;
 import geoactivity.common.GeoActivity;
 import geoactivity.common.items.armor.AdvLogic.AdvAGUI;
@@ -99,7 +98,7 @@ public class AdvancedArmor extends ItemArmor implements ISpecialArmor, IHasName,
 	{
 		if(!world.isRemote)
 			if(player.isSneaking())
-				player.openGui(GeoActivity.instance, GuiIDs.ADVArmor, world, (int) player.posX,
+				player.openGui(GeoActivity.instance, 0, world, (int) player.posX,
 						(int) player.posY, (int) player.posZ);
 			else
 			{
