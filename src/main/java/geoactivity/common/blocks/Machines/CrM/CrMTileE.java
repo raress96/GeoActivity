@@ -14,6 +14,7 @@ import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
 import net.minecraft.item.ItemTool;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -24,7 +25,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class CrMTileE extends BaseTileEntity
-{	
+{
 	public int furnaceBurnTime = 0;
 	public int currentItemBurnTime = 0;
 	public int furnaceCookTime = 0;
@@ -40,19 +41,19 @@ public class CrMTileE extends BaseTileEntity
 		public void onCraftMatrixChanged(IInventory inv)
 		{
 			super.onCraftMatrixChanged(inv);
-			
+
 			craftResult.setInventorySlotContents(0, CrMCrafting.getInstance().findMatchingRecipe(craftMatrix, worldObj));
 			inventory[0] = craftResult.getStackInSlot(0);
 		}
 
 	}, 3, 3);
 	public IInventory craftResult = new InventoryCraftResult();
-	
+
 	public CrMTileE()
 	{
 		super(13);
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound tagCompound)
 	{
@@ -62,18 +63,18 @@ public class CrMTileE extends BaseTileEntity
 
 		for (int i = 0; i < tagList.tagCount(); i++)
 		{
-			NBTTagCompound tag = (NBTTagCompound) tagList.getCompoundTagAt(i);
+			NBTTagCompound tag = tagList.getCompoundTagAt(i);
 			byte slot = tag.getByte("Slot");
 			if(slot > 3)
 				craftMatrix.setInventorySlotContents(slot - 4, ItemStack.loadItemStackFromNBT(tag));
 			else
 				inventory[slot]=ItemStack.loadItemStackFromNBT(tag);
 		}
-		
+
 		furnaceBurnTime = tagCompound.getShort("BurnTime");
 		furnaceCookTime = tagCompound.getShort("CookTime");
 		currentItemBurnTime = tagCompound.getShort("ItemBurnTime");
-		
+
 		NBTTagCompound tag = tagCompound.getCompoundTag("tempStack");
 		varStack = ItemStack.loadItemStackFromNBT(tag);
 	}
@@ -82,16 +83,16 @@ public class CrMTileE extends BaseTileEntity
 	public void writeToNBT(NBTTagCompound tagCompound)
 	{
 		super.writeToNBT(tagCompound);
-		
+
 		tagCompound.setShort("BurnTime", (short) furnaceBurnTime);
 		tagCompound.setShort("CookTime", (short) furnaceCookTime);
 		tagCompound.setShort("ItemBurnTime", (short) currentItemBurnTime);
-		
+
 		NBTTagCompound tag1 = new NBTTagCompound();
 		if(varStack!=null)
 			varStack.writeToNBT(tag1);
 		tagCompound.setTag("tempStack", tag1);
-		
+
 		NBTTagList itemList = new NBTTagList();
 
 		for (int i = 0; i < inventory.length; i++)
@@ -117,7 +118,7 @@ public class CrMTileE extends BaseTileEntity
 	{
 		return furnaceCookTime * par1 / 40;
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	public int getBurnTimeRemainingScaled(int par1)
 	{
@@ -131,7 +132,7 @@ public class CrMTileE extends BaseTileEntity
 	{
 		return furnaceBurnTime > 0;
 	}
-	
+
 	@Override
 	public void update()
 	{
@@ -145,7 +146,7 @@ public class CrMTileE extends BaseTileEntity
 		{
 			if(furnaceCookTime == 0 && this.canSmelt() && furnaceBurnTime >= 80)
 				varStack = inventory[0].copy();
-			
+
 			if (furnaceBurnTime == 0 && this.canSmelt())
 			{
 				currentItemBurnTime = furnaceBurnTime = getItemBurnTime(inventory[1]);
@@ -153,7 +154,7 @@ public class CrMTileE extends BaseTileEntity
 				if (furnaceBurnTime > 0)
 				{
 					var2 = true;
-					
+
 					if (inventory[1] != null)
 					{
 						--inventory[1].stackSize;
@@ -192,7 +193,7 @@ public class CrMTileE extends BaseTileEntity
 		for(int i=0;i < 9;i++)
 			craftMatrix.decrStackSize(i, 1);
 	}
-	
+
 	private boolean canSmelt()
 	{
 		if(inventory[0] == null)
@@ -208,10 +209,11 @@ public class CrMTileE extends BaseTileEntity
 			inventory[2] = varStack.copy();
 		else if (inventory[2].isItemEqual(varStack))
 			inventory[2].stackSize += varStack.stackSize;
-		
+
 		if(inventory[3] != null)
 		{
-			if(inventory[2].getItem() instanceof ItemTool && inventory[3].getItem() == GAMod.tool_perks)
+			if((inventory[2].getItem() instanceof ItemTool || inventory[2].getItem() instanceof ItemSword)
+				&& inventory[3].getItem() == GAMod.tool_perks)
 			{
 				if(inventory[3].getMetadata() == EnumToolPerks.SPEED.getMetadata())
 				{
@@ -279,7 +281,7 @@ public class CrMTileE extends BaseTileEntity
 					tag.setBoolean("barmor", true);
 					inventory[2].setTagCompound(tag);
 				}
-				
+
 				if((inventory[3].getMetadata() >= EnumToolPerks.SPEED.getMetadata()
 						&& inventory[3].getMetadata() <= EnumToolPerks.NODROPS.getMetadata())
 						|| inventory[3].getMetadata() == EnumToolPerks.BYPASSARMOR.getMetadata())
@@ -338,7 +340,7 @@ public class CrMTileE extends BaseTileEntity
 						tag.setBoolean("respiration", true);
 						inventory[2].setTagCompound(tag);
 					}
-					
+
 					inventory[3] = null;
 				}
 			}
@@ -370,7 +372,7 @@ public class CrMTileE extends BaseTileEntity
 	{
 		return getItemBurnTime(stack) > 0;
 	}
-	
+
 	@Override
 	public String getName()
 	{

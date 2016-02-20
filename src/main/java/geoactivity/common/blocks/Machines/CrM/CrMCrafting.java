@@ -94,13 +94,13 @@ public class CrMCrafting
 
 		//Tier II
 		addRecipe(new ItemStack(GAMod.advancedHelmet, 1, GAMod.advancedHelmet.getMaxDamage() - 2), new Object[] {"XXX",
-				"X X", 'X', new ItemStack(GAMod.preciousAlloy, 1, 0)});
+				"X X", 'X', new ItemStack(GAMod.preciousAlloy, 1, 0)}, PerkHelper.getAdvancedHelmetPerks());
 		addRecipe(new ItemStack(GAMod.advancedChest, 1, GAMod.advancedChest.getMaxDamage() - 2), new Object[] {"X X",
-				"XXX", "XXX", 'X', new ItemStack(GAMod.preciousAlloy, 1, 0)});
+				"XXX", "XXX", 'X', new ItemStack(GAMod.preciousAlloy, 1, 0)}, PerkHelper.getAdvancedChestplatePerks());
 		addRecipe(new ItemStack(GAMod.advancedPants, 1, GAMod.advancedPants.getMaxDamage() - 2), new Object[] {"X X",
-				"X X", "XXX", 'X', new ItemStack(GAMod.preciousAlloy, 1, 0)});
+				"X X", "XXX", 'X', new ItemStack(GAMod.preciousAlloy, 1, 0)}, PerkHelper.getAdvancedPantsPerks());
 		addRecipe(new ItemStack(GAMod.advancedBoots, 1, GAMod.advancedBoots.getMaxDamage() - 2), new Object[] {"X X",
-				"X X", 'X', new ItemStack(GAMod.preciousAlloy, 1, 0)});
+				"X X", 'X', new ItemStack(GAMod.preciousAlloy, 1, 0)}, PerkHelper.getAdvancedBootsPerks());
 
 		/* Shapeless Recipes */
 
@@ -114,20 +114,20 @@ public class CrMCrafting
 				GAMod.advancedShovel, 1, OreDictionary.WILDCARD_VALUE)}, PerkHelper.getAdvancedShovelPerks());
 
 		addShapelessRecipe(new ItemStack(GAMod.advancedHelmet, 1, GAMod.advancedHelmet.getMaxDamage() - 2),
-				new Object[] {new ItemStack(GAMod.advancedHelmet, 1, OreDictionary.WILDCARD_VALUE)});
+				new Object[] {new ItemStack(GAMod.advancedHelmet, 1, OreDictionary.WILDCARD_VALUE)}, PerkHelper.getAdvancedHelmetPerks());
 		addShapelessRecipe(new ItemStack(GAMod.advancedChest, 1, GAMod.advancedChest.getMaxDamage() - 2),
-				new Object[] {new ItemStack(GAMod.advancedChest, 1, OreDictionary.WILDCARD_VALUE)});
+				new Object[] {new ItemStack(GAMod.advancedChest, 1, OreDictionary.WILDCARD_VALUE)}, PerkHelper.getAdvancedChestplatePerks());
 		addShapelessRecipe(new ItemStack(GAMod.advancedPants, 1, GAMod.advancedPants.getMaxDamage() - 2),
-				new Object[] {new ItemStack(GAMod.advancedPants, 1, OreDictionary.WILDCARD_VALUE)});
+				new Object[] {new ItemStack(GAMod.advancedPants, 1, OreDictionary.WILDCARD_VALUE)}, PerkHelper.getAdvancedPantsPerks());
 		addShapelessRecipe(new ItemStack(GAMod.advancedBoots, 1, GAMod.advancedBoots.getMaxDamage() - 2),
-				new Object[] {new ItemStack(GAMod.advancedBoots, 1, OreDictionary.WILDCARD_VALUE)});
+				new Object[] {new ItemStack(GAMod.advancedBoots, 1, OreDictionary.WILDCARD_VALUE)}, PerkHelper.getAdvancedBootsPerks());
 	}
 
 	void addRecipe(ItemStack stack, Object obj[])
 	{
 		this.addRecipe(stack, obj, null);
 	}
-	
+
 	void addRecipe(ItemStack stack, Object obj[], List<ItemStack> compatiblePerks)
 	{
 		String s = "";
@@ -192,7 +192,7 @@ public class CrMCrafting
 	{
 		this.addShapelessRecipe(stack, obj, null);
 	}
-	
+
 	public void addShapelessRecipe(ItemStack stack, Object obj[], List<ItemStack> compatiblePerks)
 	{
 		ArrayList<ItemStack> arraylist = new ArrayList<ItemStack>();
