@@ -1,8 +1,8 @@
-*.class
-dist
-download
-push.sh
-remotebuild.py
+/*.class
+/dist
+/download
+/push.sh
+/remotebuild.py
 /libs
 
 ## Gradle
@@ -35,16 +35,16 @@ remotebuild.py
 /GeoActivity_Server.launch
 
 ## misc
-TCDEOBF.jar*
+/TCDEOBF.jar*
 
 ## Ignore OS cache files
-*.DS_Store
-_MACOSX
-Thumbs.db
+/*.DS_Store
+/_MACOSX
+/Thumbs.db
 
 ## Ignore unnecessary files
-*.log
-*.lck
+/*.log
+/*.lck
 
 ## Forge
 /CREDITS-fml.txt
@@ -54,25 +54,25 @@ Thumbs.db
 /lib
 
 ##Minecraft
-options.txt
+/options.txt
 /saves
 /logs
 /config
 /crash-reports
-mods/
-reports/
-recipes/
-dumps/
-*.zip
-world/
-screenshots/
+/mods/
+/reports/
+/recipes/
+/dumps/
+/*.zip
+/world/
+/screenshots/
 /banned-ips.json
 /banned-ips.txt.converted
 /banned-players.json
 /banned-players.txt.converted
 /eula.txt
-asm/
-structures/
+/asm/
+/structures/
 /ops.json
 /ops.txt.converted
 /resourcepacks
