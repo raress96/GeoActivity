@@ -2,23 +2,16 @@ package geoactivity.common.items;
 
 import java.util.List;
 
+import geoactivity.common.util.GeneralHelper;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import geoactivity.common.lib.Reference;
-import geoactivity.common.util.GeneralHelper;
 
 public class ArmorPerks extends BaseItem
-{	
+{
 	public ArmorPerks(String name)
 	{
 		super(GeneralHelper.appendStringToArray(GeneralHelper.getEnumStrings(EnumArmorPerks.class), name + "_"));
@@ -26,13 +19,13 @@ public class ArmorPerks extends BaseItem
 	    this.setMaxDamage(0);
 	    this.setMaxStackSize(1);
 	}
-	
+
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) 
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)
 	{
 		if (stack.getMetadata() >= EnumArmorPerks.values().length)
 			return ;
-		
+
 		if(!GeneralHelper.isShiftKeyDown())
 		{
 			list.add(GeneralHelper.shiftForInfo);
@@ -63,13 +56,13 @@ public class ArmorPerks extends BaseItem
 				list.add("\u00A77 - boots");
 			break;
 			case RESPIRATION:
-				list.add("\u00A7cBreathe underwater..");
+				list.add("\u00A7cBreathe underwater.");
 				list.add("\u00A77Works on:");
 				list.add("\u00A77 - helmets");
 			break;
 			default:
 				list.add("\u00A7aJust a blank armor perk");
-		}			
+		}
 	}
 
 	@SuppressWarnings("all")
@@ -82,7 +75,7 @@ public class ArmorPerks extends BaseItem
         	list.add(new ItemStack(item, 1, i));
         }
     }
-		
+
 	public static enum EnumArmorPerks
 	{
 		GENERAL(0, "general"),
@@ -95,18 +88,18 @@ public class ArmorPerks extends BaseItem
 
 		int meta;
 		String name;
-		
+
 		private EnumArmorPerks(int meta, String name)
 		{
 			this.meta = meta;
 			this.name = name;
 		}
-		
+
 		public int getMetadata()
 		{
 			return this.meta;
 		}
-		
+
 		@Override
 		public String toString()
 		{

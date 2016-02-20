@@ -27,7 +27,7 @@ public class AdvancedArmor extends ItemArmor implements ISpecialArmor, IHasName,
 	public AdvancedArmor(String name, int renderIndex, int type)
 	{
 		super(GAMod.AdvancedArmorMaterial, renderIndex, type);
-		setNoRepair();
+		this.setNoRepair();
 		this.name = name;
 		this.setUnlocalizedName(name);
 		this.setCreativeTab(GeoActivity.tabMain);
@@ -198,13 +198,13 @@ public class AdvancedArmor extends ItemArmor implements ISpecialArmor, IHasName,
 		switch(slot)
 		{
 			case 3:
-				return new ArmorProperties(0, h / damage, getArmorMaterial().getDamageReductionAmount(0));
+				return new ArmorProperties(0, h / 25D, Integer.MAX_VALUE);
 			case 2:
-				return new ArmorProperties(1, c / damage, getArmorMaterial().getDamageReductionAmount(1));
+				return new ArmorProperties(1, c / 25D, Integer.MAX_VALUE);
 			case 1:
-				return new ArmorProperties(1, p / damage, getArmorMaterial().getDamageReductionAmount(2));
+				return new ArmorProperties(1, p / 25D, Integer.MAX_VALUE);
 			case 0:
-				return new ArmorProperties(0, b / damage, getArmorMaterial().getDamageReductionAmount(3));
+				return new ArmorProperties(0, b / 25D, Integer.MAX_VALUE);
 			default:
 				return null;
 		}
