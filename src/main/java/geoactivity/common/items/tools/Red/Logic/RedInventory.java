@@ -99,7 +99,7 @@ public class RedInventory extends BaseInventory
 					case CAPITATOR:
 						capitator = true;
 					break;
-					case NODORPS:
+					case NODROPS:
 						nodrops = true;
 					break;
 					case DROPTP:

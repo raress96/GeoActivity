@@ -95,7 +95,7 @@ public class ToolPerks extends BaseItem
 				list.add("\u00A77 - shovels");
 				list.add("\u00A77 - axes");
 			break;
-			case NODORPS:
+			case NODROPS:
 				list.add("\u00A7cTools do not drop any blocks.");
 				list.add("\u00A77Works on:");
 				list.add("\u00A77 - pickaxes");
@@ -184,7 +184,7 @@ public class ToolPerks extends BaseItem
 		SILKTOUCH(7, "silktouch"),
 		RADIUS(8, "radius"),
 		CAPITATOR(9, "capitator"),
-		NODORPS(10, "nodrops"),
+		NODROPS(10, "nodrops"),
 		DROPTP(11, "droptp"),
 		BYPASSARMOR(12, "bypassarmor");
 

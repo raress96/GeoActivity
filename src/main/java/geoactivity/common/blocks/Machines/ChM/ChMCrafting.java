@@ -53,7 +53,7 @@ public class ChMCrafting
 				new ItemStack(GAMod.elementContainer, 4, 9));
 
 		addSmelting(new ItemStack(GAMod.tool_perks, 1, 0), new ItemStack(Items.ender_pearl), new ItemStack(
-				GAMod.tool_perks, 1, EnumToolPerks.NODORPS.getMetadata()), new ItemStack(GAMod.elementContainer, 4, 4),
+				GAMod.tool_perks, 1, EnumToolPerks.NODROPS.getMetadata()), new ItemStack(GAMod.elementContainer, 4, 4),
 				new ItemStack(GAMod.elementContainer, 4, 12), new ItemStack(GAMod.elementContainer, 4, 13), null);
 
 		addSmelting(new ItemStack(Items.emerald), new ItemStack(Items.ender_eye), new ItemStack(GAMod.tool_perks, 1,

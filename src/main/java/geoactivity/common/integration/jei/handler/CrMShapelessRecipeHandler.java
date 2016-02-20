@@ -2,8 +2,8 @@ package geoactivity.common.integration.jei.handler;
 
 import java.util.List;
 
-import geoactivity.common.blocks.Machines.CrM.CrMShapedRecipe;
-import geoactivity.common.blocks.Machines.CrM.CrMShapelessRecipe;
+import geoactivity.common.blocks.Machines.CrM.recipes.CrMShapedRecipe;
+import geoactivity.common.blocks.Machines.CrM.recipes.CrMShapelessRecipe;
 import geoactivity.common.integration.jei.GeoActivityRecipeCategoryUid;
 import geoactivity.common.integration.jei.wrapper.CrMShapelessRecipeWrapper;
 import mezz.jei.api.recipe.IRecipeHandler;

@@ -1,5 +1,7 @@
 package geoactivity.common.integration.jei.category;
 
+import java.util.List;
+
 import javax.annotation.Nonnull;
 
 import geoactivity.common.integration.jei.GeoActivityRecipeCategoryUid;
@@ -17,6 +19,7 @@ import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.recipe.IRecipeCategory;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.client.Minecraft;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
 public class CrMRecipeCategory implements IRecipeCategory
@@ -84,6 +87,7 @@ public class CrMRecipeCategory implements IRecipeCategory
 
 		guiItemStacks.init(9, false, 145, 37); //init output slot
 		guiItemStacks.init(10, false, 84, 57); //init fuel slot
+		guiItemStacks.init(11, false, 84, 19); //init perk slot
 
 		for (int y = 0; y < 3; ++y) {
 			for (int x = 0; x < 3; ++x) {
@@ -91,12 +95,32 @@ public class CrMRecipeCategory implements IRecipeCategory
 				guiItemStacks.init(index, true, x * 18 + 1, y * 18 + 1); //init input slots
 			}
 		}
-
-		if (recipeWrapper instanceof CrMShapedRecipeWrapper || recipeWrapper instanceof CrMShapelessRecipeWrapper)
+			
+		if (recipeWrapper instanceof CrMShapedRecipeWrapper)
 		{
-			craftingGridHelper.setInput(guiItemStacks, recipeWrapper.getInputs()); //set input slots
-			craftingGridHelper.setOutput(guiItemStacks, recipeWrapper.getOutputs()); //set output slots
+			CrMShapedRecipeWrapper wrapper = (CrMShapedRecipeWrapper) recipeWrapper;
+			
+			craftingGridHelper.setInput(guiItemStacks, wrapper.getCraftingInputs()); //set input slots
+			craftingGridHelper.setOutput(guiItemStacks, wrapper.getOutputs()); //set output slots
 			guiItemStacks.set(10, GeneralHelper.getCraftingMachineFuels()); //set fuel slot
+			
+			List<ItemStack> perkList = wrapper.getCompatiblePerks();
+			
+			if (perkList != null)
+				guiItemStacks.set(11, perkList);
+		}
+		else if (recipeWrapper instanceof CrMShapelessRecipeWrapper)
+		{
+			CrMShapelessRecipeWrapper wrapper = (CrMShapelessRecipeWrapper) recipeWrapper;
+			
+			craftingGridHelper.setInput(guiItemStacks, wrapper.getCraftingInputs()); //set input slots
+			craftingGridHelper.setOutput(guiItemStacks, wrapper.getOutputs()); //set output slots
+			guiItemStacks.set(10, GeneralHelper.getCraftingMachineFuels()); //set fuel slot
+			
+			List<ItemStack> perkList = wrapper.getCompatiblePerks();
+			
+			if (perkList != null)
+				guiItemStacks.set(11, perkList);
 		}
 		else
 		{

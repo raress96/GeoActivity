@@ -1,6 +1,6 @@
 package geoactivity.common.integration.jei.handler;
 
-import geoactivity.common.blocks.Machines.CrM.CrMShapedRecipe;
+import geoactivity.common.blocks.Machines.CrM.recipes.CrMShapedRecipe;
 import geoactivity.common.integration.jei.GeoActivityRecipeCategoryUid;
 import geoactivity.common.integration.jei.wrapper.CrMShapedRecipeWrapper;
 import mezz.jei.api.recipe.IRecipeHandler;
