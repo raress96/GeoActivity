@@ -95,30 +95,30 @@ public class CrMRecipeCategory implements IRecipeCategory
 				guiItemStacks.init(index, true, x * 18 + 1, y * 18 + 1); //init input slots
 			}
 		}
-			
+
 		if (recipeWrapper instanceof CrMShapedRecipeWrapper)
 		{
 			CrMShapedRecipeWrapper wrapper = (CrMShapedRecipeWrapper) recipeWrapper;
-			
+
 			craftingGridHelper.setInput(guiItemStacks, wrapper.getCraftingInputs()); //set input slots
 			craftingGridHelper.setOutput(guiItemStacks, wrapper.getOutputs()); //set output slots
 			guiItemStacks.set(10, GeneralHelper.getCraftingMachineFuels()); //set fuel slot
-			
+
 			List<ItemStack> perkList = wrapper.getCompatiblePerks();
-			
+
 			if (perkList != null)
 				guiItemStacks.set(11, perkList);
 		}
 		else if (recipeWrapper instanceof CrMShapelessRecipeWrapper)
 		{
 			CrMShapelessRecipeWrapper wrapper = (CrMShapelessRecipeWrapper) recipeWrapper;
-			
+
 			craftingGridHelper.setInput(guiItemStacks, wrapper.getCraftingInputs()); //set input slots
 			craftingGridHelper.setOutput(guiItemStacks, wrapper.getOutputs()); //set output slots
 			guiItemStacks.set(10, GeneralHelper.getCraftingMachineFuels()); //set fuel slot
-			
+
 			List<ItemStack> perkList = wrapper.getCompatiblePerks();
-			
+
 			if (perkList != null)
 				guiItemStacks.set(11, perkList);
 		}
@@ -127,5 +127,4 @@ public class CrMRecipeCategory implements IRecipeCategory
 			System.out.println("RecipeWrapper is not a known crafting wrapper type: " + recipeWrapper.toString());
 		}
 	}
-
 }

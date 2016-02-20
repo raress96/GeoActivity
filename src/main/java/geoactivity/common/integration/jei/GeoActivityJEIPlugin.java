@@ -1,9 +1,13 @@
 package geoactivity.common.integration.jei;
 
+import geoactivity.common.blocks.Machines.CR.CRContainer;
+import geoactivity.common.blocks.Machines.CR.CRGUI;
 import geoactivity.common.blocks.Machines.CrM.CrMContainer;
 import geoactivity.common.blocks.Machines.CrM.CrMCrafting;
 import geoactivity.common.blocks.Machines.CrM.CrMGUI;
+import geoactivity.common.integration.jei.category.CoalRefinerRecipeCategory;
 import geoactivity.common.integration.jei.category.CrMRecipeCategory;
+import geoactivity.common.integration.jei.handler.CoalRefinerRecipeHandler;
 import geoactivity.common.integration.jei.handler.CrMShapedRecipeHandler;
 import geoactivity.common.integration.jei.handler.CrMShapelessRecipeHandler;
 import mezz.jei.api.IGuiHelper;
@@ -42,18 +46,26 @@ public class GeoActivityJEIPlugin implements IModPlugin
 	{
 		IGuiHelper guiHelper = jeiHelpers.getGuiHelper();
 
-		registry.addRecipeCategories(new CrMRecipeCategory(guiHelper));
+		registry.addRecipeCategories(
+			new CrMRecipeCategory(guiHelper),
+			new CoalRefinerRecipeCategory(guiHelper)
+		);
+
 		registry.addRecipeHandlers(
 			new CrMShapedRecipeHandler(),
-			new CrMShapelessRecipeHandler()
+			new CrMShapelessRecipeHandler(),
+			new CoalRefinerRecipeHandler()
 		);
 
 		registry.addRecipeClickArea(CrMGUI.class, 84, 44, 24, 12, GeoActivityRecipeCategoryUid.CRAFTING_MACHINE);
+		registry.addRecipeClickArea(CRGUI.class, 88, 36, 24, 12, GeoActivityRecipeCategoryUid.COAL_REFINER);
 
 		IRecipeTransferRegistry recipeTransferRegistry = registry.getRecipeTransferRegistry();
 		recipeTransferRegistry.addRecipeTransferHandler(CrMContainer.class, GeoActivityRecipeCategoryUid.CRAFTING_MACHINE, 4, 9, 13, 36);
+		recipeTransferRegistry.addRecipeTransferHandler(CRContainer.class, GeoActivityRecipeCategoryUid.COAL_REFINER, 0, 1, 3, 36);
 
 		registry.addRecipes(CrMCrafting.getInstance().getRecipeList());
+		registry.addRecipes(CoalRefinerRecipeCategory.getCoalRefinerRecipes(this.jeiHelpers));
 	}
 
 	@Override

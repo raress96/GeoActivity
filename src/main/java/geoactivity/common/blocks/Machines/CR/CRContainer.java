@@ -21,7 +21,7 @@ public class CRContainer extends Container
 	{
 		Tile_E = tile;
 		this.addSlotToContainer(new Slot(tile, 0, 66, 35));
-		this.addSlotToContainer(new Slot(tile, 1, 30, 35));
+		this.addSlotToContainer(new FuelSlot(tile, 1, 30, 35));
 		this.addSlotToContainer(new CRSlot(playerInv.player, tile, 2, 126, 35));
 		int var3;
 

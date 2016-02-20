@@ -9,6 +9,7 @@ import org.lwjgl.input.Keyboard;
 
 import geoactivity.common.GAMod;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
 public class GeneralHelper
@@ -79,6 +80,19 @@ public class GeneralHelper
 		Collection<ItemStack> fuels = new ArrayList<ItemStack>();
 
 		fuels.add(new ItemStack(Blocks.coal_block));
+		fuels.add(new ItemStack(GAMod.gemLigniteCoal));
+		fuels.add(new ItemStack(GAMod.gemBituminousCoal));
+		fuels.add(new ItemStack(GAMod.gemAnthraciteCoal));
+
+
+		return fuels;
+	}
+
+	public static Collection<ItemStack> getCoalRefinerFuels()
+	{
+		Collection<ItemStack> fuels = new ArrayList<ItemStack>();
+
+		fuels.add(new ItemStack(Items.coal));
 		fuels.add(new ItemStack(GAMod.gemLigniteCoal));
 		fuels.add(new ItemStack(GAMod.gemBituminousCoal));
 		fuels.add(new ItemStack(GAMod.gemAnthraciteCoal));
