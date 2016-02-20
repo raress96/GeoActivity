@@ -125,12 +125,9 @@ itemGroup.geoactivityelement=Geo Activity Chemistry
 #Custom
 ga.perks.droptp=The perk was succesfully bound to that inventory.
 
-<<<<<<< 3315a26f5482d152e3dfd99f38613e5035c2f81b
+#Jei
 ga.jei.category.crafting_machine=Crafting Machine
-=======
-ga.jei.category.crafting_machine=Crafting Machine
+ga.jei.category.coal_refiner=Coal Refiner
 
-#Jei Tips
 ga.jei.crafting_machine.perk.slot=Perk slot, used to upgrade Advanced Tools & Armor.
 ga.jei.crafting_machine.temp.slot=The resulted item will first appear here before the crafting process starts.
->>>>>>> Added crafting machine shaped recipes compatibility with JEI.
