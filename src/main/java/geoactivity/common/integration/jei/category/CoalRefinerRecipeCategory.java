@@ -82,9 +82,10 @@ public class CoalRefinerRecipeCategory implements IRecipeCategory
 	@Override
 	public void setRecipe(IRecipeLayout recipeLayout, IRecipeWrapper recipeWrapper)
 	{
+		recipeLayout.setRecipeTransferButton(140, 50);
 		IGuiItemStackGroup guiItemStacks = recipeLayout.getItemStacks();
 
-		guiItemStacks.init(0, false, 55, 24);
+		guiItemStacks.init(0, true, 55, 24);
 		guiItemStacks.init(1, false, 19, 24);
 		guiItemStacks.init(2, false, 115, 24);
 

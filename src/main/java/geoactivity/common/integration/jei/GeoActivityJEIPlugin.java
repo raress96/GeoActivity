@@ -1,7 +1,10 @@
 package geoactivity.common.integration.jei;
 
+import geoactivity.common.blocks.Machines.ACR.ACRContainer;
 import geoactivity.common.blocks.Machines.ACR.ACRGUI;
+import geoactivity.common.blocks.Machines.AE.AEContainer;
 import geoactivity.common.blocks.Machines.AE.AEGUI;
+import geoactivity.common.blocks.Machines.CR.CRContainer;
 import geoactivity.common.blocks.Machines.CR.CRGUI;
 import geoactivity.common.blocks.Machines.ChM.ChMContainer;
 import geoactivity.common.blocks.Machines.ChM.ChMGUI;
@@ -80,6 +83,9 @@ public class GeoActivityJEIPlugin implements IModPlugin
 
 		IRecipeTransferRegistry recipeTransferRegistry = registry.getRecipeTransferRegistry();
 		recipeTransferRegistry.addRecipeTransferHandler(CrMContainer.class, GeoActivityRecipeCategoryUid.CRAFTING_MACHINE, 4, 9, 13, 36);
+		recipeTransferRegistry.addRecipeTransferHandler(CRContainer.class, GeoActivityRecipeCategoryUid.COAL_REFINER, 0, 1, 3, 36);
+		recipeTransferRegistry.addRecipeTransferHandler(ACRContainer.class, GeoActivityRecipeCategoryUid.ADVANCED_COAL_REFINER, 1, 2, 7, 36);
+		recipeTransferRegistry.addRecipeTransferHandler(AEContainer.class, GeoActivityRecipeCategoryUid.ATOM_EXTRACTOR, 0, 2, 5, 36);
 		recipeTransferRegistry.addRecipeTransferHandler(ChMContainer.class, GeoActivityRecipeCategoryUid.CHEMISTRY_MACHINE, 0, 2, 2, 36);
 
 		registry.addRecipes(CrMCrafting.getInstance().getRecipeList());

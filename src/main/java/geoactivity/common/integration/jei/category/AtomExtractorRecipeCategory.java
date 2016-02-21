@@ -76,9 +76,10 @@ public class AtomExtractorRecipeCategory implements IRecipeCategory
 	@Override
 	public void setRecipe(IRecipeLayout recipeLayout, IRecipeWrapper recipeWrapper)
 	{
+		recipeLayout.setRecipeTransferButton(140, 50);
 		IGuiItemStackGroup guiItemStacks = recipeLayout.getItemStacks();
 
-		guiItemStacks.init(0, false, 11, 19);
+		guiItemStacks.init(0, true, 11, 19);
 		guiItemStacks.init(1, false, 39, 44);
 		guiItemStacks.init(2, false, 75, 19);
 		guiItemStacks.init(3, false, 101, 19);
