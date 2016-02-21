@@ -1,6 +1,12 @@
 Version 2.2.2:
 Changes:
-
+- added JEI support for Crafting Machine, Atom Extractor, Coal Refiner, Advanced Coal Refiner and Chemistry Machine
+- added JEI descriptions for multiblocks such as Chemistry Machine and Advanced Ore Refiner
+- nerfed experience output of Coal Refiner recipes
+Fixes:
+- fixed server side crash
+- fixed Advanced Armor not absorbing damage properly
+- fixed Advanced Ore Refiner not working with certain Ores
 
 Version 2.2.1:
 Changes:
