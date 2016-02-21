@@ -6,21 +6,17 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 
 import geoactivity.common.GAMod;
-import geoactivity.common.items.tools.Red.Logic.RedContainer;
-import geoactivity.common.items.tools.Red.Logic.RedGUI;
-import geoactivity.common.items.tools.Red.Logic.RedInventory;
 import geoactivity.common.util.BaseRedstoneTool;
 import geoactivity.common.util.GeneralHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.BlockPos;
@@ -36,7 +32,7 @@ public class RedstoneBattleAxe extends BaseRedstoneTool
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)
+	public void addInformation(ItemStack stack, EntityPlayer player, List<String> list, boolean bool)
 	{
 		if(stack.hasTagCompound())
 		{
@@ -230,7 +226,7 @@ public class RedstoneBattleAxe extends BaseRedstoneTool
 	}
 
 	@Override
-    public Multimap getAttributeModifiers(ItemStack stack)
+    public Multimap<String, AttributeModifier> getAttributeModifiers(ItemStack stack)
     {
 		return HashMultimap.create();
     }

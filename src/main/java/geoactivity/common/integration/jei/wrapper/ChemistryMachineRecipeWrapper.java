@@ -24,6 +24,7 @@ public class ChemistryMachineRecipeWrapper implements IRecipeWrapper
 		this.outputs = outputs;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<ItemStack> getInputs()
 	{

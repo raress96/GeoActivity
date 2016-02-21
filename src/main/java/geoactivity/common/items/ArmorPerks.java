@@ -21,7 +21,7 @@ public class ArmorPerks extends BaseItem
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)
+	public void addInformation(ItemStack stack, EntityPlayer player, List<String> list, boolean bool)
 	{
 		if (stack.getMetadata() >= EnumArmorPerks.values().length)
 			return ;

@@ -2,6 +2,7 @@ package geoactivity.common.items;
 
 import java.util.List;
 
+import geoactivity.common.util.GeneralHelper;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -14,11 +15,9 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import geoactivity.common.lib.Reference;
-import geoactivity.common.util.GeneralHelper;
 
 public class ToolPerks extends BaseItem
-{	
+{
 	public ToolPerks(String name)
 	{
 		super(GeneralHelper.appendStringToArray(GeneralHelper.getEnumStrings(EnumToolPerks.class), name + "_"));
@@ -26,19 +25,19 @@ public class ToolPerks extends BaseItem
 	    this.setMaxDamage(0);
 	    this.setMaxStackSize(1);
 	}
-	
+
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) 
+	public void addInformation(ItemStack stack, EntityPlayer player, List<String> list, boolean bool)
 	{
 		if (stack.getMetadata() >= EnumToolPerks.values().length)
 			return ;
-		
+
 		if(!GeneralHelper.isShiftKeyDown())
 		{
 			list.add(GeneralHelper.shiftForInfo);
 			return ;
 		}
-		
+
 		switch(EnumToolPerks.values()[stack.getMetadata()])
 		{
 			case SPEED:
@@ -113,7 +112,7 @@ public class ToolPerks extends BaseItem
 				else
 				{
 					list.add("\u00A7cAutomatically teleport block drops into a chosen inventory.");
-					list.add("\u00A7cShift + Right Click on an inventory to bind the perk to it.");	
+					list.add("\u00A7cShift + Right Click on an inventory to bind the perk to it.");
 					list.add("\u00A77Not compatible with Advanced Tools.");
 					list.add("\u00A77Works only on Redstone Tools.");
 				}
@@ -124,19 +123,19 @@ public class ToolPerks extends BaseItem
 			break;
 			default:
 				list.add("\u00A7aJust a blank perk");
-		}			
+		}
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
-    public void getSubItems(Item item, CreativeTabs tabs, List list)
+    public void getSubItems(Item item, CreativeTabs tabs, List<ItemStack> list)
     {
         for(int i = 0;i < EnumToolPerks.values().length;i++)
         {
         	list.add(new ItemStack(item, 1, i));
         }
     }
-	
+
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side,
 			float par8, float par9, float par10)
@@ -146,14 +145,14 @@ public class ToolPerks extends BaseItem
 			if(world.getTileEntity(pos) != null && world.getTileEntity(pos) instanceof IInventory)
 			{
 				IInventory inventory = (IInventory)world.getTileEntity(pos);
-				
+
 				if(inventory.getSizeInventory() > 0)
 				{
 					NBTTagCompound tag = new NBTTagCompound();
 					tag.setIntArray("coords", new int[]{pos.getX(),pos.getY(),pos.getZ()});
-					
+
 					stack.setTagCompound(tag);
-					
+
 					if(!world.isRemote)
 						player.addChatMessage(new ChatComponentTranslation("ga.perks.droptp"));
 				}
@@ -161,17 +160,17 @@ public class ToolPerks extends BaseItem
 		}
 		return false;
     }
-	
+
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
     {
 		if(stack.getMetadata() == EnumToolPerks.DROPTP.getMetadata() && !player.isSneaking()
 				&& stack.hasTagCompound() && stack.getTagCompound().getIntArray("coords").length > 0)
 			stack.setTagCompound(null);
-		
+
 		return stack;
     }
-		
+
 	public static enum EnumToolPerks
 	{
 		BLANK(0, "blank"),
@@ -190,18 +189,18 @@ public class ToolPerks extends BaseItem
 
 		int meta;
 		String name;
-		
+
 		private EnumToolPerks(int meta, String name)
 		{
 			this.meta = meta;
 			this.name = name;
 		}
-		
+
 		public int getMetadata()
 		{
 			return this.meta;
 		}
-		
+
 		@Override
 		public String toString()
 		{

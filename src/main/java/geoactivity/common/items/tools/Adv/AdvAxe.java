@@ -19,6 +19,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
@@ -36,9 +37,8 @@ public class AdvAxe extends BaseGUITool
 		this.setHarvestLevel("axe", GAMod.AdvancedMaterial.getHarvestLevel());
 	}
 
-	@SuppressWarnings("all")
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)
+	public void addInformation(ItemStack stack, EntityPlayer player, List<String> list, boolean bool)
 	{
 		if(stack.hasTagCompound())
 		{
@@ -244,7 +244,7 @@ public class AdvAxe extends BaseGUITool
 	@Override
 	public boolean onBlockDestroyed(ItemStack stack, World world, Block block, BlockPos pos, EntityLivingBase entity)
 	{
-		if(block != null && (double) block.getBlockHardness(world, pos) != 0.0D)
+		if(block != null && block.getBlockHardness(world, pos) != 0.0D)
 		{
 			stack.damageItem(1, entity);
 		}
@@ -312,18 +312,18 @@ public class AdvAxe extends BaseGUITool
 	}
 
 	@Override
-	public Multimap getAttributeModifiers(ItemStack stack)
+	public Multimap<String, AttributeModifier> getAttributeModifiers(ItemStack stack)
 	{
 		return HashMultimap.create();
 	}
-	
+
 	@Override
 	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{
 		AdvTInventory inv = new AdvTInventory(player.getHeldItem(), player);
 		return new AdvTGUI(inv, player);
 	}
-	
+
 	@Override
 	public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{

@@ -56,8 +56,8 @@ public class CRRecipes
 
     public ItemStack getSmeltingResult(ItemStack stack)
     {
-        Iterator iterator = this.smeltingList.entrySet().iterator();
-        Entry entry;
+        Iterator<Entry<ItemStack, ItemStack>> iterator = this.smeltingList.entrySet().iterator();
+        Entry<ItemStack, ItemStack> entry;
 
         do
         {
@@ -66,11 +66,11 @@ public class CRRecipes
                 return null;
             }
 
-            entry = (Entry)iterator.next();
+            entry = iterator.next();
         }
-        while (!this.compareItemStacks(stack, (ItemStack)entry.getKey()));
+        while (!this.compareItemStacks(stack, entry.getKey()));
 
-        return (ItemStack)entry.getValue();
+        return entry.getValue();
     }
 
     private boolean compareItemStacks(ItemStack stack1, ItemStack stack2)
@@ -80,8 +80,8 @@ public class CRRecipes
 
     public float getExperience(ItemStack stack)
     {
-        Iterator iterator = this.experienceList.entrySet().iterator();
-        Entry entry;
+        Iterator<Entry<ItemStack, Float>> iterator = this.experienceList.entrySet().iterator();
+        Entry<ItemStack, Float> entry;
 
         do
         {
@@ -90,11 +90,11 @@ public class CRRecipes
                 return 0.0F;
             }
 
-            entry = (Entry)iterator.next();
+            entry = iterator.next();
         }
-        while (!this.compareItemStacks(stack, (ItemStack)entry.getKey()));
+        while (!this.compareItemStacks(stack, entry.getKey()));
 
-        return ((Float)entry.getValue()).floatValue();
+        return entry.getValue().floatValue();
     }
 
 	public Map<ItemStack, ItemStack> getSmeltingList()

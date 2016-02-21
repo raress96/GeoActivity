@@ -4,18 +4,10 @@ import java.util.List;
 import java.util.Random;
 
 import geoactivity.common.GeoActivity;
-import geoactivity.common.items.tools.Adv.Logic.AdvTContainer;
-import geoactivity.common.items.tools.Adv.Logic.AdvTGUI;
-import geoactivity.common.items.tools.Adv.Logic.AdvTInventory;
 import geoactivity.common.lib.IHasName;
 import geoactivity.common.lib.IOpenableGUI;
-import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
-import net.minecraft.item.Item.ToolMaterial;
-import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public abstract class BaseGUITool extends ItemTool implements IHasName, IOpenableGUI
@@ -35,20 +27,20 @@ public abstract class BaseGUITool extends ItemTool implements IHasName, IOpenabl
 		this.setCreativeTab(GeoActivity.tabMain);
 		GameRegistry.registerItem(this, name);
 	}
-	
+
 	@Override
 	public String getName()
 	{
 		return this.name;
 	}
-	
+
 	@Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair)
 	{
 		return false;
 	}
-	
-	public static void addDamageInfo(ItemStack stack, int baseDamage, List list)
+
+	public static void addDamageInfo(ItemStack stack, int baseDamage, List<String> list)
 	{
 		if(stack.hasTagCompound() && stack.getTagCompound().getByte("damage") >= 1)
 			baseDamage += stack.getTagCompound().getByte("damage");

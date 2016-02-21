@@ -17,7 +17,7 @@ import net.minecraft.util.IStringSerializable;
 
 public class HardenedBrick extends BaseBlock
 {
-	public static final PropertyEnum TYPE = PropertyEnum.create("type", EnumHardenedBrick.class);
+	public static final PropertyEnum<EnumHardenedBrick> TYPE = PropertyEnum.create("type", EnumHardenedBrick.class);
 
 	public HardenedBrick(String name)
 	{
@@ -32,12 +32,12 @@ public class HardenedBrick extends BaseBlock
 	@Override
 	public int damageDropped(IBlockState state)
 	{
-		EnumHardenedBrick type = (EnumHardenedBrick) state.getValue(TYPE);
+		EnumHardenedBrick type = state.getValue(TYPE);
 		return type.getMetadata();
 	}
 
 	@Override
-	public void getSubBlocks(Item item, CreativeTabs tab, List subItems)
+	public void getSubBlocks(Item item, CreativeTabs tab, List<ItemStack> subItems)
 	{
 		for(int i = 0;i < EnumHardenedBrick.values().length;i++)
 		{
@@ -57,7 +57,7 @@ public class HardenedBrick extends BaseBlock
 	@Override
 	public int getMetaFromState(IBlockState state)
 	{
-		EnumHardenedBrick type = (EnumHardenedBrick) state.getValue(TYPE);
+		EnumHardenedBrick type = state.getValue(TYPE);
 
 		return type.getMetadata();
 	}

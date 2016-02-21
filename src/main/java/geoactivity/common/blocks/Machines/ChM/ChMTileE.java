@@ -3,20 +3,19 @@ package geoactivity.common.blocks.Machines.ChM;
 import java.util.ArrayList;
 import java.util.List;
 
+import geoactivity.common.GAMod;
+import geoactivity.common.blocks.HardenedBrick;
+import geoactivity.common.blocks.HardenedBrick.EnumHardenedBrick;
+import geoactivity.common.util.BaseTileEntity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityItemFrame;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import geoactivity.common.GAMod;
-import geoactivity.common.blocks.HardenedBrick;
-import geoactivity.common.blocks.HardenedBrick.EnumHardenedBrick;
-import geoactivity.common.util.BaseTileEntity;
 
 public class ChMTileE extends BaseTileEntity
 {
@@ -112,7 +111,7 @@ public class ChMTileE extends BaseTileEntity
 			{
 				ItemStack result = items[0].copy();
 
-				List<EntityItemFrame> allEntities = new ArrayList();
+				List<EntityItemFrame> allEntities = new ArrayList<EntityItemFrame>();
 				List<EntityItemFrame> lastEntity = null;
 
 				for(int i = 1;i <= 4;i++)
@@ -120,15 +119,15 @@ public class ChMTileE extends BaseTileEntity
 					if(items[i] != null)
 					{
 						List<EntityItemFrame> entity = verifyItem(items[i], lastEntity);
-						
+
 						if(entity == null)
 							return ;
-						
+
 						lastEntity = entity;
 						allEntities.addAll(entity);
 					}
 				}
-				
+
 				for(int j = 0;j < allEntities.size();j++)
 					if(allEntities.get(j).getDisplayedItem() != null)
 						allEntities.get(j).setDisplayedItem(null);

@@ -19,6 +19,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -40,7 +41,7 @@ public class ARedstoneBattleMiner extends BaseElectricTool
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)
+	public void addInformation(ItemStack stack, EntityPlayer player, List<String> list, boolean bool)
 	{
 		list.add("Energy: " + this.getEnergyStored(stack) / 1000 + "k / " + this.maxEnergy / 1000 + "k RF");
 		list.add("Transfer(in): " + this.maxReceive + " RF");
@@ -345,7 +346,7 @@ public class ARedstoneBattleMiner extends BaseElectricTool
 	}
 
 	@Override
-	public Multimap getAttributeModifiers(ItemStack stack)
+	public Multimap<String, AttributeModifier> getAttributeModifiers(ItemStack stack)
 	{
 		return HashMultimap.create();
 	}
@@ -353,7 +354,6 @@ public class ARedstoneBattleMiner extends BaseElectricTool
 	static final class SwitchDirtType
 	{
 		static final int[] TYPE_LOOKUP = new int[BlockDirt.DirtType.values().length];
-		private static final String __OBFID = "CL_00002179";
 
 		static
 		{

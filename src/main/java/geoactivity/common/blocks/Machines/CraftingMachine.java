@@ -19,8 +19,6 @@ import net.minecraft.world.World;
 
 public class CraftingMachine extends BaseContainerBlock
 {
-	private Random rand = new Random();
-
 	public CraftingMachine(String name)
 	{
 		super(Material.iron, name, "pickaxe", 2);
@@ -59,7 +57,7 @@ public class CraftingMachine extends BaseContainerBlock
 		if(tile != null)
 		{
 			InventoryHelper.dropInventoryItems(world, pos, tile.craftMatrix);
-			
+
 			Random furnaceRand = new Random();
 			for (int i = 1; i < tile.getSizeInventory(); i++)
 			{
@@ -94,7 +92,7 @@ public class CraftingMachine extends BaseContainerBlock
 					}
 				}
 			}
-			
+
 			world.updateComparatorOutputLevel(pos, this);
 		}
 

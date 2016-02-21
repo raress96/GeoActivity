@@ -30,7 +30,7 @@ public class AutoStoneBuilder extends BaseItem implements IOpenableGUI
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)
+	public void addInformation(ItemStack stack, EntityPlayer player, List<String> list, boolean bool)
 	{
 		if(stack.hasTagCompound())
 		{
@@ -41,6 +41,7 @@ public class AutoStoneBuilder extends BaseItem implements IOpenableGUI
 		}
 	}
 
+	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean isFull3D()
 	{
@@ -77,7 +78,7 @@ public class AutoStoneBuilder extends BaseItem implements IOpenableGUI
 					ItemStack stack = null;
 					while(i < nbttaglist.tagCount() && stack == null)
 					{
-						NBTTagCompound nbttagcompound1 = (NBTTagCompound) nbttaglist.getCompoundTagAt(i);
+						NBTTagCompound nbttagcompound1 = nbttaglist.getCompoundTagAt(i);
 						byte b0 = nbttagcompound1.getByte("Slot");
 						if(b0 == 2)
 							stack = ItemStack.loadItemStackFromNBT(nbttagcompound1);

@@ -2,7 +2,6 @@ package geoactivity.common.items;
 
 import geoactivity.common.GeoActivity;
 import geoactivity.common.lib.IHasName;
-import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;

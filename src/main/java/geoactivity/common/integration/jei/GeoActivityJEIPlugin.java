@@ -38,27 +38,21 @@ import net.minecraft.item.ItemStack;
 @JEIPlugin
 public class GeoActivityJEIPlugin implements IModPlugin
 {
-	private IJeiHelpers jeiHelpers;
-	private IItemRegistry itemRegistry;
-
 	public GeoActivityJEIPlugin()
 	{}
 
 	@Override
 	public void onJeiHelpersAvailable(IJeiHelpers jeiHelpers)
-	{
-		this.jeiHelpers = jeiHelpers;
-	}
+	{}
 
 	@Override
 	public void onItemRegistryAvailable(IItemRegistry itemRegistry)
-	{
-		this.itemRegistry = itemRegistry;
-	}
+	{}
 
 	@Override
 	public void register(IModRegistry registry)
 	{
+		IJeiHelpers jeiHelpers = registry.getJeiHelpers();
 		IGuiHelper guiHelper = jeiHelpers.getGuiHelper();
 
 		registry.addRecipeCategories(
@@ -92,10 +86,10 @@ public class GeoActivityJEIPlugin implements IModPlugin
 		recipeTransferRegistry.addRecipeTransferHandler(ChMContainer.class, GeoActivityRecipeCategoryUid.CHEMISTRY_MACHINE, 0, 2, 2, 36);
 
 		registry.addRecipes(CrMCrafting.getInstance().getRecipeList());
-		registry.addRecipes(CoalRefinerRecipeCategory.getCoalRefinerRecipes(this.jeiHelpers));
-		registry.addRecipes(AdvancedCoalRefinerRecipeCategory.getAdvancedCoalRefinerRecipes(this.jeiHelpers));
-		registry.addRecipes(AtomExtractorRecipeCategory.getAtomExtractorRecipes(this.jeiHelpers));
-		registry.addRecipes(ChemistryMachineRecipeCategory.getChemistryMachineRecipes(this.jeiHelpers));
+		registry.addRecipes(CoalRefinerRecipeCategory.getCoalRefinerRecipes(jeiHelpers));
+		registry.addRecipes(AdvancedCoalRefinerRecipeCategory.getAdvancedCoalRefinerRecipes(jeiHelpers));
+		registry.addRecipes(AtomExtractorRecipeCategory.getAtomExtractorRecipes(jeiHelpers));
+		registry.addRecipes(ChemistryMachineRecipeCategory.getChemistryMachineRecipes(jeiHelpers));
 
 		registry.addDescription(new ItemStack(GAMod.advancedorerefiner), new String(Translator.translateToLocal("ga.jei.description.advanced_ore_refiner")));
 		registry.addDescription(new ItemStack(GAMod.chemistrymachine), new String(Translator.translateToLocal("ga.jei.description.chemistry_machine")));

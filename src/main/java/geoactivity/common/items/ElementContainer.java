@@ -2,14 +2,13 @@ package geoactivity.common.items;
 
 import java.util.List;
 
+import geoactivity.common.GeoActivity;
+import geoactivity.common.util.GeneralHelper;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import geoactivity.common.GeoActivity;
-import geoactivity.common.lib.Reference;
-import geoactivity.common.util.GeneralHelper;
 
 public class ElementContainer extends BaseItem
 {
@@ -24,7 +23,7 @@ public class ElementContainer extends BaseItem
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void getSubItems(Item item, CreativeTabs tabs, List list)
+	public void getSubItems(Item item, CreativeTabs tabs, List<ItemStack> list)
 	{
 		for(int i = 0;i < EnumElements.values().length;i++)
 			list.add(new ItemStack(item, 1, i));

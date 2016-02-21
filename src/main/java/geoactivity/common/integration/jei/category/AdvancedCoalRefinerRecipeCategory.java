@@ -80,6 +80,7 @@ public class AdvancedCoalRefinerRecipeCategory implements IRecipeCategory
 		arrow.draw(minecraft, 85, 29);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void setRecipe(IRecipeLayout recipeLayout, IRecipeWrapper recipeWrapper)
 	{

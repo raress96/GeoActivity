@@ -1,8 +1,5 @@
 package geoactivity.common.integration.jei.handler;
 
-import java.util.List;
-
-import geoactivity.common.blocks.Machines.CrM.recipes.CrMShapedRecipe;
 import geoactivity.common.blocks.Machines.CrM.recipes.CrMShapelessRecipe;
 import geoactivity.common.integration.jei.GeoActivityRecipeCategoryUid;
 import geoactivity.common.integration.jei.wrapper.CrMShapelessRecipeWrapper;
@@ -36,9 +33,9 @@ public class CrMShapelessRecipeHandler implements IRecipeHandler<CrMShapelessRec
 		if (recipe.getRecipeOutput() == null) {
 			return false;
 		}
-		
+
 		int inputCount = 0;
-		
+
 		for (Object input : recipe.recipeItems) {
 			if (input instanceof ItemStack) {
 				inputCount++;
@@ -46,7 +43,7 @@ public class CrMShapelessRecipeHandler implements IRecipeHandler<CrMShapelessRec
 				return false;
 			}
 		}
-		
+
 		return inputCount > 0;
 	}
 }
