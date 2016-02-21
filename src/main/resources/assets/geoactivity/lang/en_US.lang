@@ -130,6 +130,7 @@ ga.jei.category.crafting_machine=Crafting Machine
 ga.jei.category.coal_refiner=Coal Refiner
 ga.jei.category.advanced_coal_refiner=Advanced Coal Refiner
 ga.jei.category.atom_extractor=Atom Extractor
+ga.jei.category.chemistry_machine=Chemistry Machine
 
 ga.jei.crafting_machine.perk.slot=Perk slot, used to upgrade Advanced Tools & Armor.
 ga.jei.crafting_machine.temp.slot=The resulted item will first appear here before the crafting process starts.
