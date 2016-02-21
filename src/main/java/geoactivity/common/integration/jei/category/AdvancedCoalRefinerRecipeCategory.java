@@ -117,7 +117,7 @@ public class AdvancedCoalRefinerRecipeCategory implements IRecipeCategory
 		IStackHelper stackHelper = helpers.getStackHelper();
 		Map<ItemStack, ItemStack> smeltingMap = CRRecipes.getInstance().getSmeltingList();
 
-		List<AdvancedCoalRefinerRecipeWrapper> recipes = new ArrayList<>();
+		List<AdvancedCoalRefinerRecipeWrapper> recipes = new ArrayList<AdvancedCoalRefinerRecipeWrapper>();
 
 		for (Map.Entry<ItemStack, ItemStack> itemStackItemStackEntry : smeltingMap.entrySet())
 		{

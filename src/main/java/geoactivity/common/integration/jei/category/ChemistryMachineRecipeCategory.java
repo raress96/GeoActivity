@@ -104,7 +104,7 @@ public class ChemistryMachineRecipeCategory implements IRecipeCategory
 	{
 		Map<ItemStack[], ItemStack[]> smeltingMap = ChMCrafting.getInstance().getMetaSmeltingList();
 
-		List<ChemistryMachineRecipeWrapper> recipes = new ArrayList<>();
+		List<ChemistryMachineRecipeWrapper> recipes = new ArrayList<ChemistryMachineRecipeWrapper>();
 
 		for (Map.Entry<ItemStack[], ItemStack[]> itemStackItemStackEntry : smeltingMap.entrySet())
 		{

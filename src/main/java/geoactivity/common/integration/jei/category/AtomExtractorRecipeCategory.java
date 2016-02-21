@@ -108,7 +108,7 @@ public class AtomExtractorRecipeCategory implements IRecipeCategory
 	{
 		Map<ItemStack, ItemStack[]> smeltingMap = AERecipes.getInstance().getSmeltingList();
 
-		List<AtomExtractorRecipeWrapper> recipes = new ArrayList<>();
+		List<AtomExtractorRecipeWrapper> recipes = new ArrayList<AtomExtractorRecipeWrapper>();
 
 		for (Map.Entry<ItemStack, ItemStack[]> itemStackItemStackEntry : smeltingMap.entrySet())
 		{
