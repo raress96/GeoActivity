@@ -66,7 +66,7 @@ public class ChemistryMachineRecipeCategory implements IRecipeCategory
 	@Override
 	public void setRecipe(IRecipeLayout recipeLayout, IRecipeWrapper recipeWrapper)
 	{
-		recipeLayout.setRecipeTransferButton(140, 50);
+		recipeLayout.setRecipeTransferButton(140, 24);
 		IGuiItemStackGroup guiItemStacks = recipeLayout.getItemStacks();
 
 		guiItemStacks.init(0, true, 42, 20);
