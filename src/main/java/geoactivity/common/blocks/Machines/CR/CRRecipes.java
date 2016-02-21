@@ -27,33 +27,33 @@ public class CRRecipes
 
 	public CRRecipes()
 	{
-		this.addSmelting(Items.coal, new ItemStack(GAMod.graphite), 0.6F);
-		this.addSmelting(GAMod.gemLigniteCoal, new ItemStack(GAMod.graphite, 8), 0.6F);
-		this.addSmelting(GAMod.gemBituminousCoal, new ItemStack(GAMod.graphite, 16), 1F);
-		this.addSmelting(GAMod.gemAnthraciteCoal, new ItemStack(GAMod.graphite, 24), 1.4F);
-		
-		this.addSmelting(Blocks.coal_ore, new ItemStack(GAMod.graphite, 4), 0.6F);
-		this.addSmelting(GAMod.oreLignite, new ItemStack(GAMod.gemLigniteCoal, 2), 0.6F);
-		this.addSmelting(GAMod.oreBituminous, new ItemStack(GAMod.gemBituminousCoal, 2), 0.6F);
-		this.addSmelting(GAMod.oreAnthracite, new ItemStack(GAMod.gemAnthraciteCoal, 2), 1F);
+		this.addSmelting(Items.coal, new ItemStack(GAMod.graphite), 0.2F);
+		this.addSmelting(GAMod.gemLigniteCoal, new ItemStack(GAMod.graphite, 8), 0.2F);
+		this.addSmelting(GAMod.gemBituminousCoal, new ItemStack(GAMod.graphite, 16), 0.2F);
+		this.addSmelting(GAMod.gemAnthraciteCoal, new ItemStack(GAMod.graphite, 24), 0.2F);
+
+		this.addSmelting(Blocks.coal_ore, new ItemStack(GAMod.graphite, 4), 0.2F);
+		this.addSmelting(GAMod.oreLignite, new ItemStack(GAMod.gemLigniteCoal, 2), 0.3F);
+		this.addSmelting(GAMod.oreBituminous, new ItemStack(GAMod.gemBituminousCoal, 2), 0.4F);
+		this.addSmelting(GAMod.oreAnthracite, new ItemStack(GAMod.gemAnthraciteCoal, 2), 0.5F);
 	}
 
 	public void addSmelting(Block block, ItemStack result, float experience)
 	{
 		this.addSmelting(Item.getItemFromBlock(block), result, experience);
 	}
-	
+
 	public void addSmelting(Item item, ItemStack result, float experience)
 	{
 		this.addSmelting(new ItemStack(item), result, experience);
 	}
-	
+
 	public void addSmelting(ItemStack stack, ItemStack result, float experience)
 	{
 		smeltingList.put(stack, result);
 		experienceList.put(result, experience);
 	}
-    
+
     public ItemStack getSmeltingResult(ItemStack stack)
     {
         Iterator iterator = this.smeltingList.entrySet().iterator();
@@ -72,7 +72,7 @@ public class CRRecipes
 
         return (ItemStack)entry.getValue();
     }
-    
+
     private boolean compareItemStacks(ItemStack stack1, ItemStack stack2)
     {
         return stack2.getItem() == stack1.getItem() && (stack2.getMetadata() == 32767 || stack2.getMetadata() == stack1.getMetadata());
@@ -80,9 +80,6 @@ public class CRRecipes
 
     public float getExperience(ItemStack stack)
     {
-        float ret = stack.getItem().getSmeltingExperience(stack);
-        if (ret != -1) return ret;
-
         Iterator iterator = this.experienceList.entrySet().iterator();
         Entry entry;
 
