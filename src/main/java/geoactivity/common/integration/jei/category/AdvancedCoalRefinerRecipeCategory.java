@@ -8,8 +8,9 @@ import javax.annotation.Nonnull;
 
 import geoactivity.common.blocks.Machines.CR.CRRecipes;
 import geoactivity.common.integration.jei.GeoActivityRecipeCategoryUid;
-import geoactivity.common.integration.jei.wrapper.CoalRefinerRecipeWrapper;
+import geoactivity.common.integration.jei.wrapper.AdvancedCoalRefinerRecipeWrapper;
 import geoactivity.common.util.GeneralHelper;
+import geoactivity.common.util.PerkHelper;
 import geoactivity.common.util.Translator;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.IJeiHelpers;
@@ -25,7 +26,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
-public class CoalRefinerRecipeCategory implements IRecipeCategory
+public class AdvancedCoalRefinerRecipeCategory implements IRecipeCategory
 {
 	@Nonnull
 	protected IDrawable background;
@@ -36,24 +37,24 @@ public class CoalRefinerRecipeCategory implements IRecipeCategory
 	@Nonnull
 	protected IDrawableAnimated arrow;
 
-	public CoalRefinerRecipeCategory(IGuiHelper guiHelper)
+	public AdvancedCoalRefinerRecipeCategory(IGuiHelper guiHelper)
 	{
-		ResourceLocation location = new ResourceLocation("geoactivity", "textures/gui/CR.png");
+		ResourceLocation location = new ResourceLocation("geoactivity", "textures/gui/ACR.png");
 
-		background = guiHelper.createDrawable(location, 10, 10, 160, 50);
-		localizedName = Translator.translateToLocal("ga.jei.category.coal_refiner");
+		background = guiHelper.createDrawable(location, 4, 4, 170, 66);
+		localizedName = Translator.translateToLocal("ga.jei.category.advanced_coal_refiner");
 
 		IDrawableStatic flameDrawable = guiHelper.createDrawable(location, 176, 0, 14, 14);
-		flame = guiHelper.createAnimatedDrawable(flameDrawable, 400, IDrawableAnimated.StartDirection.TOP, true);
+		flame = guiHelper.createAnimatedDrawable(flameDrawable, 200, IDrawableAnimated.StartDirection.TOP, true);
 
-		IDrawableStatic arrowDrawable = guiHelper.createDrawable(location, 176, 14, 24, 16);
-		arrow = guiHelper.createAnimatedDrawable(arrowDrawable, 400, IDrawableAnimated.StartDirection.LEFT, false);
+		IDrawableStatic arrowDrawable = guiHelper.createDrawable(location, 176, 14, 22, 16);
+		arrow = guiHelper.createAnimatedDrawable(arrowDrawable, 200, IDrawableAnimated.StartDirection.LEFT, false);
 	}
 
 	@Override
 	public String getUid()
 	{
-		return GeoActivityRecipeCategoryUid.COAL_REFINER;
+		return GeoActivityRecipeCategoryUid.ADVANCED_COAL_REFINER;
 	}
 
 	@Override
@@ -75,8 +76,8 @@ public class CoalRefinerRecipeCategory implements IRecipeCategory
 	@Override
 	public void drawAnimations(Minecraft minecraft)
 	{
-		flame.draw(minecraft, 38, 26);
-		arrow.draw(minecraft, 79, 24);
+		flame.draw(minecraft, 57, 30);
+		arrow.draw(minecraft, 85, 29);
 	}
 
 	@Override
@@ -84,15 +85,23 @@ public class CoalRefinerRecipeCategory implements IRecipeCategory
 	{
 		IGuiItemStackGroup guiItemStacks = recipeLayout.getItemStacks();
 
-		guiItemStacks.init(0, false, 55, 24);
-		guiItemStacks.init(1, false, 19, 24);
-		guiItemStacks.init(2, false, 115, 24);
+		guiItemStacks.init(0, false, 36, 28);
+		guiItemStacks.init(1, false, 75, 10);
+		guiItemStacks.init(2, false, 75, 45);
+		guiItemStacks.init(3, false, 112, 28);
+		guiItemStacks.init(4, false, 138, 28);
+		guiItemStacks.init(5, false, 3, 3);
+		guiItemStacks.init(6, false, 3, 23);
 
-		if (recipeWrapper instanceof CoalRefinerRecipeWrapper)
+		if (recipeWrapper instanceof AdvancedCoalRefinerRecipeWrapper)
 		{
-			guiItemStacks.set(1, GeneralHelper.getCoalRefinerFuels());
-			guiItemStacks.set(0, recipeWrapper.getInputs());
-			guiItemStacks.set(2, recipeWrapper.getOutputs());
+			guiItemStacks.set(0, GeneralHelper.getCoalRefinerFuels());
+			guiItemStacks.set(1, recipeWrapper.getInputs());
+			guiItemStacks.set(2, recipeWrapper.getInputs());
+			guiItemStacks.set(3, recipeWrapper.getOutputs());
+			guiItemStacks.set(4, recipeWrapper.getOutputs());
+			guiItemStacks.set(5, PerkHelper.getMachinePerks());
+			guiItemStacks.set(6, PerkHelper.getMachinePerks());
 		}
 		else
 		{
@@ -101,12 +110,12 @@ public class CoalRefinerRecipeCategory implements IRecipeCategory
 	}
 
 	@Nonnull
-	public static List<CoalRefinerRecipeWrapper> getCoalRefinerRecipes(IJeiHelpers helpers)
+	public static List<AdvancedCoalRefinerRecipeWrapper> getAdvancedCoalRefinerRecipes(IJeiHelpers helpers)
 	{
 		IStackHelper stackHelper = helpers.getStackHelper();
 		Map<ItemStack, ItemStack> smeltingMap = CRRecipes.getInstance().getSmeltingList();
 
-		List<CoalRefinerRecipeWrapper> recipes = new ArrayList<>();
+		List<AdvancedCoalRefinerRecipeWrapper> recipes = new ArrayList<>();
 
 		for (Map.Entry<ItemStack, ItemStack> itemStackItemStackEntry : smeltingMap.entrySet())
 		{
@@ -116,7 +125,7 @@ public class CoalRefinerRecipeCategory implements IRecipeCategory
 			float experience = CRRecipes.getInstance().getExperience(output);
 
 			List<ItemStack> inputs = stackHelper.getSubtypes(input);
-			CoalRefinerRecipeWrapper recipe = new CoalRefinerRecipeWrapper(inputs, output, experience);
+			AdvancedCoalRefinerRecipeWrapper recipe = new AdvancedCoalRefinerRecipeWrapper(inputs, output, experience);
 			recipes.add(recipe);
 		}
 

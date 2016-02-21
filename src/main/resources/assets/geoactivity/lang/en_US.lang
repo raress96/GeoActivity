@@ -128,6 +128,7 @@ ga.perks.droptp=The perk was succesfully bound to that inventory.
 #Jei
 ga.jei.category.crafting_machine=Crafting Machine
 ga.jei.category.coal_refiner=Coal Refiner
+ga.jei.category.advanced_coal_refiner=Advanced Coal Refiner
 
 ga.jei.crafting_machine.perk.slot=Perk slot, used to upgrade Advanced Tools & Armor.
 ga.jei.crafting_machine.temp.slot=The resulted item will first appear here before the crafting process starts.

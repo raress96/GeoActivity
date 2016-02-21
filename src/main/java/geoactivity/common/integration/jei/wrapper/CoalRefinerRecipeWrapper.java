@@ -18,7 +18,7 @@ public class CoalRefinerRecipeWrapper implements IRecipeWrapper
 	private final List<List<ItemStack>> inputs;
 	@Nonnull
 	private final List<ItemStack> outputs;
-	private String experienceString;
+	protected String experienceString;
 
 	public CoalRefinerRecipeWrapper(List<ItemStack> inputs, ItemStack output, float experience)
 	{

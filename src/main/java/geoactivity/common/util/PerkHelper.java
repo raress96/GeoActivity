@@ -5,6 +5,7 @@ import java.util.List;
 
 import geoactivity.common.GAMod;
 import geoactivity.common.items.ArmorPerks.EnumArmorPerks;
+import geoactivity.common.items.MachinePerks.EnumMachinePerks;
 import geoactivity.common.items.ToolPerks.EnumToolPerks;
 import net.minecraft.item.ItemStack;
 
@@ -126,6 +127,16 @@ public class PerkHelper
 		List<ItemStack> perks = getCommonArmorPerks();
 
 		perks.add(new ItemStack(GAMod.armor_perks, 1, EnumArmorPerks.NOFALL.getMetadata()));
+
+		return perks;
+	}
+
+	public static List<ItemStack> getMachinePerks()
+	{
+		ArrayList<ItemStack> perks = new ArrayList<ItemStack>();
+
+		perks.add(new ItemStack(GAMod.machine_perks, 1, EnumMachinePerks.SPEED.getMetadata()));
+		perks.add(new ItemStack(GAMod.machine_perks, 1, EnumMachinePerks.EFFICIENCY.getMetadata()));
 
 		return perks;
 	}
