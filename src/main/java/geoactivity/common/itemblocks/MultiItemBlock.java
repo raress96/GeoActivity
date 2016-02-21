@@ -11,11 +11,11 @@ import net.minecraft.item.ItemStack;
 
 public class MultiItemBlock extends ItemBlock
 {
-	public MultiItemBlock(Block block) 
+	public MultiItemBlock(Block block)
 	{
 		super(block);
 	}
-	
+
 	@SuppressWarnings("all")
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)
@@ -25,13 +25,18 @@ public class MultiItemBlock extends ItemBlock
 			list.add(GeneralHelper.shiftForInfo);
 			return ;
 		}
-		
+
 		Block block = Block.getBlockFromItem(stack.getItem());
-		
+
 		if(block == GAMod.advancedcoalrefiner)
 			list.add("\u00A77Multiblock: 2x2x2");
 		else if(block == GAMod.advancedorerefiner)
-			list.add("\u00A77Complicated multiblock.");
+			list.add("\u00A77Complicated multiblock.Check JEI description page.");
+		else if (block == GAMod.atomextractor)
+		{
+			list.add("\u00A77Upgrade the speed by placing Advanced Hardened Bricks");
+			list.add("\u00A77adjencted to it.(up to a maximum of 4 bricks)");
+		}
 		else if(block == GAMod.thermicgenerator)
 		{
 			list.add("\u00A77Requires Thermal Hardened Bricks to be adjacent to it.");
