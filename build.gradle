@@ -24,7 +24,7 @@ repositories {
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 version = "2.2.2"
-group= "com.entirecraft" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group= "geoactivity" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "geoactivity"
 
 allprojects {
