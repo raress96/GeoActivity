@@ -1,6 +1,5 @@
 package geoactivity.common;
 
-import geoactivity.client.ClientProxy;
 import geoactivity.client.GUIHandler;
 import geoactivity.common.lib.Reference;
 import net.minecraft.creativetab.CreativeTabs;
@@ -21,14 +20,14 @@ public class GeoActivity
 {
 	// Variables
 	private static GUIHandler guiHandler = new GUIHandler();
-	
+
 	// Initialization
 	@Instance(Reference.MOD_ID)
 	public static GeoActivity instance;
 
 	@SidedProxy(clientSide = "geoactivity.client.ClientProxy", serverSide = "geoactivity.common.CommonProxy")
 	public static CommonProxy proxy;
-	
+
 	public static GAConfig config;
 
 	@EventHandler
@@ -36,37 +35,37 @@ public class GeoActivity
 	{
 		config = new GAConfig(event);
 		GAPreInit.preInit(event);
-		
+
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, guiHandler);
 	}
 
 	@EventHandler
 	public void Init(FMLInitializationEvent event)
-	{	
+	{
 		GAInit.init(event);
 	}
-	
+
 	@EventHandler
 	public void PostInit(FMLPostInitializationEvent event)
 	{
 
 	}
-	
-	public static CreativeTabs tabMain = new CreativeTabs(Reference.MOD_ID) 
+
+	public static CreativeTabs tabMain = new CreativeTabs(Reference.MOD_ID)
 	{
 		@Override
 		@SideOnly(Side.CLIENT)
-		public Item getTabIconItem() 
+		public Item getTabIconItem()
 		{
 			return GAMod.gemLigniteCoal;
 		}
 	};
-	
-	public static CreativeTabs tabElement = new CreativeTabs(Reference.MOD_ID + "element") 
+
+	public static CreativeTabs tabElement = new CreativeTabs(Reference.MOD_ID + "element")
 	{
 		@Override
 		@SideOnly(Side.CLIENT)
-		public Item getTabIconItem() 
+		public Item getTabIconItem()
 		{
 			return GAMod.elementContainer;
 		}
