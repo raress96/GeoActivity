@@ -1,7 +1,5 @@
 package geoactivity.common.blocks.Machines.AOR;
 
-import java.util.Random;
-
 import geoactivity.common.GAMod;
 import geoactivity.common.blocks.Machines.ACR.PerkSlot;
 import geoactivity.common.blocks.Machines.CrM.FuelSlot;
@@ -34,10 +32,10 @@ public class AORContainer extends Container
 		this.addSlotToContainer(new PerkSlot(inv, 2, 8, 48));
 		this.addSlotToContainer(new PerkSlot(inv, 3, 8, 68));
 
-		this.addSlotToContainer(new BlockSlot(inv, 4, 41, 18));
-		this.addSlotToContainer(new BlockSlot(inv, 5, 125, 18));
-		this.addSlotToContainer(new BlockSlot(inv, 6, 41, 58));
-		this.addSlotToContainer(new BlockSlot(inv, 7, 125, 58));
+		this.addSlotToContainer(new OreSlot(inv, 4, 41, 18));
+		this.addSlotToContainer(new OreSlot(inv, 5, 125, 18));
+		this.addSlotToContainer(new OreSlot(inv, 6, 41, 58));
+		this.addSlotToContainer(new OreSlot(inv, 7, 125, 58));
 
 		this.addSlotToContainer(new AORSlot(playerInv.player, inv, 8, 74, 18));
 		this.addSlotToContainer(new AORSlot(playerInv.player, inv, 9, 92, 18));
@@ -190,7 +188,7 @@ public class AORContainer extends Container
 						}
 					}
 
-					if(block.getLocalizedName().contains("Ore") && block.getItemDropped(block.getDefaultState(), new Random(), 0)==item)
+					if(OreSlot.isItemStackValidOre(tempStack2))
 					{
 						if(!this.mergeItemStack(tempStack2, 4, 8, false))
 							if(!this.mergeItemStack(tempStack2, 42, 51, false))
