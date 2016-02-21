@@ -2,6 +2,7 @@ package geoactivity.common.integration.jei.wrapper;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -13,7 +14,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
-import scala.actors.threadpool.Arrays;
 
 public class AtomExtractorRecipeWrapper implements IRecipeWrapper
 {
@@ -43,7 +43,6 @@ public class AtomExtractorRecipeWrapper implements IRecipeWrapper
 		return allInputs;
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<ItemStack> getOutputs()
 	{

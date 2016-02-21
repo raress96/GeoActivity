@@ -1,6 +1,7 @@
 package geoactivity.common.integration.jei.wrapper;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.Nonnull;
@@ -9,7 +10,6 @@ import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
-import scala.actors.threadpool.Arrays;
 
 public class ChemistryMachineRecipeWrapper implements IRecipeWrapper
 {
@@ -24,7 +24,6 @@ public class ChemistryMachineRecipeWrapper implements IRecipeWrapper
 		this.outputs = outputs;
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<ItemStack> getInputs()
 	{
