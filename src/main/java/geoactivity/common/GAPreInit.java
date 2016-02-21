@@ -40,10 +40,10 @@ import geoactivity.common.items.tools.Red.RedstoneBattleMiner;
 import geoactivity.common.items.tools.Red.RedstoneMiner;
 import geoactivity.common.lib.IHasName;
 import geoactivity.common.lib.Reference;
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -153,34 +153,34 @@ public class GAPreInit
 
 	}
 
-	private static void registerBlock(Block block, String uname, String tool, int tier)
-	{
-		GameRegistry.registerBlock(block, Reference.MOD_ID + uname);
-		block.setHarvestLevel(tool, tier);
-	}
-
 	@SideOnly(Side.CLIENT)
 	private static void registerMetadataTextures()
 	{
 		int i;
 
 		for(i = 0;i < PreciousAlloy.alloy_names.length;i++)
-			ModelBakery.addVariantName(GAMod.preciousAlloy, Reference.MOD_ID + ":" + ((IHasName)GAMod.preciousAlloy).getName(i));
+			ModelBakery.registerItemVariants(GAMod.preciousAlloy,
+				new ResourceLocation(Reference.MOD_ID + ":" + ((IHasName)GAMod.preciousAlloy).getName(i)));
 
 		for(i = 0;i < ToolPerks.EnumToolPerks.values().length;i++)
-			ModelBakery.addVariantName(GAMod.tool_perks, Reference.MOD_ID + ":" + ((IHasName)GAMod.tool_perks).getName(i));
+			ModelBakery.registerItemVariants(GAMod.tool_perks,
+				new ResourceLocation(Reference.MOD_ID + ":" + ((IHasName)GAMod.tool_perks).getName(i)));
 
 		for(i = 0;i < MachinePerks.EnumMachinePerks.values().length;i++)
-			ModelBakery.addVariantName(GAMod.machine_perks, Reference.MOD_ID + ":" + ((IHasName)GAMod.machine_perks).getName(i));
+			ModelBakery.registerItemVariants(GAMod.machine_perks,
+				new ResourceLocation(Reference.MOD_ID + ":" + ((IHasName)GAMod.machine_perks).getName(i)));
 
 		for(i = 0;i < ArmorPerks.EnumArmorPerks.values().length;i++)
-			ModelBakery.addVariantName(GAMod.armor_perks, Reference.MOD_ID + ":" + ((IHasName)GAMod.armor_perks).getName(i));
+			ModelBakery.registerItemVariants(GAMod.armor_perks,
+				new ResourceLocation(Reference.MOD_ID + ":" + ((IHasName)GAMod.armor_perks).getName(i)));
 
 		for(i = 0;i < ElementContainer.EnumElements.values().length;i++)
-			ModelBakery.addVariantName(GAMod.elementContainer, Reference.MOD_ID + ":" + ((IHasName)GAMod.elementContainer).getName(i));
+			ModelBakery.registerItemVariants(GAMod.elementContainer,
+				new ResourceLocation(Reference.MOD_ID + ":" + ((IHasName)GAMod.elementContainer).getName(i)));
 
 		Item temp = GameRegistry.findItem(Reference.MOD_ID, ((IHasName)GAMod.hardenedbrick).getName());
 		for(i = 0;i < HardenedBrick.EnumHardenedBrick.values().length;i++)
-			ModelBakery.addVariantName(temp, Reference.MOD_ID + ":" + ((IHasName)GAMod.hardenedbrick).getName(i));
+			ModelBakery.registerItemVariants(temp,
+				new ResourceLocation(Reference.MOD_ID + ":" + ((IHasName)GAMod.hardenedbrick).getName(i)));
 	}
 }

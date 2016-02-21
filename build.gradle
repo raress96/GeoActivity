@@ -23,7 +23,7 @@ repositories {
 
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-version = "2.2.2"
+version = "2.2.3"
 group= "geoactivity" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "geoactivity"
 
@@ -46,7 +46,7 @@ minecraft {
 }
 
 dependencies {
-	deobfCompile "mezz.jei:jei_1.8.9:2.26.0.154"
+	deobfCompile "mezz.jei:jei_1.8.9:2.28.0.160"
 	
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..

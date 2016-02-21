@@ -1,3 +1,9 @@
+Version 2.2.3:
+Fixes:
+- fixed crash on client side
+- various other fixes
+- updated to official RF API for MC 1.8
+
 Version 2.2.2:
 Changes:
 - added JEI support for Crafting Machine, Atom Extractor, Coal Refiner, Advanced Coal Refiner and Chemistry Machine

@@ -1,5 +1,24 @@
 package geoactivity.common;
 
+import geoactivity.common.blocks.HardenedBrick;
+import geoactivity.common.blocks.HardenedBrick.EnumHardenedBrick;
+import geoactivity.common.blocks.Machines.ACR.ACRTileE;
+import geoactivity.common.blocks.Machines.AE.AETileE;
+import geoactivity.common.blocks.Machines.AOR.AORTileE;
+import geoactivity.common.blocks.Machines.CR.CRTileE;
+import geoactivity.common.blocks.Machines.ChM.ChMTileE;
+import geoactivity.common.blocks.Machines.CrM.CrMTileE;
+import geoactivity.common.blocks.Machines.GG.GGTileE;
+import geoactivity.common.blocks.Machines.TC.TCTileE;
+import geoactivity.common.blocks.Machines.Tiles.TGTileE;
+import geoactivity.common.blocks.Machines.Tiles.TMTileE;
+import geoactivity.common.items.ArmorPerks;
+import geoactivity.common.items.ElementContainer;
+import geoactivity.common.items.MachinePerks;
+import geoactivity.common.items.PreciousAlloy;
+import geoactivity.common.items.ToolPerks;
+import geoactivity.common.lib.IHasName;
+import geoactivity.common.lib.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderItem;
@@ -15,29 +34,6 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
-import geoactivity.common.blocks.BaseBlock;
-import geoactivity.common.blocks.HardenedBrick;
-import geoactivity.common.blocks.HardenedBrick.EnumHardenedBrick;
-import geoactivity.common.blocks.Machines.BaseContainerBlock;
-import geoactivity.common.blocks.Machines.ACR.ACRTileE;
-import geoactivity.common.blocks.Machines.AE.AETileE;
-import geoactivity.common.blocks.Machines.AOR.AORTileE;
-import geoactivity.common.blocks.Machines.CR.CRTileE;
-import geoactivity.common.blocks.Machines.ChM.ChMTileE;
-import geoactivity.common.blocks.Machines.CrM.CrMTileE;
-import geoactivity.common.blocks.Machines.GG.GGTileE;
-import geoactivity.common.blocks.Machines.TC.TCTileE;
-import geoactivity.common.blocks.Machines.Tiles.TGTileE;
-import geoactivity.common.blocks.Machines.Tiles.TMTileE;
-import geoactivity.common.itemblocks.BrickItemBlock;
-import geoactivity.common.items.ArmorPerks;
-import geoactivity.common.items.BaseItem;
-import geoactivity.common.items.ElementContainer;
-import geoactivity.common.items.MachinePerks;
-import geoactivity.common.items.PreciousAlloy;
-import geoactivity.common.items.ToolPerks;
-import geoactivity.common.lib.IHasName;
-import geoactivity.common.lib.Reference;
 
 public class GAInit
 {
