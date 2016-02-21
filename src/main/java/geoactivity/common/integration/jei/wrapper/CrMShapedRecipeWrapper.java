@@ -33,9 +33,9 @@ public class CrMShapedRecipeWrapper implements IRecipeWrapper
 	}
 
 	@Override
-	public List getInputs()
+	public List<ItemStack> getInputs()
 	{
-		List list = new ArrayList();
+		List<ItemStack> list = new ArrayList<ItemStack>();
 		list.addAll(Arrays.asList(recipe.recipeItems));
 
 		if (this.getCompatiblePerks() != null)
@@ -45,7 +45,7 @@ public class CrMShapedRecipeWrapper implements IRecipeWrapper
 	}
 
 	@Override
-	public List getOutputs()
+	public List<ItemStack> getOutputs()
 	{
 		return Collections.singletonList(recipe.getRecipeOutput());
 	}
@@ -101,7 +101,7 @@ public class CrMShapedRecipeWrapper implements IRecipeWrapper
 		return this.recipe.getCompatiblePerks();
 	}
 
-	public List getCraftingInputs()
+	public List<ItemStack> getCraftingInputs()
 	{
 		return Arrays.asList(recipe.recipeItems);
 	}

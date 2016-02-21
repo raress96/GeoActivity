@@ -33,7 +33,7 @@ public abstract class BaseRedstoneTool extends BaseGUITool
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)
+	public void addInformation(ItemStack stack, EntityPlayer player, List<String> list, boolean bool)
 	{
 		if(stack.hasTagCompound())
 		{
@@ -235,7 +235,7 @@ public abstract class BaseRedstoneTool extends BaseGUITool
 			stack.damageItem(1, entity);
 		return true;
 	}
-	
+
 	@Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
     {
@@ -258,7 +258,7 @@ public abstract class BaseRedstoneTool extends BaseGUITool
 		RedInventory inv = new RedInventory(player.getHeldItem(), player, 8);
 		return new RedGUI(inv, player);
 	}
-	
+
 	@Override
 	public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{

@@ -128,8 +128,8 @@ public class ChMCrafting
 		input[0] = item1;
 		input[1] = item2;
 
-		Iterator iterator = this.smeltingList.entrySet().iterator();
-		Entry entry;
+		Iterator<Entry<ItemStack[], ItemStack[]>> iterator = this.smeltingList.entrySet().iterator();
+		Entry<ItemStack[], ItemStack[]> entry;
 
 		do
 		{
@@ -138,10 +138,10 @@ public class ChMCrafting
 				return null;
 			}
 
-			entry = (Entry) iterator.next();
-		} while(!this.compareItemStacks(input, (ItemStack[]) entry.getKey()));
+			entry = iterator.next();
+		} while(!this.compareItemStacks(input, entry.getKey()));
 
-		return (ItemStack[]) entry.getValue();
+		return entry.getValue();
 	}
 
 	private boolean compareItemStacks(ItemStack[] input1, ItemStack[] input2)

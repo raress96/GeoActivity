@@ -30,9 +30,11 @@ public class GeneralHelper
 
 	public static <E extends Enum<E>> String[] getEnumStrings(Class<E> clazz)
 	{
-		List<String> names = new ArrayList();
+		List<String> names = new ArrayList<String>();
+
 		for(E en : EnumSet.allOf(clazz))
 			names.add(en.toString());
+
 		return names.toArray(new String[names.size()]);
 	}
 

@@ -43,6 +43,7 @@ public class AtomExtractorRecipeWrapper implements IRecipeWrapper
 		return allInputs;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<ItemStack> getOutputs()
 	{

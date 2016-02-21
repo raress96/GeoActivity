@@ -20,7 +20,6 @@ import mezz.jei.api.gui.IGuiItemStackGroup;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.recipe.IRecipeCategory;
 import mezz.jei.api.recipe.IRecipeWrapper;
-import mezz.jei.api.recipe.IStackHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -107,7 +106,6 @@ public class AtomExtractorRecipeCategory implements IRecipeCategory
 	@Nonnull
 	public static List<AtomExtractorRecipeWrapper> getAtomExtractorRecipes(IJeiHelpers helpers)
 	{
-		IStackHelper stackHelper = helpers.getStackHelper();
 		Map<ItemStack, ItemStack[]> smeltingMap = AERecipes.getInstance().getSmeltingList();
 
 		List<AtomExtractorRecipeWrapper> recipes = new ArrayList<>();
@@ -120,7 +118,6 @@ public class AtomExtractorRecipeCategory implements IRecipeCategory
 			int time = AERecipes.getInstance().getTime(input);
 			int number = AERecipes.getInstance().getNumber(input);
 
-			List<ItemStack> inputs = stackHelper.getSubtypes(input);
 			AtomExtractorRecipeWrapper recipe = new AtomExtractorRecipeWrapper(input, outputs, time, number);
 			recipes.add(recipe);
 		}

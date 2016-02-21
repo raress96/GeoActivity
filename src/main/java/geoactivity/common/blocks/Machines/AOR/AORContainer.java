@@ -174,9 +174,8 @@ public class AORContainer extends Container
 							return null;
 					}
 				}
-				else if(Block.getBlockFromItem(item)!=null)
+				else if (Block.getBlockFromItem(item) != null)
 				{
-					Block block = Block.getBlockFromItem(item);
 					boolean wood = false;
 
 					for (int id : OreDictionary.getOreIDs(tempStack2))

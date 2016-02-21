@@ -5,7 +5,6 @@ import geoactivity.common.items.ArmorPerks.EnumArmorPerks;
 import geoactivity.common.items.ToolPerks.EnumToolPerks;
 import geoactivity.common.items.tools.Adv.Logic.AdvTInventory;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 

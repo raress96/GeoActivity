@@ -7,7 +7,6 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.util.MathHelper;
-import net.minecraftforge.fml.common.FMLCommonHandler;
 
 public class AORSlot extends Slot
 {

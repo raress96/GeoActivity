@@ -2,6 +2,8 @@ package geoactivity.common.util;
 
 import java.util.List;
 
+import cofh.api.energy.IEnergyContainerItem;
+import geoactivity.common.lib.ToolsHelper;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -12,8 +14,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
-import cofh.api.energy.IEnergyContainerItem;
-import geoactivity.common.lib.ToolsHelper;
 
 public abstract class BaseElectricTool extends BaseRedstoneTool implements IEnergyContainerItem
 {
@@ -31,9 +31,9 @@ public abstract class BaseElectricTool extends BaseRedstoneTool implements IEner
 	}
 
 	@Override
-	public void getSubItems(Item item, CreativeTabs tab, List list)
+	public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> list)
 	{
-		list.add(this.getUnchargedItem(this));
+		list.add(getUnchargedItem(this));
 		list.add(this.getChargedItem());
 	}
 
@@ -67,9 +67,8 @@ public abstract class BaseElectricTool extends BaseRedstoneTool implements IEner
 		stack = getUnchargedItem(this);
 	}
 
-	@SuppressWarnings("all")
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag)
+	public void addInformation(ItemStack stack, EntityPlayer player, List<String> list, boolean flag)
 	{
 		list.add("Energy: " + this.getEnergyStored(stack) / 1000 + "k / " + this.maxEnergy / 1000 + "k RF");
 		list.add("Transfer(in): " + this.maxReceive + " RF/t");

@@ -1,6 +1,5 @@
 package geoactivity.common.blocks.Machines.AOR;
 
-import net.minecraft.block.Block;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
@@ -17,13 +16,13 @@ public class WoodSlot extends Slot
 	public boolean isItemValid(ItemStack stack)
 	{
 		int wood = OreDictionary.getOreID("logWood");
-		
+
 		for (int id : OreDictionary.getOreIDs(stack))
 		{
 			if (id == wood)
 				return true;
 		}
-		
+
 		return false;
 	}
 }

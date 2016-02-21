@@ -22,7 +22,7 @@ public class CrMShapelessRecipeWrapper implements IRecipeWrapper
 	public CrMShapelessRecipeWrapper(CrMShapelessRecipe recipe)
 	{
 		this.recipe = recipe;
-		
+
 		for (Object input : this.recipe.recipeItems) {
 			if (input instanceof ItemStack) {
 				ItemStack itemStack = (ItemStack) input;
@@ -31,21 +31,21 @@ public class CrMShapelessRecipeWrapper implements IRecipeWrapper
 				}
 			}
 		}
-		
+
 		perkSlotTooltip = Translator.getWrappedTranslation("ga.jei.crafting_machine.perk.slot");
 		tempSlotTooltip = Translator.getWrappedTranslation("ga.jei.crafting_machine.temp.slot");
 	}
 
 	@Nonnull
 	@Override
-	public List getInputs()
+	public List<ItemStack> getInputs()
 	{
-		List list = new ArrayList();
+		List<ItemStack> list = new ArrayList<ItemStack>();
 		list.addAll(recipe.recipeItems);
-		
+
 		if (this.getCompatiblePerks() != null)
 			list.addAll(this.getCompatiblePerks());
-		
+
 		return list;
 	}
 
@@ -55,7 +55,7 @@ public class CrMShapelessRecipeWrapper implements IRecipeWrapper
 	{
 		return Collections.singletonList(recipe.getRecipeOutput());
 	}
-	
+
 	@Override
 	public List<FluidStack> getFluidInputs()
 	{
@@ -87,12 +87,12 @@ public class CrMShapelessRecipeWrapper implements IRecipeWrapper
 		{
 			return this.perkSlotTooltip;
 		}
-		
+
 		if (mouseX >= 38 && mouseX <= 54 && mouseY >= 58 && mouseY <= 74)
 		{
 			return this.tempSlotTooltip;
 		}
-		
+
 		return null;
 	}
 
@@ -101,13 +101,13 @@ public class CrMShapelessRecipeWrapper implements IRecipeWrapper
 	{
 		return false;
 	}
-	
+
 	public List<ItemStack> getCompatiblePerks()
 	{
 		return this.recipe.getCompatiblePerks();
 	}
-	
-	public List getCraftingInputs()
+
+	public List<ItemStack> getCraftingInputs()
 	{
 		return this.recipe.recipeItems;
 	}

@@ -2,20 +2,13 @@ package geoactivity.common.items;
 
 import java.util.List;
 
+import geoactivity.common.util.GeneralHelper;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import geoactivity.common.lib.Reference;
-import geoactivity.common.util.GeneralHelper;
 
 public class MachinePerks extends BaseItem
 {
@@ -28,7 +21,7 @@ public class MachinePerks extends BaseItem
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)
+	public void addInformation(ItemStack stack, EntityPlayer player, List<String> list, boolean bool)
 	{
 		if(stack.getMetadata() >= EnumMachinePerks.values().length)
 			return;
@@ -54,7 +47,7 @@ public class MachinePerks extends BaseItem
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void getSubItems(Item item, CreativeTabs tabs, List list)
+	public void getSubItems(Item item, CreativeTabs tabs, List<ItemStack> list)
 	{
 		for(int i = 0;i < EnumMachinePerks.values().length;i++)
 		{

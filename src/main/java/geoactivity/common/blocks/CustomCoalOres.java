@@ -3,7 +3,6 @@ package geoactivity.common.blocks;
 import java.util.Random;
 
 import geoactivity.common.GAMod;
-import geoactivity.common.GeoActivity;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -12,14 +11,14 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 public class CustomCoalOres extends BaseBlock
-{	
+{
 	public CustomCoalOres(String name, int level)
 	{
 		super(Material.iron, "pickaxe", level, name);
 		this.setResistance(15.0F);
 		this.setStepSound(Block.soundTypeStone);
 	}
-		
+
 	@Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
 	{
@@ -29,7 +28,7 @@ public class CustomCoalOres extends BaseBlock
 			return GAMod.gemBituminousCoal;
 		else if(state.getBlock() == GAMod.oreLignite)
 			return GAMod.gemLigniteCoal;
-		
+
 		return null;
 	}
 
@@ -38,7 +37,7 @@ public class CustomCoalOres extends BaseBlock
     {
 		this.dropXpOnBlockBreak(world, pos, 3);
     }
-	
+
 	@Override
     public int quantityDropped(IBlockState state, int fortune, Random random)
     {

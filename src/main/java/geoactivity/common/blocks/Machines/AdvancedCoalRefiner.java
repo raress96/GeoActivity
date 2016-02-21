@@ -15,7 +15,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -69,7 +68,7 @@ public class AdvancedCoalRefiner extends BaseContainerBlock
 			if(tile_entity == null || player.isSneaking())
 				return false;
 
-			ACRTileE core = (ACRTileE) tile_entity.getCore();
+			ACRTileE core = tile_entity.getCore();
 
 			if(core != null)
 			{
@@ -86,12 +85,11 @@ public class AdvancedCoalRefiner extends BaseContainerBlock
 	public static void setState(boolean formed, World world, BlockPos pos)
 	{
 		IBlockState state = world.getBlockState(pos);
-		TileEntity tile = world.getTileEntity(pos);
 
 		if(state.getBlock() == GAMod.advancedcoalrefiner)
 		{
 			state = state.withProperty(KEEPINV, true);
-			
+
 			if(formed)
 			{
 				world.setBlockState(pos, state.withProperty(FORMED, true), 2);
@@ -151,11 +149,11 @@ public class AdvancedCoalRefiner extends BaseContainerBlock
 	public int getComparatorInputOverride(World world, BlockPos pos)
 	{
 		ACRTileE tile_entity = (ACRTileE) world.getTileEntity(pos);
-		
+
 		if(tile_entity != null)
 		{
 			ACRTileE core = tile_entity.getCore();
-			return Container.calcRedstoneFromInventory((IInventory) core);
+			return Container.calcRedstoneFromInventory(core);
 		}
 		return 0;
 	}
@@ -166,7 +164,7 @@ public class AdvancedCoalRefiner extends BaseContainerBlock
 		boolean keepinv = (meta & 4) > 0;
 		boolean formed = (meta & 8) > 0;
 
-		return this.getDefaultState().withProperty(FORMED, formed).withProperty(KEEPINV, false);
+		return this.getDefaultState().withProperty(FORMED, formed).withProperty(KEEPINV, keepinv);
 	}
 
 	@Override
@@ -175,9 +173,9 @@ public class AdvancedCoalRefiner extends BaseContainerBlock
 		byte b0 = 0;
 		int i = b0;
 
-		if(((Boolean) state.getValue(FORMED)))
+		if((state.getValue(FORMED)))
 			i |= 8;
-		if(((Boolean) state.getValue(KEEPINV)))
+		if((state.getValue(KEEPINV)))
 			i |= 4;
 
 		return i;

@@ -156,8 +156,8 @@ public class AERecipes
 
 	public ItemStack[] getSmeltingResult(ItemStack item)
 	{
-		Iterator iterator = this.smeltingList.entrySet().iterator();
-		Entry entry;
+		Iterator<Entry<ItemStack, ItemStack[]>> iterator = this.smeltingList.entrySet().iterator();
+		Entry<ItemStack, ItemStack[]> entry;
 		boolean ok = false;
 
 		do
@@ -167,11 +167,11 @@ public class AERecipes
 				return null;
 			}
 
-			entry = (Entry) iterator.next();
+			entry = iterator.next();
 
 			for(int id : OreDictionary.getOreIDs(item))
 			{
-				for(int id2 : OreDictionary.getOreIDs((ItemStack) entry.getKey()))
+				for(int id2 : OreDictionary.getOreIDs(entry.getKey()))
 					if(id == id2)
 					{
 						ok = true;
@@ -181,8 +181,8 @@ public class AERecipes
 					break;
 			}
 
-		} while(!this.compareItemStacks(item, (ItemStack) entry.getKey()) && !ok);
-		return (ItemStack[]) entry.getValue();
+		} while(!this.compareItemStacks(item, entry.getKey()) && !ok);
+		return entry.getValue();
 	}
 
 	private boolean compareItemStacks(ItemStack stack1, ItemStack stack2)
@@ -193,8 +193,8 @@ public class AERecipes
 
 	public int getTime(ItemStack item)
 	{
-		Iterator iterator = this.timeList.entrySet().iterator();
-		Entry entry;
+		Iterator<Entry<ItemStack, Integer>> iterator = this.timeList.entrySet().iterator();
+		Entry<ItemStack, Integer> entry;
 
 		do
 		{
@@ -202,10 +202,10 @@ public class AERecipes
 			{
 				return 0;
 			}
-			entry = (Entry) iterator.next();
-		} while(!this.compareItemStacks(item, (ItemStack) entry.getKey()));
+			entry = iterator.next();
+		} while(!this.compareItemStacks(item, entry.getKey()));
 
-		return ((Integer) entry.getValue()).intValue();
+		return entry.getValue().intValue();
 	}
 
 	public int getNumber(ItemStack item)

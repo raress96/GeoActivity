@@ -79,6 +79,7 @@ public class CoalRefinerRecipeCategory implements IRecipeCategory
 		arrow.draw(minecraft, 79, 24);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void setRecipe(IRecipeLayout recipeLayout, IRecipeWrapper recipeWrapper)
 	{

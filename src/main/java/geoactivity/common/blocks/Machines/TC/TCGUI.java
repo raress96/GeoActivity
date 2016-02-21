@@ -2,15 +2,13 @@ package geoactivity.common.blocks.Machines.TC;
 
 import java.util.ArrayList;
 
-import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
 
 import geoactivity.common.util.GeneralHelper;
 import geoactivity.common.util.GeneralHelper.GuiColors;
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.util.ResourceLocation;
 
 public class TCGUI extends GuiContainer
 {
@@ -43,14 +41,14 @@ public class TCGUI extends GuiContainer
 		drawString(fontRendererObj, "Energy: ", 100, 10, -1);
 		drawString(fontRendererObj, GeneralHelper.getEnergyUnits(tile.buffer.getEnergyStored()) + "/"
 				+ GeneralHelper.getEnergyUnits(TCTileE.internalStorage) + " RF", 100, 20, -1);
-		
+
 		if (((y - guiTop) >= 8) && ((y - guiTop) <= 76))
 			if (((x - guiLeft) >= 8) && ((x - guiLeft) <= 25))
 			{
 				ArrayList<String> lines = new ArrayList<String>();
-				
+
 				lines.add(GuiColors.LIGHTBLUE + "" + tile.buffer.getEnergyStored() + "/" + TCTileE.internalStorage + " RF");
-				
+
 				drawHoveringText(lines, x - guiLeft, y - guiTop, fontRendererObj);
 			}
 	}

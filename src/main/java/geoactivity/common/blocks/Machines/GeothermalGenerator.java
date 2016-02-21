@@ -1,7 +1,5 @@
 package geoactivity.common.blocks.Machines;
 
-import java.util.Random;
-
 import geoactivity.common.GeoActivity;
 import geoactivity.common.blocks.Machines.GG.GGTileE;
 import geoactivity.common.itemblocks.MultiItemBlock;
@@ -16,8 +14,6 @@ import net.minecraft.world.World;
 
 public class GeothermalGenerator extends BaseContainerBlock
 {
-	private Random rand = new Random();
-
 	public GeothermalGenerator(String name)
 	{
 		super(Material.iron, name, "pickaxe", 2, MultiItemBlock.class);
