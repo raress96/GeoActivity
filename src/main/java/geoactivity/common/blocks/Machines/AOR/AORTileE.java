@@ -1,7 +1,5 @@
 package geoactivity.common.blocks.Machines.AOR;
 
-import java.util.Random;
-
 import geoactivity.common.GAMod;
 import geoactivity.common.blocks.HardenedBrick;
 import geoactivity.common.blocks.HardenedBrick.EnumHardenedBrick;
@@ -543,13 +541,7 @@ public class AORTileE extends BaseTileEntity
 		for(int i = 0;i < stack.length;i++)
 			if(stack[i] == true)
 			{
-				Block block = Block.getBlockFromItem(inventory[i + 4].getItem());
-
-				if(block == null)
-					return false;
-
-				if(block.getLocalizedName().contains("Ore")
-						&& block.getItemDropped(block.getDefaultState(), new Random(), 0) == inventory[i + 4].getItem())
+				if (OreSlot.isItemStackValidOre(inventory[i + 4]))
 				{
 					ItemStack tresult = FurnaceRecipes.instance().getSmeltingResult(inventory[i + 4]);
 					if(tresult != null)

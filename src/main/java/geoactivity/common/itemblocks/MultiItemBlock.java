@@ -31,11 +31,16 @@ public class MultiItemBlock extends ItemBlock
 		if(block == GAMod.advancedcoalrefiner)
 			list.add("\u00A77Multiblock: 2x2x2");
 		else if(block == GAMod.advancedorerefiner)
-			list.add("\u00A77Complicated multiblock.Check JEI description page.");
+			list.add("\u00A77Complicated multiblock. Check JEI description page.");
 		else if (block == GAMod.atomextractor)
 		{
 			list.add("\u00A77Upgrade the speed by placing Advanced Hardened Bricks");
-			list.add("\u00A77adjencted to it.(up to a maximum of 4 bricks)");
+			list.add("\u00A77adjacent to it.(up to a maximum of 4 bricks)");
+		}
+		else if (block == GAMod.chemistrymachine)
+		{
+			list.add("\u00A77Multiblock.Requires 4 Advanced Hardened Bricks and item frames.");
+			list.add("\u00A77Check JEI description page.");
 		}
 		else if(block == GAMod.thermicgenerator)
 		{

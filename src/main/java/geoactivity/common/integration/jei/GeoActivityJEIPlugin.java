@@ -98,6 +98,7 @@ public class GeoActivityJEIPlugin implements IModPlugin
 		registry.addRecipes(ChemistryMachineRecipeCategory.getChemistryMachineRecipes(this.jeiHelpers));
 
 		registry.addDescription(new ItemStack(GAMod.advancedorerefiner), new String(Translator.translateToLocal("ga.jei.description.advanced_ore_refiner")));
+		registry.addDescription(new ItemStack(GAMod.chemistrymachine), new String(Translator.translateToLocal("ga.jei.description.chemistry_machine")));
 	}
 
 	@Override
