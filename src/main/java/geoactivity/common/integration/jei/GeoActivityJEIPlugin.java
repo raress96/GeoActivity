@@ -1,5 +1,6 @@
 package geoactivity.common.integration.jei;
 
+import geoactivity.common.GAMod;
 import geoactivity.common.blocks.Machines.ACR.ACRContainer;
 import geoactivity.common.blocks.Machines.ACR.ACRGUI;
 import geoactivity.common.blocks.Machines.AE.AEContainer;
@@ -22,6 +23,7 @@ import geoactivity.common.integration.jei.handler.ChemistryMachineRecipeHandler;
 import geoactivity.common.integration.jei.handler.CoalRefinerRecipeHandler;
 import geoactivity.common.integration.jei.handler.CrMShapedRecipeHandler;
 import geoactivity.common.integration.jei.handler.CrMShapelessRecipeHandler;
+import geoactivity.common.util.Translator;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.IItemRegistry;
 import mezz.jei.api.IJeiHelpers;
@@ -31,6 +33,7 @@ import mezz.jei.api.IModRegistry;
 import mezz.jei.api.IRecipeRegistry;
 import mezz.jei.api.JEIPlugin;
 import mezz.jei.api.recipe.transfer.IRecipeTransferRegistry;
+import net.minecraft.item.ItemStack;
 
 @JEIPlugin
 public class GeoActivityJEIPlugin implements IModPlugin
@@ -93,6 +96,8 @@ public class GeoActivityJEIPlugin implements IModPlugin
 		registry.addRecipes(AdvancedCoalRefinerRecipeCategory.getAdvancedCoalRefinerRecipes(this.jeiHelpers));
 		registry.addRecipes(AtomExtractorRecipeCategory.getAtomExtractorRecipes(this.jeiHelpers));
 		registry.addRecipes(ChemistryMachineRecipeCategory.getChemistryMachineRecipes(this.jeiHelpers));
+
+		registry.addDescription(new ItemStack(GAMod.advancedorerefiner), new String(Translator.translateToLocal("ga.jei.description.advanced_ore_refiner")));
 	}
 
 	@Override

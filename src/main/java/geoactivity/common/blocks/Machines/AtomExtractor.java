@@ -5,6 +5,7 @@ import java.util.Random;
 import geoactivity.common.GAMod;
 import geoactivity.common.GeoActivity;
 import geoactivity.common.blocks.Machines.AE.AETileE;
+import geoactivity.common.itemblocks.MultiItemBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -35,7 +36,7 @@ public class AtomExtractor extends BaseContainerBlock
 
 	public AtomExtractor(String name)
 	{
-		super(Material.iron, name, "pickaxe", 2);
+		super(Material.iron, name, "pickaxe", 2, MultiItemBlock.class);
 		this.setHardness(5.0F);
 		this.setResistance(20.0F);
 		this.setStepSound(Block.soundTypeStone);
@@ -70,7 +71,7 @@ public class AtomExtractor extends BaseContainerBlock
 			Block block1 = world.getBlockState(pos.south()).getBlock();
 			Block block2 = world.getBlockState(pos.west()).getBlock();
 			Block block3 = world.getBlockState(pos.east()).getBlock();
-			EnumFacing enumfacing = (EnumFacing) state.getValue(FACING);
+			EnumFacing enumfacing = state.getValue(FACING);
 
 			if(enumfacing == EnumFacing.NORTH && block.isFullBlock() && !block1.isFullBlock())
 			{
@@ -97,12 +98,12 @@ public class AtomExtractor extends BaseContainerBlock
 	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(World world, BlockPos pos, IBlockState state, Random rand)
 	{
-		if(((Boolean) state.getValue(ACTIVE)))
+		if((state.getValue(ACTIVE)))
 		{
-			EnumFacing enumfacing = (EnumFacing) state.getValue(FACING);
-			double d0 = (double) pos.getX() + 0.5D;
-			double d1 = (double) pos.getY() + rand.nextDouble() * 6.0D / 16.0D;
-			double d2 = (double) pos.getZ() + 0.5D;
+			EnumFacing enumfacing = state.getValue(FACING);
+			double d0 = pos.getX() + 0.5D;
+			double d1 = pos.getY() + rand.nextDouble() * 6.0D / 16.0D;
+			double d2 = pos.getZ() + 0.5D;
 			double d3 = 0.52D;
 			double d4 = rand.nextDouble() * 0.6D - 0.3D;
 
@@ -140,10 +141,10 @@ public class AtomExtractor extends BaseContainerBlock
 		else
 		{
 			AETileE tile_entity = (AETileE) world.getTileEntity(pos);
-			
+
 			if(tile_entity == null || player.isSneaking())
 				return false;
-			
+
 			player.openGui(GeoActivity.instance, 0, world, pos.getX(), pos.getY(), pos.getZ());
 			return true;
 		}
@@ -164,7 +165,7 @@ public class AtomExtractor extends BaseContainerBlock
         }
 
         world.setBlockState(pos, world.getBlockState(pos).withProperty(KEEPINV, false));
-        
+
         if (tile != null)
         {
             tile.validate();
@@ -177,7 +178,7 @@ public class AtomExtractor extends BaseContainerBlock
     {
         return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
     }
-	
+
 	@Override
 	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack)
     {
@@ -191,7 +192,7 @@ public class AtomExtractor extends BaseContainerBlock
 		AETileE tile = (AETileE) world.getTileEntity(pos);
 		tile.checkUpgrades();
 	}
-	
+
 	@Override
 	public void breakBlock(World world, BlockPos pos, IBlockState state)
     {
@@ -220,16 +221,16 @@ public class AtomExtractor extends BaseContainerBlock
 	{
 		return Container.calcRedstoneFromInventory((IInventory) world.getTileEntity(pos));
 	}
-	
+
 
 	@Override
     public IBlockState getStateFromMeta(int meta)
     {
 		EnumFacing enumfacing = EnumFacing.getHorizontal(meta);
-		
+
         boolean active = (meta & 4) > 0;
         boolean keepinv = (meta & 8) > 0;
-        
+
 		return this.getDefaultState().withProperty(FACING, enumfacing).withProperty(ACTIVE, active).withProperty(KEEPINV, keepinv);
     }
 
@@ -237,13 +238,13 @@ public class AtomExtractor extends BaseContainerBlock
     public int getMetaFromState(IBlockState state)
     {
 		byte b0 = 0;
-		int i = b0 | ((EnumFacing)state.getValue(FACING)).getHorizontalIndex();
-		
-		if (((Boolean)state.getValue(KEEPINV)))
+		int i = b0 | state.getValue(FACING).getHorizontalIndex();
+
+		if ((state.getValue(KEEPINV)))
 			i |= 8;
-		if (((Boolean)state.getValue(ACTIVE)))
+		if ((state.getValue(ACTIVE)))
 			i |= 4;
-		
+
         return i;
     }
 
