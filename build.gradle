@@ -34,7 +34,7 @@ allprojects {
 
 minecraft {
 	useDepAts = true
-    version = "1.9-12.16.0.1797-1.9"	
+    version = "1.9-12.16.0.1811-1.9"
     runDir = "eclipse"
     
     // the mappings can be changed at any time, and must be in the following format.
@@ -46,7 +46,7 @@ minecraft {
 }
 
 dependencies {
-	deobfCompile "mezz.jei:jei_1.9:3.0.5.168"
+	deobfCompile "mezz.jei:jei_1.9:3.1.0.170"
 	
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..
