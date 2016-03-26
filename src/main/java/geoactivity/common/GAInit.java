@@ -21,14 +21,12 @@ import geoactivity.common.lib.IHasName;
 import geoactivity.common.lib.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.entity.RenderItem;
-import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.client.renderer.RenderItem;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.WeightedRandomChestContent;
-import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -37,14 +35,15 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class GAInit
 {
+	//TODO
 	public static void init(FMLInitializationEvent event)
 	{
 		//Chests
-		ChestGenHooks.addItem(ChestGenHooks.DUNGEON_CHEST, new WeightedRandomChestContent(new ItemStack(GAMod.gemBituminousCoal), 3, 8, 1));
-		ChestGenHooks.addItem(ChestGenHooks.DUNGEON_CHEST, new WeightedRandomChestContent(new ItemStack(GAMod.gemAnthraciteCoal), 1, 2, 1));
-		ChestGenHooks.addItem(ChestGenHooks.MINESHAFT_CORRIDOR, new WeightedRandomChestContent(new ItemStack(GAMod.gemBituminousCoal), 4, 12, 1));
-		ChestGenHooks.addItem(ChestGenHooks.MINESHAFT_CORRIDOR, new WeightedRandomChestContent(new ItemStack(GAMod.gemAnthraciteCoal), 2, 3, 1));
-		ChestGenHooks.addItem(ChestGenHooks.VILLAGE_BLACKSMITH, new WeightedRandomChestContent(new ItemStack(GAMod.gemAnthraciteCoal), 2, 5, 1));
+//		ChestGenHooks.addItem(ChestGenHooks.DUNGEON_CHEST, new WeightedRandomChestContent(GAMod.gemBituminousCoal, 0, 3, 8, 1));
+//		ChestGenHooks.addItem(ChestGenHooks.DUNGEON_CHEST, new WeightedRandomChestContent(GAMod.gemAnthraciteCoal, 0, 1, 2, 1));
+//		ChestGenHooks.addItem(ChestGenHooks.MINESHAFT_CORRIDOR, new WeightedRandomChestContent(GAMod.gemBituminousCoal, 0, 4, 12, 1));
+//		ChestGenHooks.addItem(ChestGenHooks.MINESHAFT_CORRIDOR, new WeightedRandomChestContent(GAMod.gemAnthraciteCoal, 0, 2, 3, 1));
+//		ChestGenHooks.addItem(ChestGenHooks.VILLAGE_BLACKSMITH, new WeightedRandomChestContent(GAMod.gemAnthraciteCoal, 0, 2, 5, 1));
 
 		// REGISTER GAME
 		craftingRecipes();
