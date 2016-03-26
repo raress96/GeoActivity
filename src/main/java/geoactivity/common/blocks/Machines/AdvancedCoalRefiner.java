@@ -6,11 +6,10 @@ import geoactivity.common.GAMod;
 import geoactivity.common.GeoActivity;
 import geoactivity.common.blocks.Machines.ACR.ACRTileE;
 import geoactivity.common.itemblocks.MultiItemBlock;
-import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
-import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,8 +18,8 @@ import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class AdvancedCoalRefiner extends BaseContainerBlock
@@ -33,7 +32,7 @@ public class AdvancedCoalRefiner extends BaseContainerBlock
 		super(Material.iron, name, "pickaxe", 2, MultiItemBlock.class);
 		this.setHardness(3.5F);
 		this.setResistance(15.0F);
-		this.setStepSound(Block.soundTypeStone);
+		this.setSoundType(SoundType.STONE);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FORMED, false).withProperty(KEEPINV, false));
 	}
 

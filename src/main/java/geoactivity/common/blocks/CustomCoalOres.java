@@ -3,11 +3,11 @@ package geoactivity.common.blocks;
 import java.util.Random;
 
 import geoactivity.common.GAMod;
-import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class CustomCoalOres extends BaseBlock
@@ -16,7 +16,7 @@ public class CustomCoalOres extends BaseBlock
 	{
 		super(Material.iron, "pickaxe", level, name);
 		this.setResistance(15.0F);
-		this.setStepSound(Block.soundTypeStone);
+		this.setSoundType(SoundType.STONE);
 	}
 
 	@Override

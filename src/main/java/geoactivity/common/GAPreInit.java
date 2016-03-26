@@ -41,7 +41,7 @@ import geoactivity.common.items.tools.Red.RedstoneMiner;
 import geoactivity.common.lib.IHasName;
 import geoactivity.common.lib.Reference;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.resources.model.ModelBakery;
+import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
