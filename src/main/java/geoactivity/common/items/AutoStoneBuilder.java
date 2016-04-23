@@ -142,7 +142,7 @@ public class AutoStoneBuilder extends BaseItem implements IOpenableGUI
 				inv.setCharge();
 			}
 		player.setActiveHand(hand);
-		return new ActionResult(EnumActionResult.PASS, stack);
+		return new ActionResult<ItemStack>(EnumActionResult.PASS, stack);
 	}
 
 	@Override

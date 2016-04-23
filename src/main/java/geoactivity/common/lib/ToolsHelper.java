@@ -20,12 +20,12 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.stats.AchievementList;
 import net.minecraft.stats.StatList;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.util.Vec3;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 /*
@@ -209,7 +209,7 @@ public class ToolsHelper
 		}
 	}
 
-	public static MovingObjectPosition raytraceFromEntity(World world, Entity player, boolean par3, double range)
+	public static RayTraceResult raytraceFromEntity(World world, Entity player, boolean par3, double range)
 	{
 		float f = 1.0F;
 		float f1 = player.prevRotationPitch + (player.rotationPitch - player.prevRotationPitch) * f;
@@ -219,7 +219,7 @@ public class ToolsHelper
 		if(!world.isRemote && player instanceof EntityPlayer)
 			d1 += 1.62D;
 		double d2 = player.prevPosZ + (player.posZ - player.prevPosZ) * f;
-		Vec3 vec3 = new Vec3(d0, d1, d2);
+		Vec3d vec3 = new Vec3d(d0, d1, d2);
 		float f3 = MathHelper.cos(-f2 * 0.017453292F - (float) Math.PI);
 		float f4 = MathHelper.sin(-f2 * 0.017453292F - (float) Math.PI);
 		float f5 = -MathHelper.cos(-f1 * 0.017453292F);
@@ -228,8 +228,9 @@ public class ToolsHelper
 		float f8 = f3 * f5;
 		double d3 = range;
 		if(player instanceof EntityPlayerMP)
-			d3 = ((EntityPlayerMP) player).theItemInWorldManager.getBlockReachDistance();
-		Vec3 vec31 = vec3.addVector(f7 * d3, f6 * d3, f8 * d3);
+//			d3 = ((EntityPlayerMP) player).theItemInWorldManager.getBlockReachDistance();
+			d3 = 4.5f;
+		Vec3d vec31 = vec3.addVector(f7 * d3, f6 * d3, f8 * d3);
 		return world.rayTraceBlocks(vec3, vec31, par3, !par3, par3);
 	}
 
