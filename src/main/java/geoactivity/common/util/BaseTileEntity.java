@@ -8,8 +8,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.IChatComponent;
 import net.minecraft.util.ITickable;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.common.util.Constants;
 
 public abstract class BaseTileEntity extends TileEntity implements ITickable, ISidedInventory, IOpenableGUI
@@ -29,7 +29,7 @@ public abstract class BaseTileEntity extends TileEntity implements ITickable, IS
 		NBTTagList tagList = tagCompound.getTagList("Inventory", Constants.NBT.TAG_COMPOUND);
 
 		for(int i = 0;i < tagList.tagCount();i++) {
-			NBTTagCompound tag = (NBTTagCompound) tagList.getCompoundTagAt(i);
+			NBTTagCompound tag = tagList.getCompoundTagAt(i);
 			byte slot = tag.getByte("Slot");
 			inventory[slot] = ItemStack.loadItemStackFromNBT(tag);
 		}
@@ -197,7 +197,7 @@ public abstract class BaseTileEntity extends TileEntity implements ITickable, IS
 	}
 
 	@Override
-	public IChatComponent getDisplayName()
+	public ITextComponent getDisplayName()
 	{
 		return null;
 	}

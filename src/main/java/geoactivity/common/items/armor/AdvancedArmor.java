@@ -12,10 +12,14 @@ import geoactivity.common.lib.IOpenableGUI;
 import geoactivity.common.util.GeneralHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ISpecialArmor;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -24,7 +28,7 @@ public class AdvancedArmor extends ItemArmor implements ISpecialArmor, IHasName,
 {
 	private String name;
 
-	public AdvancedArmor(String name, int renderIndex, int type)
+	public AdvancedArmor(String name, int renderIndex, EntityEquipmentSlot type)
 	{
 		super(GAMod.AdvancedArmorMaterial, renderIndex, type);
 		this.setNoRepair();
@@ -73,12 +77,12 @@ public class AdvancedArmor extends ItemArmor implements ISpecialArmor, IHasName,
 
 			switch(this.armorType)
 			{
-				case 0:
+				case HEAD:
 					if(stack.getTagCompound().getBoolean("respiration"))
 						list.add("\u00A77Breathe underwater.");
 				break;
-				case 2:
-				case 3:
+				case LEGS:
+				case FEET:
 					if(stack.getTagCompound().getBoolean("fall"))
 						list.add("\u00A77Take no fall damage.");
 			}
@@ -92,7 +96,7 @@ public class AdvancedArmor extends ItemArmor implements ISpecialArmor, IHasName,
 	}
 
 	@Override
-	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
+	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand)
 	{
 		if(!world.isRemote)
 			if(player.isSneaking())
@@ -103,8 +107,8 @@ public class AdvancedArmor extends ItemArmor implements ISpecialArmor, IHasName,
 				AdvAInventory inv = new AdvAInventory(player.inventory.getCurrentItem(), player);
 				inv.setCharge();
 			}
-		player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
-		return stack;
+		player.setActiveHand(hand);
+		return new ActionResult(EnumActionResult.PASS, stack);
 	}
 
 	@Override
@@ -124,7 +128,7 @@ public class AdvancedArmor extends ItemArmor implements ISpecialArmor, IHasName,
 
 		switch(this.armorType)
 		{
-			case 0:
+			case HEAD:
 				if(stack.getTagCompound().getBoolean("respiration")
 						&& stack.getItemDamage() < stack.getMaxDamage() - 16)
 					if(player.getAir() == 0)
@@ -133,8 +137,8 @@ public class AdvancedArmor extends ItemArmor implements ISpecialArmor, IHasName,
 						stack.damageItem(16, player);
 					}
 			break;
-			case 2:
-			case 3:
+			case LEGS:
+			case FEET:
 				if(stack.getTagCompound().getBoolean("fall"))
 				{
 					if(player.fallDistance > 0)
@@ -148,10 +152,10 @@ public class AdvancedArmor extends ItemArmor implements ISpecialArmor, IHasName,
 	public ArmorProperties getProperties(EntityLivingBase player, ItemStack stack, DamageSource source,
 			double damage, int slot)
 	{
-		int h = getArmorMaterial().getDamageReductionAmount(0);
-		int c = getArmorMaterial().getDamageReductionAmount(1);
-		int p = getArmorMaterial().getDamageReductionAmount(2);
-		int b = getArmorMaterial().getDamageReductionAmount(3);
+		int h = getArmorMaterial().getDamageReductionAmount(EntityEquipmentSlot.HEAD);
+		int c = getArmorMaterial().getDamageReductionAmount(EntityEquipmentSlot.CHEST);
+		int p = getArmorMaterial().getDamageReductionAmount(EntityEquipmentSlot.LEGS);
+		int b = getArmorMaterial().getDamageReductionAmount(EntityEquipmentSlot.FEET);
 
 		if(!stack.hasTagCompound())
 			stack.setTagCompound(new NBTTagCompound());
@@ -266,14 +270,14 @@ public class AdvancedArmor extends ItemArmor implements ISpecialArmor, IHasName,
 	@Override
 	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{
-		AdvAInventory inv = new AdvAInventory(player.getHeldItem(), player);
+		AdvAInventory inv = new AdvAInventory(player.getHeldItemMainhand(), player);
 		return new AdvAGUI(inv, player);
 	}
 
 	@Override
 	public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z)
 	{
-		AdvAInventory inv = new AdvAInventory(player.getHeldItem(), player);
+		AdvAInventory inv = new AdvAInventory(player.getHeldItemMainhand(), player);
 		return new AdvTContainer(inv, player);
 	}
 }

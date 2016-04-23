@@ -4,7 +4,6 @@ import geoactivity.common.lib.IOpenableGUI;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
@@ -30,7 +29,7 @@ public class GUIHandler implements IGuiHandler
 		BlockPos pos = new BlockPos(x, y, z);
 		TileEntity tileEntity = world.getTileEntity(pos);
 
-		ItemStack itemStack = player.getHeldItem(EnumHand.MAIN_HAND);
+		ItemStack itemStack = player.getHeldItemMainhand();
 
 		return tileEntity instanceof IOpenableGUI ? (IOpenableGUI)tileEntity
 			: (itemStack != null) && (itemStack.getItem() instanceof IOpenableGUI) ?
