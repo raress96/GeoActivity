@@ -4,7 +4,9 @@ import geoactivity.common.GeoActivity;
 import geoactivity.common.lib.IHasName;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.EnumBlockRenderType;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public abstract class BaseContainerBlock extends BlockContainer implements IHasName
@@ -30,6 +32,12 @@ public abstract class BaseContainerBlock extends BlockContainer implements IHasN
 		this.setCreativeTab(GeoActivity.tabMain);
 		GameRegistry.registerBlock(this, item, name);
 	}
+
+    @Override
+	public EnumBlockRenderType getRenderType(IBlockState state)
+    {
+        return EnumBlockRenderType.MODEL;
+    }
 
 	@Override
 	public String getName()
