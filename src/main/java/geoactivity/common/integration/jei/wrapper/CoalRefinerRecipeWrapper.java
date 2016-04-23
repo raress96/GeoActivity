@@ -52,10 +52,6 @@ public class CoalRefinerRecipeWrapper implements IRecipeWrapper
 	}
 
 	@Override
-	public void drawInfo(Minecraft minecraft, int recipeWidth, int recipeHeight)
-	{}
-
-	@Override
 	public void drawInfo(Minecraft minecraft, int recipeWidth, int recipeHeight, int mouseX, int mouseY)
 	{
 		if (experienceString != null) {
