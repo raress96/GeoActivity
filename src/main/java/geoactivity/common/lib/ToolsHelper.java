@@ -4,7 +4,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -14,10 +13,11 @@ import net.minecraft.entity.monster.EntityGhast;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Enchantments;
+import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.potion.Potion;
 import net.minecraft.stats.AchievementList;
 import net.minecraft.stats.StatList;
 import net.minecraft.util.DamageSource;
@@ -49,18 +49,18 @@ public class ToolsHelper
 			{
 				int damage = stack.getTagCompound().getByte("damage") + baseDamage;
 
-				if(player.isPotionActive(Potion.damageBoost))
-					damage += 3 << player.getActivePotionEffect(Potion.damageBoost).getAmplifier();
+				if(player.isPotionActive(MobEffects.damageBoost))
+					damage += 3 << player.getActivePotionEffect(MobEffects.damageBoost).getAmplifier();
 
-				if(player.isPotionActive(Potion.weakness))
-					damage -= 2 << player.getActivePotionEffect(Potion.weakness).getAmplifier();
+				if(player.isPotionActive(MobEffects.weakness))
+					damage -= 2 << player.getActivePotionEffect(MobEffects.weakness).getAmplifier();
 
 				float knockback = 0;
 				float enchantDamage = 0;
 
 				if(entity instanceof EntityLivingBase)
 				{
-					 enchantDamage = EnchantmentHelper.getEnchantmentLevel(Enchantment.sharpness.effectId, player.getHeldItem());
+					 enchantDamage = EnchantmentHelper.getEnchantmentLevel(Enchantments.sharpness, player.getHeldItemMainhand());
 					 knockback += EnchantmentHelper.getKnockbackModifier(player);
 				}
 
@@ -73,8 +73,8 @@ public class ToolsHelper
 				if(damage > 0 || enchantDamage > 0)
 				{
 					boolean criticalHit = player.fallDistance > 0.0F && !player.onGround && !player.isOnLadder() && !player.isInWater()
-						&& !player.isPotionActive(Potion.blindness)
-						&& player.ridingEntity == null && entity instanceof EntityLivingBase;
+						&& !player.isPotionActive(MobEffects.blindness)
+						&& player.getRidingEntity() == null && entity instanceof EntityLivingBase;
 
 					if(criticalHit)
 						damage += random.nextInt(damage / 2 + 2);
@@ -130,8 +130,8 @@ public class ToolsHelper
 							if(enchantDamage > 0)
 								((EntityPlayer) player).onEnchantmentCritical(entity);
 
-							if(damage >= 18)
-								((EntityPlayer) player).triggerAchievement(AchievementList.overkill);
+							if(damage >= 18f)
+								((EntityPlayer) player).addStat(AchievementList.overkill);
 						}
 
 						player.setLastAttacker(entity);
@@ -148,7 +148,7 @@ public class ToolsHelper
 							if(entity.isEntityAlive())
 								alertPlayerWolves((EntityPlayer) player, (EntityLivingBase) entity, true);
 
-							((EntityPlayer) player).addStat(StatList.damageDealtStat, damage);
+							((EntityPlayer) player).addStat(StatList.damageDealt, damage);
 						}
 						else
 							stack.getItem().hitEntity(stack, (EntityLivingBase) entity, player);
@@ -189,9 +189,8 @@ public class ToolsHelper
 				List var6 =
 					player.worldObj.getEntitiesWithinAABB(
 						EntityWolf.class,
-						AxisAlignedBB.fromBounds(player.posX, player.posY, player.posZ, player.posX + 1.0D, player.posY + 1.0D, player.posZ + 1.0D)
-							.expand(
-								16.0D, 4.0D, 16.0D));
+						new AxisAlignedBB(player.posX, player.posY, player.posZ, player.posX + 1.0D, player.posY + 1.0D, player.posZ + 1.0D)
+							.expand(16.0D, 4.0D, 16.0D));
 				Iterator var4 = var6.iterator();
 
 				while(var4.hasNext())

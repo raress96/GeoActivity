@@ -42,6 +42,7 @@ import geoactivity.common.lib.IHasName;
 import geoactivity.common.lib.Reference;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.block.model.ModelBakery;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -109,16 +110,16 @@ public class GAPreInit
 		/* Armor */
 
 		//Tier I
-		GAMod.reinforcedHelmet = new ReinforcedArmor("reinforcedhelmet", 1, 0);
-		GAMod.reinforcedChest = new ReinforcedArmor("reinforcedchest", 1, 1);
-		GAMod.reinforcedPants = new ReinforcedArmor("reinforcedpants", 2, 2);
-		GAMod.reinforcedBoots = new ReinforcedArmor("reinforcedboots", 1, 3);
+		GAMod.reinforcedHelmet = new ReinforcedArmor("reinforcedhelmet", 1, EntityEquipmentSlot.HEAD);
+		GAMod.reinforcedChest = new ReinforcedArmor("reinforcedchest", 1, EntityEquipmentSlot.CHEST);
+		GAMod.reinforcedPants = new ReinforcedArmor("reinforcedpants", 2, EntityEquipmentSlot.LEGS);
+		GAMod.reinforcedBoots = new ReinforcedArmor("reinforcedboots", 1, EntityEquipmentSlot.FEET);
 
 		//Tier II
-		GAMod.advancedHelmet = new AdvancedArmor("advancedhelmet", 1, 0);
-		GAMod.advancedChest = new AdvancedArmor("advancedchest", 1, 1);
-		GAMod.advancedPants = new AdvancedArmor("advancedpants", 2, 2);
-		GAMod.advancedBoots = new AdvancedArmor("advancedboots", 1, 3);
+		GAMod.advancedHelmet = new AdvancedArmor("advancedhelmet", 1, EntityEquipmentSlot.HEAD);
+		GAMod.advancedChest = new AdvancedArmor("advancedchest", 1, EntityEquipmentSlot.CHEST);
+		GAMod.advancedPants = new AdvancedArmor("advancedpants", 2, EntityEquipmentSlot.LEGS);
+		GAMod.advancedBoots = new AdvancedArmor("advancedboots", 1, EntityEquipmentSlot.FEET);
 	}
 
 	private static void registerBlocks()

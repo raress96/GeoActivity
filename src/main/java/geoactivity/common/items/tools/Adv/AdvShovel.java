@@ -16,12 +16,12 @@ import geoactivity.common.util.GeneralHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Enchantments;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
@@ -311,10 +311,10 @@ public class AdvShovel extends BaseGUITool
 							ItemStack result = new ItemStack(block.getItemDropped(blockState, random, 0),
 								block.quantityDropped(blockState, 0, random), block.damageDropped(blockState));
 
-							if(EnchantmentHelper.getEnchantmentLevel(Enchantment.getEnchantmentByID(33), stack) > 0)
+							if(EnchantmentHelper.getEnchantmentLevel(Enchantments.silkTouch, stack) > 0)
 								result = new ItemStack(block, 1, block.getMetaFromState(blockState));
 
-							byte fortune = (byte) EnchantmentHelper.getEnchantmentLevel(Enchantment.getEnchantmentByID(35), stack);
+							byte fortune = (byte) EnchantmentHelper.getEnchantmentLevel(Enchantments.fortune, stack);
 
 							if(fortune > 0)
 								result = new ItemStack(block.getItemDropped(blockState, random, fortune),
