@@ -29,12 +29,14 @@ public class TGTileE extends TileEntity implements ITickable, IEnergyProvider
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound tag)
+	public NBTTagCompound writeToNBT(NBTTagCompound tag)
 	{
 		super.writeToNBT(tag);
 
 		buffer.writeToNBT(tag);
 		tag.setByte("bricks", bricks);
+
+		return tag;
 	}
 
 	@Override

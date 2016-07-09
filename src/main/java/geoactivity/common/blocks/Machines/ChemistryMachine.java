@@ -2,8 +2,6 @@ package geoactivity.common.blocks.Machines;
 
 import geoactivity.common.GeoActivity;
 import geoactivity.common.blocks.Machines.ChM.ChMTileE;
-import geoactivity.common.itemblocks.MultiItemBlock;
-import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -14,13 +12,14 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class ChemistryMachine extends BaseContainerBlock
 {
 	public ChemistryMachine(String name)
 	{
-		super(Material.iron, name, "pickaxe", 3, MultiItemBlock.class);
+		super(Material.IRON, name, "pickaxe", 3);
 		this.setHardness(10.0F);
 		this.setResistance(20.0F);
 		this.setSoundType(SoundType.STONE);
@@ -63,7 +62,7 @@ public class ChemistryMachine extends BaseContainerBlock
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, BlockPos pos, IBlockState state, Block neighborBlock)
+	public void onNeighborChange(IBlockAccess world, BlockPos pos, BlockPos neighbor)
 	{
 		ChMTileE tile = (ChMTileE) world.getTileEntity(pos);
 		tile.craftRecipe();

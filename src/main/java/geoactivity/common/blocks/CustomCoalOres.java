@@ -14,7 +14,7 @@ public class CustomCoalOres extends BaseBlock
 {
 	public CustomCoalOres(String name, int level)
 	{
-		super(Material.iron, "pickaxe", level, name);
+		super(Material.IRON, "pickaxe", level, name);
 		this.setResistance(15.0F);
 		this.setSoundType(SoundType.STONE);
 	}

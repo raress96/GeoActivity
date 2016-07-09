@@ -314,7 +314,7 @@ public class ACRTileE extends BaseTileEntity
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound tagCompound)
+	public NBTTagCompound writeToNBT(NBTTagCompound tagCompound)
 	{
 		super.writeToNBT(tagCompound);
 
@@ -360,6 +360,8 @@ public class ACRTileE extends BaseTileEntity
 				tagCompound.setTag("tempneighbors2", temp1);
 			}
 		}
+
+		return tagCompound;
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -561,7 +563,7 @@ public class ACRTileE extends BaseTileEntity
 			double basefuel = 1.0 + (0.5 * perkEff);
 			double basetime = 1.0 - (0.25 * perkSpeed);
 
-			if(item == Items.coal)
+			if(item == Items.COAL)
 				return (int) (200 * basetime * basefuel); // fuel times
 			if(item == GAMod.gemLigniteCoal)
 				return (int) (1600 * basetime * basefuel);

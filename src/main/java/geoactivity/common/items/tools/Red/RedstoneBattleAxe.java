@@ -151,19 +151,19 @@ public class RedstoneBattleAxe extends BaseRedstoneTool
 
             if (side != EnumFacing.DOWN && world.isAirBlock(pos.up()))
             {
-            	 if (block == Blocks.grass)
+            	 if (block == Blocks.GRASS)
                  {
-                     return this.useHoe(stack, player, world, pos, Blocks.farmland.getDefaultState());
+                     return this.useHoe(stack, player, world, pos, Blocks.FARMLAND.getDefaultState());
                  }
 
-                 if (block == Blocks.dirt)
+                 if (block == Blocks.DIRT)
                  {
                      switch (ARedstoneBattleMiner.SwitchDirtType.TYPE_LOOKUP[iblockstate.getValue(BlockDirt.VARIANT).ordinal()])
                      {
                          case 1:
-                             return this.useHoe(stack, player, world, pos, Blocks.farmland.getDefaultState());
+                             return this.useHoe(stack, player, world, pos, Blocks.FARMLAND.getDefaultState());
                          case 2:
-                             return this.useHoe(stack, player, world, pos, Blocks.dirt.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.DIRT));
+                             return this.useHoe(stack, player, world, pos, Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.DIRT));
                      }
                  }
 			}

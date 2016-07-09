@@ -12,6 +12,7 @@ import geoactivity.common.items.tools.RMLogic.RMGUI;
 import geoactivity.common.items.tools.RMLogic.RMInventory;
 import geoactivity.common.lib.IHasName;
 import geoactivity.common.lib.IOpenableGUI;
+import geoactivity.common.lib.Reference;
 import geoactivity.common.lib.ToolsHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -42,7 +43,7 @@ public class ReinforcedMiner extends ItemTool implements IHasName, IOpenableGUI
 		this.setUnlocalizedName(name);
 		this.setCreativeTab(GeoActivity.tabMain);
 		this.setNoRepair();
-		GameRegistry.registerItem(this, name);
+		GameRegistry.register(this.setRegistryName(Reference.MOD_ID, name));
 		this.setHarvestLevel("pickaxe", GAMod.ReinforcedMaterial.getHarvestLevel());
 		this.setHarvestLevel("shovel", GAMod.ReinforcedMaterial.getHarvestLevel());
 	}

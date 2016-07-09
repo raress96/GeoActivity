@@ -6,7 +6,6 @@ import geoactivity.common.GAMod;
 import geoactivity.common.GeoActivity;
 import geoactivity.common.blocks.HardenedBrick.EnumHardenedBrick;
 import geoactivity.common.blocks.Machines.AOR.AORTileE;
-import geoactivity.common.itemblocks.MultiItemBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -36,7 +35,7 @@ public class AdvancedOreRefiner extends BaseContainerBlock
 
 	public AdvancedOreRefiner(String name)
 	{
-		super(Material.iron, name, "pickaxe", 3, MultiItemBlock.class);
+		super(Material.IRON, name, "pickaxe", 3);
 		this.setHardness(20.0F);
 		this.setResistance(20.0F);
 		this.setSoundType(SoundType.STONE);

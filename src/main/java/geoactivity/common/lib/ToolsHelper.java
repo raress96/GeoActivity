@@ -44,23 +44,23 @@ public class ToolsHelper
 			tag.setByte("damage", (byte) 0);
 			stack.setTagCompound(tag);
 		}
-		if(entity.canAttackWithItem() && stack.hasTagCompound())
+		if(entity.canBeAttackedWithItem() && stack.hasTagCompound())
 			if(!entity.hitByEntity(player))
 			{
 				int damage = stack.getTagCompound().getByte("damage") + baseDamage;
 
-				if(player.isPotionActive(MobEffects.damageBoost))
-					damage += 3 << player.getActivePotionEffect(MobEffects.damageBoost).getAmplifier();
+				if(player.isPotionActive(MobEffects.STRENGTH))
+					damage += 3 << player.getActivePotionEffect(MobEffects.STRENGTH).getAmplifier();
 
-				if(player.isPotionActive(MobEffects.weakness))
-					damage -= 2 << player.getActivePotionEffect(MobEffects.weakness).getAmplifier();
+				if(player.isPotionActive(MobEffects.WEAKNESS))
+					damage -= 2 << player.getActivePotionEffect(MobEffects.WEAKNESS).getAmplifier();
 
 				float knockback = 0;
 				float enchantDamage = 0;
 
 				if(entity instanceof EntityLivingBase)
 				{
-					 enchantDamage = EnchantmentHelper.getEnchantmentLevel(Enchantments.sharpness, player.getHeldItemMainhand());
+					 enchantDamage = EnchantmentHelper.getEnchantmentLevel(Enchantments.SHARPNESS, player.getHeldItemMainhand());
 					 knockback += EnchantmentHelper.getKnockbackModifier(player);
 				}
 
@@ -73,7 +73,7 @@ public class ToolsHelper
 				if(damage > 0 || enchantDamage > 0)
 				{
 					boolean criticalHit = player.fallDistance > 0.0F && !player.onGround && !player.isOnLadder() && !player.isInWater()
-						&& !player.isPotionActive(MobEffects.blindness)
+						&& !player.isPotionActive(MobEffects.BLINDNESS)
 						&& player.getRidingEntity() == null && entity instanceof EntityLivingBase;
 
 					if(criticalHit)
@@ -131,7 +131,7 @@ public class ToolsHelper
 								((EntityPlayer) player).onEnchantmentCritical(entity);
 
 							if(damage >= 18f)
-								((EntityPlayer) player).addStat(AchievementList.overkill);
+								((EntityPlayer) player).addStat(AchievementList.OVERKILL);
 						}
 
 						player.setLastAttacker(entity);
@@ -148,7 +148,7 @@ public class ToolsHelper
 							if(entity.isEntityAlive())
 								alertPlayerWolves((EntityPlayer) player, (EntityLivingBase) entity, true);
 
-							((EntityPlayer) player).addStat(StatList.damageDealt, damage);
+							((EntityPlayer) player).addStat(StatList.DAMAGE_DEALT, damage);
 						}
 						else
 							stack.getItem().hitEntity(stack, (EntityLivingBase) entity, player);

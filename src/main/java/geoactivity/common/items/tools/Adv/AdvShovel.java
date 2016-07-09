@@ -311,10 +311,10 @@ public class AdvShovel extends BaseGUITool
 							ItemStack result = new ItemStack(block.getItemDropped(blockState, random, 0),
 								block.quantityDropped(blockState, 0, random), block.damageDropped(blockState));
 
-							if(EnchantmentHelper.getEnchantmentLevel(Enchantments.silkTouch, stack) > 0)
+							if(EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, stack) > 0)
 								result = new ItemStack(block, 1, block.getMetaFromState(blockState));
 
-							byte fortune = (byte) EnchantmentHelper.getEnchantmentLevel(Enchantments.fortune, stack);
+							byte fortune = (byte) EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, stack);
 
 							if(fortune > 0)
 								result = new ItemStack(block.getItemDropped(blockState, random, fortune),

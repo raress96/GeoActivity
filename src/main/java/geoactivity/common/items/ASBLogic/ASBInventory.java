@@ -29,7 +29,7 @@ public class ASBInventory implements IInventory
 			tag.setBoolean("canCraft", false);
 			tag.setByte("itemdamage", (byte) 1);
 			tag.setInteger("stackSize", 0);
-			tag.setTag("resultStack", new ItemStack(Blocks.air).writeToNBT(new NBTTagCompound()));
+			tag.setTag("resultStack", new ItemStack(Blocks.AIR).writeToNBT(new NBTTagCompound()));
 			stack.setTagCompound(tag);
 		}
 		myInventory = new ItemStack[3];

@@ -22,7 +22,7 @@ public class CraftingMachine extends BaseContainerBlock
 {
 	public CraftingMachine(String name)
 	{
-		super(Material.iron, name, "pickaxe", 2);
+		super(Material.IRON, name, "pickaxe", 2);
 		this.setHardness(3.0F);
 		this.setResistance(15.0F);
 		this.setSoundType(SoundType.STONE);
