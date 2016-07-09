@@ -12,6 +12,7 @@ import geoactivity.common.items.tools.Adv.Logic.AdvTGUI;
 import geoactivity.common.items.tools.Adv.Logic.AdvTInventory;
 import geoactivity.common.lib.IHasName;
 import geoactivity.common.lib.IOpenableGUI;
+import geoactivity.common.lib.Reference;
 import geoactivity.common.lib.ToolsHelper;
 import geoactivity.common.util.BaseRedstoneTool;
 import geoactivity.common.util.GeneralHelper;
@@ -41,7 +42,7 @@ public class AdvSword extends ItemSword implements IHasName, IOpenableGUI
 		this.name = name;
 		this.setUnlocalizedName(name);
 		this.setCreativeTab(GeoActivity.tabMain);
-		GameRegistry.registerItem(this, name);
+		GameRegistry.register(this.setRegistryName(Reference.MOD_ID, name));
 	}
 
 	@Override

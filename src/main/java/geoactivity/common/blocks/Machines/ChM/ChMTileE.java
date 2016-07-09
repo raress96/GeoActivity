@@ -94,13 +94,13 @@ public class ChMTileE extends BaseTileEntity
 
 	public void craftRecipe()
 	{
-		if(worldObj.getBlockState(pos.add(0, 1, 0)).getBlock() == Blocks.coal_block && checkNeighbors())
+		if(worldObj.getBlockState(pos.add(0, 1, 0)).getBlock() == Blocks.COAL_BLOCK && checkNeighbors())
 		{
-			ItemStack inv1 = new ItemStack(Blocks.air);
+			ItemStack inv1 = new ItemStack(Blocks.AIR);
 			if(inventory[0] != null)
 				inv1 = inventory[0].copy();
 
-			ItemStack inv2 = new ItemStack(Blocks.air);
+			ItemStack inv2 = new ItemStack(Blocks.AIR);
 			if(inventory[1] != null)
 				inv2 = inventory[1].copy();
 

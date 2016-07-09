@@ -2,7 +2,6 @@ package geoactivity.common.blocks.Machines;
 
 import geoactivity.common.GeoActivity;
 import geoactivity.common.blocks.Machines.GG.GGTileE;
-import geoactivity.common.itemblocks.MultiItemBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -18,7 +17,7 @@ public class GeothermalGenerator extends BaseContainerBlock
 {
 	public GeothermalGenerator(String name)
 	{
-		super(Material.iron, name, "pickaxe", 2, MultiItemBlock.class);
+		super(Material.IRON, name, "pickaxe", 2);
 		this.setHardness(3.0F);
 		this.setResistance(15.0F);
 		this.setSoundType(SoundType.STONE);

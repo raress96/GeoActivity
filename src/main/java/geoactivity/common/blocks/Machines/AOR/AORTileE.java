@@ -340,7 +340,7 @@ public class AORTileE extends BaseTileEntity
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound tagCompound)
+	public NBTTagCompound writeToNBT(NBTTagCompound tagCompound)
 	{
 		super.writeToNBT(tagCompound);
 
@@ -383,6 +383,8 @@ public class AORTileE extends BaseTileEntity
 			}
 			tagCompound.setTag("Blocks", blockList);
 		}
+
+		return tagCompound;
 	}
 
 	@SideOnly(Side.CLIENT)

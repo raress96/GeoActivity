@@ -28,12 +28,14 @@ public class TMTileE extends TileEntity implements ITickable, IEnergyReceiver
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound tag)
+	public NBTTagCompound writeToNBT(NBTTagCompound tag)
 	{
 		super.writeToNBT(tag);
 
 		buffer.writeToNBT(tag);
 		tag.setInteger("ticksTillUpdate", ticksTillUpdate);
+
+		return tag;
 	}
 
 	@Override
@@ -65,9 +67,9 @@ public class TMTileE extends TileEntity implements ITickable, IEnergyReceiver
 				for(int k = -2;k <= 2;k++)
 				{
 					temp = this.pos.add(i, j, k);
-					if(worldObj.getBlockState(temp).getBlock() == Blocks.obsidian)
+					if(worldObj.getBlockState(temp).getBlock() == Blocks.OBSIDIAN)
 					{
-						worldObj.setBlockState(temp, Blocks.lava.getDefaultState());
+						worldObj.setBlockState(temp, Blocks.LAVA.getDefaultState());
 						buffer.modifyEnergyStored(-RFPerObsidian);
 
 						if(buffer.getEnergyStored() < RFPerObsidian)

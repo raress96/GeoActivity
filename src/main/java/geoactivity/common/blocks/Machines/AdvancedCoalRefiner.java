@@ -5,7 +5,6 @@ import java.util.Random;
 import geoactivity.common.GAMod;
 import geoactivity.common.GeoActivity;
 import geoactivity.common.blocks.Machines.ACR.ACRTileE;
-import geoactivity.common.itemblocks.MultiItemBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -32,7 +31,7 @@ public class AdvancedCoalRefiner extends BaseContainerBlock
 
 	public AdvancedCoalRefiner(String name)
 	{
-		super(Material.iron, name, "pickaxe", 2, MultiItemBlock.class);
+		super(Material.IRON, name, "pickaxe", 2);
 		this.setHardness(3.5F);
 		this.setResistance(15.0F);
 		this.setSoundType(SoundType.STONE);

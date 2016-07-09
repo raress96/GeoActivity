@@ -5,8 +5,6 @@ import java.util.Random;
 import geoactivity.common.GAMod;
 import geoactivity.common.GeoActivity;
 import geoactivity.common.blocks.Machines.AE.AETileE;
-import geoactivity.common.itemblocks.MultiItemBlock;
-import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -27,6 +25,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -39,7 +38,7 @@ public class AtomExtractor extends BaseContainerBlock
 
 	public AtomExtractor(String name)
 	{
-		super(Material.iron, name, "pickaxe", 2, MultiItemBlock.class);
+		super(Material.IRON, name, "pickaxe", 2);
 		this.setHardness(5.0F);
 		this.setResistance(20.0F);
 		this.setSoundType(SoundType.STONE);
@@ -190,7 +189,7 @@ public class AtomExtractor extends BaseContainerBlock
 
 
 	@Override
-	public void onNeighborBlockChange(World world, BlockPos pos, IBlockState state, Block neighborBlock)
+	public void onNeighborChange(IBlockAccess world, BlockPos pos, BlockPos neighbor)
 	{
 		AETileE tile = (AETileE) world.getTileEntity(pos);
 		tile.checkUpgrades();

@@ -37,7 +37,7 @@ public class CoalRefiner extends BaseContainerBlock
 
 	public CoalRefiner(String name)
 	{
-		super(Material.iron, name, "pickaxe", 2);
+		super(Material.IRON, name, "pickaxe", 2);
 		this.setHardness(3.5F);
 		this.setResistance(15.0F);
 		this.setSoundType(SoundType.STONE);

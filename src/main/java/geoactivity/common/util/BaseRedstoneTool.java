@@ -164,7 +164,7 @@ public abstract class BaseRedstoneTool extends BaseGUITool
 					this.onBlockDestroyed(stack, world, state, pos, player);
 					world.setBlockToAir(pos);
 					world.playSound(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5,
-						SoundEvents.block_stone_break, SoundCategory.BLOCKS, 1.0f,
+						SoundEvents.BLOCK_STONE_BREAK, SoundCategory.BLOCKS, 1.0f,
 						world.rand.nextFloat() * 0.1F + 0.9F, false);
 
 					return;

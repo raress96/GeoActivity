@@ -36,7 +36,7 @@ public abstract class BaseTileEntity extends TileEntity implements ITickable, IS
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound tagCompound)
+	public NBTTagCompound writeToNBT(NBTTagCompound tagCompound)
 	{
 		super.writeToNBT(tagCompound);
 
@@ -51,6 +51,8 @@ public abstract class BaseTileEntity extends TileEntity implements ITickable, IS
 			}
 		}
 		tagCompound.setTag("Inventory", itemList);
+
+		return tagCompound;
 	}
 
 	@Override

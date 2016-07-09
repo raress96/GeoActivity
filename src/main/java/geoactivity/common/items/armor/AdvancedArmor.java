@@ -9,6 +9,7 @@ import geoactivity.common.items.armor.AdvLogic.AdvAInventory;
 import geoactivity.common.items.tools.Adv.Logic.AdvTContainer;
 import geoactivity.common.lib.IHasName;
 import geoactivity.common.lib.IOpenableGUI;
+import geoactivity.common.lib.Reference;
 import geoactivity.common.util.GeneralHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -35,7 +36,7 @@ public class AdvancedArmor extends ItemArmor implements ISpecialArmor, IHasName,
 		this.name = name;
 		this.setUnlocalizedName(name);
 		this.setCreativeTab(GeoActivity.tabMain);
-		GameRegistry.registerItem(this, name);
+		GameRegistry.register(this.setRegistryName(Reference.MOD_ID, name));
 	}
 
 	@Override
@@ -50,6 +51,7 @@ public class AdvancedArmor extends ItemArmor implements ISpecialArmor, IHasName,
 		return this.getName();
 	}
 
+	@SuppressWarnings("incomplete-switch")
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List<String> list, boolean bool)
 	{
@@ -108,9 +110,10 @@ public class AdvancedArmor extends ItemArmor implements ISpecialArmor, IHasName,
 				inv.setCharge();
 			}
 		player.setActiveHand(hand);
-		return new ActionResult(EnumActionResult.PASS, stack);
+		return new ActionResult<ItemStack>(EnumActionResult.PASS, stack);
 	}
 
+	@SuppressWarnings("incomplete-switch")
 	@Override
 	public void onArmorTick(World world, EntityPlayer player, ItemStack stack)
 	{
