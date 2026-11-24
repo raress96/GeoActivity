@@ -1,6 +1,6 @@
 # GeoActivity gameplay spec (from the 1.10.2 code)
 
-Source of truth for the port. Numbers come from the 1.10.2 code on `master` (`git show master:<path>`).
+Source of truth for the port. Numbers come from the 1.10.2 code, release 2.4 (`git show 4d3b9d4:<path>`).
 Full recipe lists are not copied here; they are transcribed from the legacy recipe classes straight into datagen, and
 GameTests check the counts. Sections marked **[BUG]** / **[QUIRK]** describe existing behaviour; see the last section
 for what the port does with each.

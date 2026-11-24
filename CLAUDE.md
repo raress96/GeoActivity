@@ -11,8 +11,8 @@ touching gameplay code.
 
 - Original: MC 1.10.2, Forge 12.18.0.2010, ForgeGradle 2, Java 8, JEI 3.7, bundled CoFH RF API. Last change July 2016.
 - Target: **MC 26.3, NeoForge 26.3.0.x, ModDevGradle 2.0.x, Java 25, JEI 26.3 (31.x)**.
-- Branch: `claude/admiring-keller-ed50lr` (draft PR #7). `master` still holds the 1.10.2 code; read it with
-  `git show master:<path>`.
+- Merged into `main` through PR #7. The 1.10.2 code (release 2.4) is commit `4d3b9d4`, the last commit before the
+  merge: read it with `git show 4d3b9d4:<path>`.
 
 | Phase | Scope | State |
 |---|---|---|
@@ -123,4 +123,4 @@ multiplayer, put `online-mode=false` in `run/server/server.properties` and op th
 - Java 25, 4-space indent, `final` where useful, records for immutable data (recipes, components).
 - Registry IDs and resource paths: lowercase snake_case. Translation keys come from datagen.
 - Keep classes small and per-feature; shared behaviour in base classes only where 3+ users exist.
-- Commit per phase (or smaller), message `Port: <what>`. Don't push to `master`.
+- Commit per phase (or smaller), message `Port: <what>`. Don't push to `main` directly; go through a PR.
