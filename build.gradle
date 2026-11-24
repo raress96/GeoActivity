@@ -17,12 +17,28 @@ sourceSets.main.resources {
     exclude('src/generated/**/.cache')
 }
 
+// GameTests live in their own source set so test code never ships in the release jar.
+sourceSets {
+    gametest {
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
+    }
+}
+
+configurations {
+    gametestImplementation.extendsFrom implementation
+    gametestRuntimeOnly.extendsFrom runtimeOnly
+}
+
 repositories {
     // JEI
     maven {
         name = 'BlameJared'
         url = 'https://maven.blamejared.com'
-        content { includeGroup 'mezz.jei' }
+        content {
+            includeGroup 'mezz.jei'
+            includeGroup 'net.mezzdev.config'
+        }
     }
 }
 
@@ -39,11 +55,13 @@ neoForge {
     runs {
         client {
             client()
+            sourceSet = sourceSets.gametest
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }
 
         server {
             server()
+            sourceSet = sourceSets.gametest
             programArgument '--nogui'
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }
@@ -51,6 +69,7 @@ neoForge {
         // Runs every registered GameTest headless, then exits (non-zero on failure).
         gameTestServer {
             type = 'gameTestServer'
+            sourceSet = sourceSets.gametest
             gameDirectory = project.file('run/gametest')
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }
@@ -72,6 +91,7 @@ neoForge {
     mods {
         "${mod_id}" {
             sourceSet(sourceSets.main)
+            sourceSet(sourceSets.gametest)
         }
     }
 
@@ -82,9 +102,12 @@ neoForge {
     }
 }
 
+neoForge.addModdingDependenciesTo(sourceSets.gametest)
+
 // Present for dev runs only; not published as a dependency.
 configurations {
     runtimeClasspath.extendsFrom localRuntime
+    gametestRuntimeClasspath.extendsFrom localRuntime
 }
 
 dependencies {
