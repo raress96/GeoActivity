@@ -119,7 +119,7 @@ final class BalanceTests {
     }
 
     private static Zombie diamondZombie(GameTestHelper helper, BlockPos pos) {
-        Zombie zombie = helper.spawnWithNoFreeWill(EntityTypes.ZOMBIE, pos);
+        Zombie zombie = helper.spawnWithNoFreeWill(EntityTypes.HUSK, pos); // doesn't burn in daylight
         zombie.setItemSlot(EquipmentSlot.HEAD, new ItemStack(Items.DIAMOND_HELMET));
         zombie.setItemSlot(EquipmentSlot.CHEST, new ItemStack(Items.DIAMOND_CHESTPLATE));
         zombie.setItemSlot(EquipmentSlot.LEGS, new ItemStack(Items.DIAMOND_LEGGINGS));

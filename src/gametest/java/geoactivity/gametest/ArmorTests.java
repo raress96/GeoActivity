@@ -159,8 +159,12 @@ final class ArmorTests {
         return stack;
     }
 
+    /**
+     * A husk: a zombie that doesn't burn in daylight. Test areas are roofed with barriers, which let skylight through,
+     * so a helmetless zombie could catch fire and its 1 fire damage would eat into the next hit's hurt cooldown.
+     */
     private static Zombie zombie(GameTestHelper helper, BlockPos pos, ItemStack chest) {
-        Zombie zombie = helper.spawnWithNoFreeWill(EntityTypes.ZOMBIE, pos);
+        Zombie zombie = helper.spawnWithNoFreeWill(EntityTypes.HUSK, pos);
         zombie.setItemSlot(EquipmentSlot.CHEST, chest);
         return zombie;
     }
