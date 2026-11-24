@@ -57,6 +57,11 @@ neoForge {
             client()
             sourceSet = sourceSets.gametest
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+            // ./gradlew runClient -PquickPlay=<world> joins run/saves/<world> straight away (smoke tests)
+            if (project.hasProperty('quickPlay')) {
+                programArguments.addAll '--quickPlaySingleplayer', project.property('quickPlay').toString(),
+                        '--width', '1280', '--height', '720'
+            }
         }
 
         server {

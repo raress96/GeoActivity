@@ -7,13 +7,12 @@ License: CC BY-NC-SA 4.0.
 Gameplay reference (every number, recipe source, mechanic, known bug): **`docs/GAMEPLAY_SPEC.md`**. Read it before
 touching gameplay code.
 
-## Status: porting 1.10.2 → NeoForge 26.3 (in progress)
+## Status: ported 1.10.2 → NeoForge 26.3 (3.0.0, unreleased)
 
 - Original: MC 1.10.2, Forge 12.18.0.2010, ForgeGradle 2, Java 8, JEI 3.7, bundled CoFH RF API. Last change July 2016.
 - Target: **MC 26.3, NeoForge 26.3.0.x, ModDevGradle 2.0.x, Java 25, JEI 26.3 (31.x)**.
-- Branch: `claude/admiring-keller-ed50lr`. `master` still holds the 1.10.2 code.
-- During the port the old sources live in `legacy/` (not compiled) for side-by-side reading. Deleted in the final phase.
-  After that, use `git show master:<path>` to read the original code.
+- Branch: `claude/admiring-keller-ed50lr` (draft PR #7). `master` still holds the 1.10.2 code; read it with
+  `git show master:<path>`.
 
 | Phase | Scope | State |
 |---|---|---|
@@ -26,12 +25,13 @@ touching gameplay code.
 | 6 | Tools, perk engine, item inventories, Auto Stone Builder | done |
 | 7 | Armor | done |
 | 8 | JEI | done |
-| 9 | Delete `legacy/`, README, finalise `CHANGELOG.md` 3.0.0, version 3.0.0, smoke tests | todo |
+| 9 | Delete `legacy/`, README, finalise `CHANGELOG.md` 3.0.0, version 3.0.0, smoke tests | done |
 
 Update this table (and the layout section) as phases land.
 
-**Next up (phase 9, finish):** delete `legacy/`, update the README (still mentions NEI), finalise the `CHANGELOG.md`
-3.0.0 entry, smoke tests (`runServer` log clean, `runClient` under Xvfb with JEI loaded).
+**Next up:** Rares's manual playtest (GUI feel, multiblocks in a real world), then the balance/design pass he decides
+on (quirks are listed in `docs/GAMEPLAY_SPEC.md` §9), then release 3.0.0 (set the date in `CHANGELOG.md`).
+Possible follow-ups: JEI recipe transfer ("+" button), datapack-driven machine recipes (would let packs add recipes).
 
 ## Porting rules
 
@@ -90,7 +90,17 @@ Java 25 is provisioned by the Gradle toolchain (foojay); the system JDK (21) onl
 ./gradlew runGameTestServer    # headless GameTests; non-zero exit on failure
 ./gradlew runServer            # dedicated server (--nogui); accept EULA in run/eula.txt
 ./gradlew runClient            # dev client (JEI included at runtime)
-xvfb-run -s "-screen 0 1280x720x24" ./gradlew runClient   # headless client in a container (Mesa llvmpipe)
+./gradlew runClient -PquickPlay=<world>   # joins run/saves/<world> directly
+```
+
+Headless client in a container (Mesa llvmpipe; needs `mesa-utils`/`xdotool` only for debugging and driving it):
+26.x opens its window through SDL3 and wants an sRGB framebuffer, which Xvfb's GLX visuals lack, so force EGL. The
+NeoForge early loading window fails the same way: set `earlyWindowControl = false` in `run/config/fml.toml`.
+
+```bash
+Xvfb :99 -screen 0 1280x720x24 +extension GLX &
+DISPLAY=:99 SDL_VIDEO_FORCE_EGL=1 ./gradlew runClient -PquickPlay=smoke   # world copied from run/world after runServer
+DISPLAY=:99 import -window root shot.png                                  # screenshot (ImageMagick)
 ```
 
 ## Testing

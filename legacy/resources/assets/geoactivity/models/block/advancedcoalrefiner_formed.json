@@ -1,7 +1,0 @@
-{
-    "parent": "block/cube_top",
-    "textures": {
-        "top": "geoactivity:blocks/advancedcoalrefiner",
-        "side": "geoactivity:blocks/advancedcoalrefiner_formed"
-    }
-}

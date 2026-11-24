@@ -1,6 +1,6 @@
 # GeoActivity gameplay spec (from the 1.10.2 code)
 
-Source of truth for the port. Numbers come from the 1.10.2 code (`legacy/` during the port, `master` afterwards).
+Source of truth for the port. Numbers come from the 1.10.2 code on `master` (`git show master:<path>`).
 Full recipe lists are not copied here; they are transcribed from the legacy recipe classes straight into datagen, and
 GameTests check the counts. Sections marked **[BUG]** / **[QUIRK]** describe existing behaviour; see the last section
 for what the port does with each.
@@ -68,7 +68,7 @@ level 3 / hardness 10; AOR level 3 / hardness 20.
 
 ## 4. Vanilla-style recipes
 
-Transcribe from `GAInit.java` (legacy). Counts to verify: **34 shaped**, **4 smelting**.
+Transcribed from `GAInit.java` (1.10.2). Counts to verify: **34 shaped**, **4 smelting**.
 
 - Shaped: 7 tools (Reinforced Miner crafted at damage 498, Auto Stone Builder at 998 = "empty"), 5 blocks
   (8 hardened bricks from graphite + stone bricks + carbon stick; 8 hardened glass; graphite base; advanced brick;

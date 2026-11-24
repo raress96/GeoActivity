@@ -4,8 +4,7 @@ All notable changes to GeoActivity. Dates are given where the git history shows 
 
 ## [3.0.0] – Unreleased (Minecraft 26.3, NeoForge)
 
-Work in progress: a port of the whole mod to a current Minecraft. Gameplay is kept the same as 2.4; balance changes
-come later.
+The whole mod ported to a current Minecraft. Gameplay is kept the same as 2.4; balance changes come later.
 
 ### Changed
 - Updated to Minecraft 26.3 and NeoForge 26.3 (Java 25), from Minecraft 1.10.2 and Forge.
@@ -14,8 +13,9 @@ come later.
   `hydrogen_element_container`, `speed_perk`). **Worlds from 2.4 and earlier can't be loaded.**
 - Ore generation numbers stay the same; the old `geoactivity.cfg` is replaced by datapack overrides.
 - Recipes that used OreDictionary names now use item tags (e.g. any `c:gems/diamond`).
-- Ported so far: ores and world generation, all items, the 10 machines (including both multiblocks and the 4 energy
-  machines), all tools and their perks, the Auto Stone Builder, Reinforced and Advanced armor with armor perks.
+- Everything from 2.4 is in: ores and world generation, all items, the 10 machines (including both multiblocks and
+  the 4 energy machines), all tools and their perks, the Auto Stone Builder, Reinforced and Advanced armor with armor
+  perks.
 - Advanced armor protection works through the normal armor system now, with perks adding extra protection on top,
   so the exact numbers differ slightly from 2.4.
 - JEI support: recipe pages for the Coal Refiner, Atom Extractor, Chemistry Machine and Crafting Machine, plus
