@@ -60,6 +60,10 @@ public final class ModBlockEntities {
         event.registerBlockEntity(Capabilities.Energy.BLOCK, GEOTHERMAL_GENERATOR.get(), GeothermalGeneratorBlockEntity::energyFor);
         event.registerBlockEntity(Capabilities.Energy.BLOCK, THERMIC_MELTER.get(), (be, side) -> be.energy());
         event.registerBlockEntity(Capabilities.Energy.BLOCK, TOOL_CHARGER.get(), (be, side) -> be.energyInput());
+        // the RF miner takes FE from chargers and other mods' power items (never gives it back)
+        event.registerItem(Capabilities.Energy.ITEM, (stack, access) -> new net.neoforged.neoforge.transfer.energy.ItemAccessEnergyHandler(
+                access, ModDataComponents.ENERGY.get(), geoactivity.tool.ToolProfiles.RF_CAPACITY, geoactivity.tool.ToolProfiles.RF_MAX_INPUT, 0),
+                ModItems.ADVANCED_REDSTONE_BATTLE_MINER.get());
         // multiblocks: only while formed (every member forwards to the core's inventory)
         for (var type : java.util.List.of(ADVANCED_COAL_REFINER, ADVANCED_ORE_REFINER)) {
             event.registerBlockEntity(Capabilities.Item.BLOCK, type.get(),

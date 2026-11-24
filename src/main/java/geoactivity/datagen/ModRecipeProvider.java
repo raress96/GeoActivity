@@ -25,6 +25,7 @@ public class ModRecipeProvider extends RecipeProvider {
         blocks();
         machines();
         energyMachines();
+        tools();
         misc();
         smelting();
     }
@@ -104,6 +105,38 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('X', ModItems.CARBON_STICK.get()).define('Z', ModItems.GRAPHITE_BASE.get()).define('R', Items.REDSTONE)
                 .define('I', Blocks.IRON_BLOCK)
                 .unlockedBy("has_graphite_base", has(ModItems.GRAPHITE_BASE.get())).save(output);
+    }
+
+    private void tools() {
+        toolUpgrade(ModItems.REINFORCED_SWORD.get(), Items.IRON_SWORD, " X ", " S ", " Y ");
+        toolUpgrade(ModItems.REINFORCED_PICKAXE.get(), Items.IRON_PICKAXE, "XXX", " S ", " Y ");
+        toolUpgrade(ModItems.REINFORCED_AXE.get(), Items.IRON_AXE, "XX ", "XS ", " Y ");
+        toolUpgrade(ModItems.REINFORCED_SHOVEL.get(), Items.IRON_SHOVEL, " X ", " S ", " Y ");
+        toolUpgrade(ModItems.REINFORCED_HOE.get(), Items.IRON_HOE, "XX ", " S ", " Y ");
+        // crafted empty: the Reinforced Miner and the Auto Stone Builder need coal first
+        shaped(RecipeCategory.TOOLS, damaged(ModItems.REINFORCED_MINER.get(), 498))
+                .pattern("YXZ").pattern(" X ").pattern(" S ")
+                .define('Y', ModItems.REINFORCED_PICKAXE.get()).define('Z', ModItems.REINFORCED_SHOVEL.get())
+                .define('X', ModItems.CARBON_FIBER.get()).define('S', ModItems.CARBON_STICK.get())
+                .unlockedBy("has_reinforced_pickaxe", has(ModItems.REINFORCED_PICKAXE.get())).save(output);
+        shaped(RecipeCategory.TOOLS, damaged(ModItems.AUTO_STONE_BUILDER.get(), 998))
+                .pattern(" YZ").pattern(" XY").pattern("X  ")
+                .define('X', ModItems.CARBON_STICK.get()).define('Z', ModItems.SMALL_PRECIOUS_ALLOY_INGOT.get()).define('Y', Blocks.REDSTONE_BLOCK)
+                .unlockedBy("has_carbon_stick", has(ModItems.CARBON_STICK.get())).save(output);
+    }
+
+    private void toolUpgrade(ItemLike result, ItemLike base, String... rows) {
+        var builder = shaped(RecipeCategory.TOOLS, result);
+        for (String row : rows) {
+            builder.pattern(row);
+        }
+        builder.define('X', Items.IRON_INGOT).define('S', base).define('Y', Items.GOLD_INGOT)
+                .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT)).save(output);
+    }
+
+    private static net.minecraft.world.item.ItemStackTemplate damaged(ItemLike item, int damage) {
+        return new net.minecraft.world.item.ItemStackTemplate(item.asItem(),
+                net.minecraft.core.component.DataComponentPatch.builder().set(net.minecraft.core.component.DataComponents.DAMAGE, damage).build());
     }
 
     private void misc() {

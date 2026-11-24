@@ -7,6 +7,7 @@ import geoactivity.registry.ModCreativeTabs;
 import geoactivity.registry.ModDataComponents;
 import geoactivity.registry.ModItems;
 import geoactivity.registry.ModMenus;
+import geoactivity.tool.ToolRecipes;
 import net.minecraft.resources.Identifier;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -26,6 +27,7 @@ public final class GeoActivity {
         ModBlockEntities.BLOCK_ENTITIES.register(modBus);
         ModMenus.MENUS.register(modBus);
         modBus.addListener(ModBlockEntities::registerCapabilities);
+        ToolRecipes.register();
     }
 
     public static Identifier id(String path) {

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "X": "geoactivity:carbon_stick",
+    "Y": "minecraft:redstone_block",
+    "Z": "geoactivity:small_precious_alloy_ingot"
+  },
+  "pattern": [
+    " YZ",
+    " XY",
+    "X  "
+  ],
+  "result": {
+    "components": {
+      "minecraft:damage": 998
+    },
+    "id": "geoactivity:auto_stone_builder"
+  }
+}

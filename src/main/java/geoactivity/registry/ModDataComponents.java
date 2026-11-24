@@ -20,5 +20,14 @@ public final class ModDataComponents {
     public static final Supplier<DataComponentType<PerkData>> PERKS = COMPONENTS.registerComponentType("perks",
             b -> b.persistent(PerkData.CODEC).networkSynchronized(PerkData.STREAM_CODEC));
 
+    /** Stored FE (Advanced Redstone Battle Miner). */
+    public static final Supplier<DataComponentType<Integer>> ENERGY = COMPONENTS.registerComponentType("energy",
+            b -> b.persistent(com.mojang.serialization.Codec.INT).networkSynchronized(net.minecraft.network.codec.ByteBufCodecs.VAR_INT));
+
+    /** Auto Stone Builder: stored blocks, target and cost per placement. */
+    public static final Supplier<DataComponentType<geoactivity.tool.AutoStoneBuilderItem.State>> BUILDER_STATE =
+            COMPONENTS.registerComponentType("builder_state", b -> b.persistent(geoactivity.tool.AutoStoneBuilderItem.State.CODEC)
+                    .networkSynchronized(geoactivity.tool.AutoStoneBuilderItem.State.STREAM_CODEC));
+
     private ModDataComponents() {}
 }

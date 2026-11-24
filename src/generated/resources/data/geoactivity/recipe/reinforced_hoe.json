@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "S": "minecraft:iron_hoe",
+    "X": "minecraft:iron_ingot",
+    "Y": "minecraft:gold_ingot"
+  },
+  "pattern": [
+    "XX ",
+    " S ",
+    " Y "
+  ],
+  "result": {
+    "id": "geoactivity:reinforced_hoe"
+  }
+}

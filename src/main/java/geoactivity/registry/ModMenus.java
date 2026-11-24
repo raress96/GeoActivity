@@ -3,6 +3,8 @@ package geoactivity.registry;
 import geoactivity.GeoActivity;
 import geoactivity.machine.chemistry.ChemistryMachineMenu;
 import geoactivity.machine.crafting.CraftingMachineMenu;
+import geoactivity.tool.AutoStoneBuilderMenu;
+import geoactivity.tool.ToolMenu;
 import geoactivity.machine.energy.GeothermalGeneratorMenu;
 import geoactivity.machine.energy.ToolChargerMenu;
 import geoactivity.machine.extractor.AtomExtractorMenu;
@@ -36,6 +38,11 @@ public final class ModMenus {
             () -> IMenuTypeExtension.create((id, inv, buf) -> new GeothermalGeneratorMenu(id, inv)));
     public static final Supplier<MenuType<ToolChargerMenu>> TOOL_CHARGER = MENUS.register("tool_charger",
             () -> IMenuTypeExtension.create((id, inv, buf) -> new ToolChargerMenu(id, inv)));
+
+    public static final Supplier<MenuType<ToolMenu>> TOOL = MENUS.register("tool",
+            () -> IMenuTypeExtension.create((id, inv, buf) -> new ToolMenu(id, inv, buf.readVarInt())));
+    public static final Supplier<MenuType<AutoStoneBuilderMenu>> AUTO_STONE_BUILDER = MENUS.register("auto_stone_builder",
+            () -> IMenuTypeExtension.create((id, inv, buf) -> new AutoStoneBuilderMenu(id, inv, buf.readVarInt())));
 
     private ModMenus() {}
 }

@@ -36,6 +36,7 @@ public final class GATests {
         MachineTests.register();
         MultiblockTests.register();
         EnergyTests.register();
+        ToolTests.register();
     }
 
     private GATests() {}

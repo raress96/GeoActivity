@@ -138,7 +138,7 @@ public class CraftingMachineBlockEntity extends MachineBlockEntity {
     }
 
     /** Puts the perk from the perk slot on a perkable result and uses it up. Replaces any previous perk. */
-    static void applyPerk(ItemStack result, ItemStack perkStack) {
+    public static void applyPerk(ItemStack result, ItemStack perkStack) {
         if (perkStack.isEmpty()) {
             return;
         }

@@ -265,6 +265,11 @@ Port notes (phase 3):
   iterative flood fill (1.10.2 recursed and could overflow the stack on big lakes); the Thermic Generator re-counts
   its bricks every second (1.10.2 only on neighbour changes, so sky changes went unnoticed). The Tool Charger charges
   any item with the NeoForge energy capability (1.10.2: any CoFH RF item).
+- Tools (phase 6): Fortune/Silk Touch perks recompute the block's loot with an enchanted copy of the tool, so they
+  follow modern loot tables (1.10.2 used block methods; Auto-Smelt + Fortune now smelts the fortune-boosted drops).
+  Area/capitator blocks are broken through the player's normal block breaking (protection, events, drops, wear).
+  Tree felling is capped at 256 blocks. Damage never reaches max: tools stop at their "destroyed" threshold.
+  The RF miner stores FE in a component and shows a charge bar (1.10.2 abused the damage bar).
 - Chemistry Machine: each element group must be on its own brick (1.10.2 only enforced this for consecutive groups;
   the JEI description already said one element type per brick).
 

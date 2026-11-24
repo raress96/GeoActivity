@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "S": "geoactivity:carbon_stick",
+    "X": "geoactivity:carbon_fiber",
+    "Y": "geoactivity:reinforced_pickaxe",
+    "Z": "geoactivity:reinforced_shovel"
+  },
+  "pattern": [
+    "YXZ",
+    " X ",
+    " S "
+  ],
+  "result": {
+    "components": {
+      "minecraft:damage": 498
+    },
+    "id": "geoactivity:reinforced_miner"
+  }
+}

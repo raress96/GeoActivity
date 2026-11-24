@@ -45,15 +45,17 @@ public class ModModelProvider extends ModelProvider {
         // Flat items (everything that isn't a block item or a handheld tool)
         for (var entry : ModItems.ITEMS.getEntries()) {
             Item item = entry.get();
-            if (!(item instanceof BlockItem) && !isHandheld(item)) {
-                items.generateFlatItem(item, ModelTemplates.FLAT_ITEM);
+            if (!(item instanceof BlockItem)) {
+                items.generateFlatItem(item, isHandheld(item) ? ModelTemplates.FLAT_HANDHELD_ITEM : ModelTemplates.FLAT_ITEM);
             }
         }
     }
 
     /** Tools are rendered like vanilla tools. Filled in as tools are ported. */
     static boolean isHandheld(Item item) {
-        return false;
+        return item instanceof geoactivity.tool.PerkTool || item instanceof geoactivity.tool.AutoStoneBuilderItem
+                || item == ModItems.REINFORCED_SWORD.get() || item == ModItems.REINFORCED_PICKAXE.get() || item == ModItems.REINFORCED_AXE.get()
+                || item == ModItems.REINFORCED_SHOVEL.get() || item == ModItems.REINFORCED_HOE.get();
     }
 
     private static void energyMachines(BlockModelGenerators blocks) {

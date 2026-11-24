@@ -27,6 +27,12 @@ public class ModItemTagsProvider extends BlockTagCopyingItemTagProvider {
         // The three new coals (1.10.2 OreDict gem*Coal). Machines and tools burn these.
         tag(ModTags.Items.COALS).add(ModItems.LIGNITE_COAL.key(), ModItems.BITUMINOUS_COAL.key(),
                 ModItems.ANTHRACITE_COAL.key());
+        tag(ModTags.Items.REINFORCED_TOOL_MATERIALS);
+        tag(net.minecraft.tags.ItemTags.SWORDS).add(ModItems.REINFORCED_SWORD.key());
+        tag(net.minecraft.tags.ItemTags.PICKAXES).add(ModItems.REINFORCED_PICKAXE.key());
+        tag(net.minecraft.tags.ItemTags.AXES).add(ModItems.REINFORCED_AXE.key());
+        tag(net.minecraft.tags.ItemTags.SHOVELS).add(ModItems.REINFORCED_SHOVEL.key());
+        tag(net.minecraft.tags.ItemTags.HOES).add(ModItems.REINFORCED_HOE.key());
         var elements = tag(ModTags.Items.FILLED_ELEMENT_CONTAINERS);
         ModItems.ELEMENT_CONTAINERS.values().forEach(e -> elements.add(e.key()));
     }

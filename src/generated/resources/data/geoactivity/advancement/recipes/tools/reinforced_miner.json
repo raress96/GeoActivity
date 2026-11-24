@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_reinforced_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "geoactivity:reinforced_pickaxe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "geoactivity:reinforced_miner"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_reinforced_pickaxe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "geoactivity:reinforced_miner"
+    ]
+  }
+}

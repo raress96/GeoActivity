@@ -4,6 +4,12 @@ import geoactivity.GeoActivity;
 import geoactivity.item.DropTeleportPerkItem;
 import geoactivity.item.Element;
 import geoactivity.item.InfoBlockItem;
+import geoactivity.tool.AutoStoneBuilderItem;
+import geoactivity.tool.PerkTool;
+import geoactivity.tool.ToolProfile;
+import geoactivity.tool.ToolProfiles;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.item.ToolMaterial;
 import geoactivity.item.TooltipItem;
 import geoactivity.perk.ArmorPerk;
 import geoactivity.perk.MachinePerk;
@@ -72,7 +78,35 @@ public final class ModItems {
             p -> p.stacksTo(32));
     public static final Map<Element, DeferredItem<Item>> ELEMENT_CONTAINERS = registerElements();
 
+    // Tools (1.10.2 Reinforced material: harvest level 2 = iron tier, 500 uses, speed 8, damage 3, enchantability 18)
+    public static final ToolMaterial REINFORCED = new ToolMaterial(BlockTags.INCORRECT_FOR_IRON_TOOL, 500, 8.0F, 3.0F, 18,
+            ModTags.Items.REINFORCED_TOOL_MATERIALS);
+    public static final DeferredItem<Item> REINFORCED_SWORD = ITEMS.registerItem("reinforced_sword", Item::new, p -> p.sword(REINFORCED, 3.0F, -2.4F));
+    public static final DeferredItem<Item> REINFORCED_PICKAXE = ITEMS.registerItem("reinforced_pickaxe", Item::new, p -> p.pickaxe(REINFORCED, 1.0F, -2.8F));
+    public static final DeferredItem<Item> REINFORCED_AXE = ITEMS.registerItem("reinforced_axe", Item::new, p -> p.axe(REINFORCED, 2.0F, -3.1F));
+    public static final DeferredItem<Item> REINFORCED_SHOVEL = ITEMS.registerItem("reinforced_shovel", Item::new, p -> p.shovel(REINFORCED, 1.5F, -3.0F));
+    public static final DeferredItem<Item> REINFORCED_HOE = ITEMS.registerItem("reinforced_hoe", Item::new, p -> p.hoe(REINFORCED, -3.0F, -1.0F));
+    public static final DeferredItem<PerkTool> REINFORCED_MINER = tool("reinforced_miner", ToolProfiles.REINFORCED_MINER, false);
+    public static final DeferredItem<PerkTool> ADVANCED_SWORD = tool("advanced_sword", ToolProfiles.ADVANCED_SWORD, true);
+    public static final DeferredItem<PerkTool> ADVANCED_PICKAXE = tool("advanced_pickaxe", ToolProfiles.ADVANCED_PICKAXE, true);
+    public static final DeferredItem<PerkTool> ADVANCED_AXE = tool("advanced_axe", ToolProfiles.ADVANCED_AXE, true);
+    public static final DeferredItem<PerkTool> ADVANCED_SHOVEL = tool("advanced_shovel", ToolProfiles.ADVANCED_SHOVEL, true);
+    public static final DeferredItem<PerkTool> REDSTONE_MINER = tool("redstone_miner", ToolProfiles.REDSTONE_MINER, false);
+    public static final DeferredItem<PerkTool> REDSTONE_BATTLE_AXE = tool("redstone_battle_axe", ToolProfiles.REDSTONE_BATTLE_AXE, false);
+    public static final DeferredItem<PerkTool> REDSTONE_BATTLE_MINER = tool("redstone_battle_miner", ToolProfiles.REDSTONE_BATTLE_MINER, false);
+    public static final DeferredItem<PerkTool> ADVANCED_REDSTONE_BATTLE_MINER = tool("advanced_redstone_battle_miner",
+            ToolProfiles.ADVANCED_REDSTONE_BATTLE_MINER, false);
+    public static final DeferredItem<AutoStoneBuilderItem> AUTO_STONE_BUILDER = ITEMS.registerItem("auto_stone_builder",
+            AutoStoneBuilderItem::new, p -> p.durability(1000));
+
     private ModItems() {}
+
+    private static DeferredItem<PerkTool> tool(String name, ToolProfile profile, boolean crafted) {
+        return ITEMS.registerItem(name, p -> crafted ? new PerkTool.Crafted(p, profile) : new PerkTool(p, profile), p -> {
+            Item.Properties props = p.stacksTo(1);
+            return profile.maxDamage() > 0 ? props.durability(profile.maxDamage()) : props;
+        });
+    }
 
     public static Item toolPerk(ToolPerk perk) {
         return TOOL_PERKS.get(perk).get();

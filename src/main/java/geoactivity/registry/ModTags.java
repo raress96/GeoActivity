@@ -19,6 +19,8 @@ public final class ModTags {
         public static final TagKey<Item> COAL_ORES = TagKey.create(Registries.ITEM, GeoActivity.id("coal_ores"));
         /** Lignite, bituminous and anthracite coal. */
         public static final TagKey<Item> COALS = TagKey.create(Registries.ITEM, GeoActivity.id("coals"));
+        /** Repair material for the Reinforced tool material (empty: like 1.10.2, they can't be anvil-repaired). */
+        public static final TagKey<Item> REINFORCED_TOOL_MATERIALS = TagKey.create(Registries.ITEM, GeoActivity.id("reinforced_tool_materials"));
         public static final TagKey<Item> FILLED_ELEMENT_CONTAINERS = TagKey.create(Registries.ITEM, GeoActivity.id("filled_element_containers"));
 
         private Items() {}

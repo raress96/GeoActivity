@@ -30,6 +30,7 @@ public class ModLanguageProvider extends LanguageProvider {
         items();
         perks();
         elements();
+        tools();
     }
 
     private void blocks() {
@@ -123,6 +124,41 @@ public class ModLanguageProvider extends LanguageProvider {
         armor(ArmorPerk.PROJECTILE, "Projectile Protection Perk (Armor)", "Provides more protection against projectiles.");
         armor(ArmorPerk.NO_FALL, "No Fall Damage Perk (Armor)", "Take no damage from falling.", works[0], " - pants", " - boots");
         armor(ArmorPerk.RESPIRATION, "Respiration Perk (Armor)", "Breathe underwater.", works[0], " - helmets");
+    }
+
+    private void tools() {
+        addItem(ModItems.REINFORCED_SWORD, "Reinforced Sword");
+        addItem(ModItems.REINFORCED_PICKAXE, "Reinforced Pickaxe");
+        addItem(ModItems.REINFORCED_AXE, "Reinforced Axe");
+        addItem(ModItems.REINFORCED_SHOVEL, "Reinforced Shovel");
+        addItem(ModItems.REINFORCED_HOE, "Reinforced Hoe");
+        addItem(ModItems.REINFORCED_MINER, "Reinforced Miner");
+        addItem(ModItems.ADVANCED_SWORD, "Advanced Sword");
+        addItem(ModItems.ADVANCED_PICKAXE, "Advanced Pickaxe");
+        addItem(ModItems.ADVANCED_AXE, "Advanced Axe");
+        addItem(ModItems.ADVANCED_SHOVEL, "Advanced Shovel");
+        addItem(ModItems.REDSTONE_MINER, "Redstone Miner");
+        addItem(ModItems.REDSTONE_BATTLE_AXE, "Redstone BattleAxe");
+        addItem(ModItems.REDSTONE_BATTLE_MINER, "Redstone BattleMiner");
+        addItem(ModItems.ADVANCED_REDSTONE_BATTLE_MINER, "Advanced Redstone BattleMiner");
+        addItem(ModItems.AUTO_STONE_BUILDER, "Auto Stone Builder");
+        add("tooltip.geoactivity.destroyed", "Destroyed");
+        add("tooltip.geoactivity.energy", "Energy: %s / %s FE");
+        add("tooltip.geoactivity.blocks", "%s blocks");
+        add("tooltip.geoactivity.armor_bypass_damage", "%s Armor Bypass Damage");
+        add("tooltip.geoactivity.perk.speed", "Has extra speed! [%s]");
+        add("tooltip.geoactivity.perk.efficiency", "Uses less fuel! [%s]");
+        add("tooltip.geoactivity.perk.damage", "Deals extra damage! [%s]");
+        add("tooltip.geoactivity.perk.experience", "Gives you more experience.");
+        add("tooltip.geoactivity.perk.smelting", "Auto smelts!");
+        add("tooltip.geoactivity.perk.fortune", "Has Fortune %s enchant!");
+        add("tooltip.geoactivity.perk.silk_touch", "Has Silk-Touch enchant!");
+        add("tooltip.geoactivity.perk.radius", "Has wider mining radius! [%s]");
+        add("tooltip.geoactivity.perk.capitator", "Destroys blocks in a vertical line.");
+        add("tooltip.geoactivity.perk.no_drops", "Gives no block drops.");
+        add("tooltip.geoactivity.perk.drop_teleport", "Teleports block drops.");
+        add("tooltip.geoactivity.perk.armor_bypass", "Deals damage that bypasses armor.");
+        add("tooltip.geoactivity.perk.blank", "");
     }
 
     private void elements() {
