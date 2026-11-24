@@ -1,6 +1,7 @@
 package geoactivity.datagen;
 
 import geoactivity.GeoActivity;
+import geoactivity.item.ModFuels;
 import geoactivity.worldgen.ModWorldGen;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.LootTableProvider;
@@ -29,6 +30,7 @@ public final class DataGenerators {
                 .lootTable(new LootTableProvider.SubProviderEntry(ModBlockLootProvider::new, LootContextParamSets.BLOCK))
                 .add(Registries.FEATURE, ModWorldGen::features)
                 .add(Registries.PLACED_FEATURE, ModWorldGen::placedFeatures)
-                .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ModWorldGen::biomeModifiers);
+                .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ModWorldGen::biomeModifiers)
+                .add(Registries.CONTEXT_INT_PROVIDER, ModFuels::bootstrap);
     }
 }

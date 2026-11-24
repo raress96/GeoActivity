@@ -29,14 +29,15 @@ touching gameplay code.
 
 Update this table (and the layout section) as phases land.
 
-**Next up:** Rares's manual playtest (GUI feel, multiblocks in a real world), then the balance/design pass he decides
-on (quirks are listed in `docs/GAMEPLAY_SPEC.md` §9), then release 3.0.0 (set the date in `CHANGELOG.md`).
+**Balance pass:** done (fixed quirks and the coals as furnace fuel; see `docs/GAMEPLAY_SPEC.md` §9).
+**Next up:** Rares's manual playtest (GUI feel, multiblocks in a real world), then release 3.0.0 (set the date in
+`CHANGELOG.md`) on CurseForge, Modrinth and GitHub Releases.
 Possible follow-ups: JEI recipe transfer ("+" button), datapack-driven machine recipes (would let packs add recipes).
 
 ## Porting rules
 
-1. **Gameplay stays 1:1** with `docs/GAMEPLAY_SPEC.md`. Balance/design changes are a later, separate pass that Rares
-   decides on.
+1. **Gameplay stays 1:1** with `docs/GAMEPLAY_SPEC.md`. Balance/design changes are Rares's call; the 3.0.0 balance
+   pass is listed in the spec's §9.
 2. **Fix technical bugs** the port makes moot (GUI short overflow, coord-0 multiblock bug, localized-name checks,
    NBT wiping). **Log gameplay quirks** in the spec's "Known bugs and quirks" section instead of silently fixing them.
 3. **Don't trust memory for APIs.** NeoForge/Minecraft 26.x renamed and reworked a lot (e.g. `Identifier` instead of

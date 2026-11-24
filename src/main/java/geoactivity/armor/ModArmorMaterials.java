@@ -13,8 +13,8 @@ import net.minecraft.world.item.equipment.EquipmentAsset;
 import net.minecraft.world.item.equipment.EquipmentAssets;
 
 /**
- * 1.10.2 armor materials. Reinforced: durability factor 30, {boots 2, legs 6, chest 5, helmet 2} (legs > chest is a
- * 1.10.2 quirk, kept), enchantability 18. Advanced: factor 35, enchantability 8, toughness 2; its armor points are
+ * 1.10.2 armor materials. Reinforced: durability factor 30, {boots 2, legs 5, chest 6, helmet 2} like vanilla iron
+ * (1.10.2 read its array in the wrong order and gave legs 6 / chest 5; fixed in the 3.0.0 balance pass), enchantability 18. Advanced: factor 35, enchantability 8, toughness 2; its armor points are
  * the 1.10.2 armor-bar values 3/8/6/3 (helmet/chest/legs/boots) — its extra absorption comes from perks.
  */
 public final class ModArmorMaterials {
@@ -24,7 +24,7 @@ public final class ModArmorMaterials {
     public static final TagKey<Item> NO_REPAIR = TagKey.create(Registries.ITEM, GeoActivity.id("reinforced_tool_materials"));
 
     public static final ArmorMaterial REINFORCED = new ArmorMaterial(30,
-            Map.of(ArmorType.BOOTS, 2, ArmorType.LEGGINGS, 6, ArmorType.CHESTPLATE, 5, ArmorType.HELMET, 2, ArmorType.BODY, 5),
+            Map.of(ArmorType.BOOTS, 2, ArmorType.LEGGINGS, 5, ArmorType.CHESTPLATE, 6, ArmorType.HELMET, 2, ArmorType.BODY, 5),
             18, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, NO_REPAIR, REINFORCED_ASSET);
 
     public static final ArmorMaterial ADVANCED = new ArmorMaterial(35,

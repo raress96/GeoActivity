@@ -39,17 +39,23 @@ public final class ToolLogic {
         stack.set(DataComponents.CONTAINER, ItemContainerContents.fromItems(items));
     }
 
-    /** 1.10.2 {@code setCharge}: burn coal from the first fuel slot while the repair still fits. */
+    /**
+     * 1.10.2 {@code setCharge}: burn coal while the repair still fits, fuel slots in order. 1.10.2 only burned the
+     * first slot, so the Redstone tools' other 3 fuel slots did nothing (fixed in the 3.0.0 balance pass).
+     */
     public static void refuel(ItemStack stack, ToolProfile profile) {
         if (!profile.usesFuel() || profile.fuelSlots() == 0) {
             return;
         }
         NonNullList<ItemStack> items = inventory(stack, profile.inventorySize());
-        ItemStack coal = items.get(0);
-        int fuel = fuelValue(coal, profile, level(stack, ToolPerk.EFFICIENCY));
-        while (fuel > 0 && !coal.isEmpty() && stack.getDamageValue() - fuel > 0) {
-            stack.setDamageValue(stack.getDamageValue() - fuel);
-            coal.shrink(1);
+        int efficiency = level(stack, ToolPerk.EFFICIENCY);
+        for (int slot = 0; slot < profile.fuelSlots(); slot++) {
+            ItemStack coal = items.get(slot);
+            int fuel = fuelValue(coal, profile, efficiency);
+            while (fuel > 0 && !coal.isEmpty() && stack.getDamageValue() - fuel > 0) {
+                stack.setDamageValue(stack.getDamageValue() - fuel);
+                coal.shrink(1);
+            }
         }
         setInventory(stack, items);
     }

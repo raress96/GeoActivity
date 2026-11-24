@@ -133,7 +133,7 @@ final class ArmorTests {
         });
 
         GATests.test("reinforced_armor_values", 5, helper -> {
-            int[] expected = {2, 5, 6, 2}; // helmet, chest, legs, boots (1.10.2 order quirk: legs > chest)
+            int[] expected = {2, 6, 5, 2}; // helmet, chest, legs, boots (like vanilla iron since 3.0.0)
             Item[] pieces = {ModItems.REINFORCED_HELMET.get(), ModItems.REINFORCED_CHESTPLATE.get(),
                     ModItems.REINFORCED_LEGGINGS.get(), ModItems.REINFORCED_BOOTS.get()};
             for (int i = 0; i < pieces.length; i++) {
@@ -159,8 +159,12 @@ final class ArmorTests {
         return stack;
     }
 
+    /**
+     * A husk: a zombie that doesn't burn in daylight. Test areas are roofed with barriers, which let skylight through,
+     * so a helmetless zombie could catch fire and its 1 fire damage would eat into the next hit's hurt cooldown.
+     */
     private static Zombie zombie(GameTestHelper helper, BlockPos pos, ItemStack chest) {
-        Zombie zombie = helper.spawnWithNoFreeWill(EntityTypes.ZOMBIE, pos);
+        Zombie zombie = helper.spawnWithNoFreeWill(EntityTypes.HUSK, pos);
         zombie.setItemSlot(EquipmentSlot.CHEST, chest);
         return zombie;
     }
