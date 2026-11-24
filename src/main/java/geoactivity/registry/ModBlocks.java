@@ -1,6 +1,10 @@
 package geoactivity.registry;
 
 import geoactivity.GeoActivity;
+import geoactivity.machine.chemistry.ChemistryMachineBlock;
+import geoactivity.machine.crafting.CraftingMachineBlock;
+import geoactivity.machine.extractor.AtomExtractorBlock;
+import geoactivity.machine.refiner.CoalRefinerBlock;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DropExperienceBlock;
@@ -35,7 +39,21 @@ public final class ModBlocks {
                     .noOcclusion().isValidSpawn((s, l, pos, e) -> false).isRedstoneConductor((s, l, pos) -> false)
                     .isSuffocating((s, l, pos) -> false));
 
+    // Machines (1.10.2: iron material, pickaxe; resistance converted as above)
+    public static final DeferredBlock<CoalRefinerBlock> COAL_REFINER = BLOCKS.registerBlock("coal_refiner", CoalRefinerBlock::new,
+            p -> machine(p, 3.5F, 9.0F));
+    public static final DeferredBlock<CraftingMachineBlock> CRAFTING_MACHINE = BLOCKS.registerBlock("crafting_machine",
+            CraftingMachineBlock::new, p -> machine(p, 3.0F, 9.0F));
+    public static final DeferredBlock<AtomExtractorBlock> ATOM_EXTRACTOR = BLOCKS.registerBlock("atom_extractor",
+            AtomExtractorBlock::new, p -> machine(p, 5.0F, 12.0F));
+    public static final DeferredBlock<ChemistryMachineBlock> CHEMISTRY_MACHINE = BLOCKS.registerBlock("chemistry_machine",
+            ChemistryMachineBlock::new, p -> machine(p, 10.0F, 12.0F));
+
     private ModBlocks() {}
+
+    private static BlockBehaviour.Properties machine(BlockBehaviour.Properties p, float hardness, float resistance) {
+        return p.mapColor(MapColor.METAL).strength(hardness, resistance).requiresCorrectToolForDrops().sound(SoundType.STONE);
+    }
 
     private static DeferredBlock<DropExperienceBlock> ore(String name, float hardness) {
         return BLOCKS.registerBlock(name, p -> new DropExperienceBlock(ConstantInt.of(3), p),

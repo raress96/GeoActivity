@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "geoactivity:block/coal_refiner_front",
+    "side": "geoactivity:block/coal_refiner_side",
+    "top": "geoactivity:block/coal_refiner_top"
+  }
+}

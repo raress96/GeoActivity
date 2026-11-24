@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "W": "geoactivity:graphite_base",
+    "X": "geoactivity:small_precious_alloy_ingot",
+    "Y": "geoactivity:empty_element_container",
+    "Z": "minecraft:emerald"
+  },
+  "pattern": [
+    "XYX",
+    "YWY",
+    "XZX"
+  ],
+  "result": {
+    "id": "geoactivity:atom_extractor"
+  }
+}

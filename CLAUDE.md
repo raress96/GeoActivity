@@ -20,7 +20,7 @@ touching gameplay code.
 | 0 | CLAUDE.md, gameplay spec | done |
 | 1 | Build (MDG, wrapper, Java 25), entrypoint, registries skeleton, asset moves, GameTest/JUnit harness, CI | done |
 | 2 | Ores + worldgen, simple items/blocks, vanilla recipes, tags, loot, lang, models (datagen) | done |
-| 3 | Machine framework; Coal Refiner, Atom Extractor, Crafting Machine, Chemistry Machine | todo |
+| 3 | Machine framework; Coal Refiner, Atom Extractor, Crafting Machine, Chemistry Machine | done |
 | 4 | Multiblocks: Advanced Coal Refiner, Advanced Ore Refiner | todo |
 | 5 | Energy: Thermic Generator, Geothermal Generator, Thermic Melter, Tool Charger | todo |
 | 6 | Tools, perk engine, item inventories, Auto Stone Builder | todo |
@@ -52,10 +52,12 @@ Update this table (and the layout section) as phases land.
 - `registry/` – one `DeferredRegister` holder per kind: blocks, items, block entity types, menu types, recipe
   types/serializers, data components, creative tabs (`geoactivity`, `geoactivity_elements`).
 - `block/`, `block/entity/` – blocks and block entities (tickers, item handlers with the old sided rules).
-- `menu/` + `client/screen/` – `AbstractContainerMenu` / `AbstractContainerScreen`; item GUIs open via
+- `client/screen/` – `MachineScreen` draws the 1.10.2 GUI textures; item GUIs open via
   `player.openMenu(..., hand)`. GUI textures: `textures/gui/container/*.png` (lowercase).
-- `recipe/` – custom `RecipeType`s: `coal_refining`, `atom_extraction`, `chemistry`, `crafting_machine_shaped`,
-  `crafting_machine_shapeless`. Synced to the client for JEI.
+- `machine/` – `MachineBlock` / `MachineBlockEntity` (vanilla `WorldlyContainer`, exposed to hoppers/pipes through
+  `WorldlyContainerWrapper`) / `MachineMenu`; one sub-package per machine with its block, block entity, menu and
+  recipe table. Machine recipes are **Java tables** (`*Recipes.all()`), like 1.10.2: same on client and server, so JEI
+  reads them directly. Inputs are an item or a tag (`RecipeInput`). Making them datapack-driven is a later option.
 - `item/`, `item/tool/`, `item/armor/` – items; per-stack state lives in data components
   (`geoactivity:perks`, `geoactivity:energy`, `minecraft:container` for tool inventories, droptp target, ...).
 - `perk/` – perk definitions and the shared block-breaking/drop pipeline.

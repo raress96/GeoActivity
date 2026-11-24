@@ -23,6 +23,7 @@ public class ModRecipeProvider extends RecipeProvider {
     @Override
     protected void buildRecipes() {
         blocks();
+        machines();
         misc();
         smelting();
     }
@@ -49,6 +50,28 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('Y', ModItems.CARBON_STICK.get()).define('Z', ModItems.HARDENED_BRICK.get())
                 .define('X', ModItems.CARBON_FIBER.get()).define('W', Blocks.IRON_BLOCK)
                 .unlockedBy("has_hardened_brick", has(ModItems.HARDENED_BRICK.get())).save(output);
+    }
+
+    private void machines() {
+        shaped(RecipeCategory.DECORATIONS, ModItems.COAL_REFINER.get())
+                .pattern("XYX").pattern("WZW").pattern("XYX")
+                .define('X', Items.GOLD_INGOT).define('W', Items.IRON_INGOT).define('Y', Blocks.FURNACE).define('Z', Items.COAL)
+                .unlockedBy("has_furnace", has(Blocks.FURNACE)).save(output);
+        shaped(RecipeCategory.DECORATIONS, ModItems.CRAFTING_MACHINE.get())
+                .pattern("XYX").pattern("WZW").pattern("XUX")
+                .define('X', Items.GLOWSTONE_DUST).define('Z', ModItems.GRAPHITE_BASE.get()).define('Y', ModItems.COAL_REFINER.get())
+                .define('W', Items.DIAMOND).define('U', Items.QUARTZ)
+                .unlockedBy("has_coal_refiner", has(ModItems.COAL_REFINER.get())).save(output);
+        shaped(RecipeCategory.DECORATIONS, ModItems.ATOM_EXTRACTOR.get())
+                .pattern("XYX").pattern("YWY").pattern("XZX")
+                .define('Y', ModItems.EMPTY_ELEMENT_CONTAINER.get()).define('W', ModItems.GRAPHITE_BASE.get())
+                .define('X', ModItems.SMALL_PRECIOUS_ALLOY_INGOT.get()).define('Z', Items.EMERALD)
+                .unlockedBy("has_graphite_base", has(ModItems.GRAPHITE_BASE.get())).save(output);
+        shaped(RecipeCategory.DECORATIONS, ModItems.CHEMISTRY_MACHINE.get())
+                .pattern("XXX").pattern("WZW").pattern("XXX")
+                .define('W', ModItems.GRAPHITE_BASE.get()).define('X', ModItems.EMPTY_ELEMENT_CONTAINER.get())
+                .define('Z', ModItems.PRECIOUS_ALLOY_INGOT.get())
+                .unlockedBy("has_graphite_base", has(ModItems.GRAPHITE_BASE.get())).save(output);
     }
 
     private void misc() {

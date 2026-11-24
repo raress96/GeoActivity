@@ -252,6 +252,16 @@ Area breaking requires hardness > 0, harvest level ≤ 3, an effective tool, and
 
 ## 9. Known bugs and quirks – port decisions
 
+Port notes (phase 3):
+- Atom Extractor: LOG and LOG2 were two identical recipes; now one `#minecraft:logs` recipe (58 total).
+  Inputs with an OreDictionary name use the matching `c:` tag (e.g. `c:gems/diamond`).
+- Coal Refiner: "coal ore" input is now `c:ores/coal` (includes deepslate coal ore).
+- Crafting Machine: an interrupted craft keeps its result instead of losing it; a crafting machine broken mid-craft
+  drops the pending result. The 1.10.2 armor-efficiency branch crashed (null perk slot); fixed.
+- Chemistry Machine: each element group must be on its own brick (1.10.2 only enforced this for consecutive groups;
+  the JEI description already said one element type per brick).
+
+
 | Item | Decision |
 |---|---|
 | GUI energy short overflow (GG, TC) | fixed (technical) |

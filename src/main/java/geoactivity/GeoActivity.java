@@ -1,10 +1,12 @@
 package geoactivity;
 
 import com.mojang.logging.LogUtils;
+import geoactivity.registry.ModBlockEntities;
 import geoactivity.registry.ModBlocks;
 import geoactivity.registry.ModCreativeTabs;
 import geoactivity.registry.ModDataComponents;
 import geoactivity.registry.ModItems;
+import geoactivity.registry.ModMenus;
 import net.minecraft.resources.Identifier;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -21,6 +23,9 @@ public final class GeoActivity {
         ModItems.ITEMS.register(modBus);
         ModDataComponents.COMPONENTS.register(modBus);
         ModCreativeTabs.TABS.register(modBus);
+        ModBlockEntities.BLOCK_ENTITIES.register(modBus);
+        ModMenus.MENUS.register(modBus);
+        modBus.addListener(ModBlockEntities::registerCapabilities);
     }
 
     public static Identifier id(String path) {

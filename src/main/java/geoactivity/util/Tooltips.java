@@ -17,6 +17,9 @@ public final class Tooltips {
     private Tooltips() {}
 
     public static void shiftForInfo(Consumer<Component> out, String base, ChatFormatting firstLineStyle) {
+        if (!Language.getInstance().has(base + ".0")) {
+            return;
+        }
         if (!shiftDown.getAsBoolean()) {
             out.accept(Component.translatable("tooltip.geoactivity.hold_shift",
                     Component.translatable("tooltip.geoactivity.shift").withStyle(ChatFormatting.GREEN))

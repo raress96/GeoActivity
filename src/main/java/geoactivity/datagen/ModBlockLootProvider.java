@@ -25,6 +25,11 @@ public class ModBlockLootProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.THERMAL_HARDENED_BRICK.get());
         dropSelf(ModBlocks.HARDENED_GLASS.get());
         dropSelf(ModBlocks.GRAPHITE_BASE.get());
+
+        dropSelf(ModBlocks.COAL_REFINER.get());
+        dropSelf(ModBlocks.CRAFTING_MACHINE.get());
+        dropSelf(ModBlocks.ATOM_EXTRACTOR.get());
+        dropSelf(ModBlocks.CHEMISTRY_MACHINE.get());
     }
 
     @Override

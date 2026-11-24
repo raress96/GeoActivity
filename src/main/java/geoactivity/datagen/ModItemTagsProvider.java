@@ -25,9 +25,9 @@ public class ModItemTagsProvider extends BlockTagCopyingItemTagProvider {
         copy(Tags.BlockItems.GLASS_BLOCKS);
 
         // The three new coals (1.10.2 OreDict gem*Coal). Machines and tools burn these.
-        tag(ModTags.Items.COALS).add(ModItems.LIGNITE_COAL.getKey(), ModItems.BITUMINOUS_COAL.getKey(),
-                ModItems.ANTHRACITE_COAL.getKey());
+        tag(ModTags.Items.COALS).add(ModItems.LIGNITE_COAL.key(), ModItems.BITUMINOUS_COAL.key(),
+                ModItems.ANTHRACITE_COAL.key());
         var elements = tag(ModTags.Items.FILLED_ELEMENT_CONTAINERS);
-        ModItems.ELEMENT_CONTAINERS.values().forEach(e -> elements.add(e.getKey()));
+        ModItems.ELEMENT_CONTAINERS.values().forEach(e -> elements.add(e.key()));
     }
 }

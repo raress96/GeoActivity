@@ -33,6 +33,7 @@ public final class GATests {
     static {
         SmokeTests.register();
         ContentTests.register();
+        MachineTests.register();
     }
 
     private GATests() {}

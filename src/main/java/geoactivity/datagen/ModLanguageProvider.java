@@ -41,6 +41,15 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.THERMAL_HARDENED_BRICK, "Thermal Hardened Brick");
         addBlock(ModBlocks.HARDENED_GLASS, "Hardened Glass");
         addBlock(ModBlocks.GRAPHITE_BASE, "Graphite Base");
+
+        addBlock(ModBlocks.COAL_REFINER, "Coal Refiner");
+        addBlock(ModBlocks.CRAFTING_MACHINE, "Crafting Machine");
+        addBlock(ModBlocks.ATOM_EXTRACTOR, "Atom Extractor");
+        blockTooltip(ModBlocks.ATOM_EXTRACTOR.get(), "Upgrade the speed by placing Advanced Hardened Bricks",
+                "adjacent to it (up to a maximum of 4 bricks).");
+        addBlock(ModBlocks.CHEMISTRY_MACHINE, "Chemistry Machine");
+        blockTooltip(ModBlocks.CHEMISTRY_MACHINE.get(), "Multiblock. Requires 4 Advanced Hardened Bricks and item frames.",
+                "Check the JEI description page.");
     }
 
     private void items() {
@@ -113,6 +122,10 @@ public class ModLanguageProvider extends LanguageProvider {
     private void named(Item item, String name, String... tooltip) {
         add(item, name);
         tooltip(item, tooltip);
+    }
+
+    void blockTooltip(net.minecraft.world.level.block.Block block, String... lines) {
+        tooltipKey(block.getDescriptionId(), List.of(lines));
     }
 
     /** Lines are {@code <item description id>.tooltip.0..n}; see {@link geoactivity.util.Tooltips}. */

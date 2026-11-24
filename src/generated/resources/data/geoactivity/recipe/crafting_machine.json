@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "U": "minecraft:quartz",
+    "W": "minecraft:diamond",
+    "X": "minecraft:glowstone_dust",
+    "Y": "geoactivity:coal_refiner",
+    "Z": "geoactivity:graphite_base"
+  },
+  "pattern": [
+    "XYX",
+    "WZW",
+    "XUX"
+  ],
+  "result": {
+    "id": "geoactivity:crafting_machine"
+  }
+}

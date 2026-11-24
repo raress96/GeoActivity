@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_coal_refiner": {
+      "conditions": {
+        "items": [
+          {
+            "items": "geoactivity:coal_refiner"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "geoactivity:crafting_machine"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_coal_refiner"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "geoactivity:crafting_machine"
+    ]
+  }
+}

@@ -10,6 +10,7 @@ import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.client.data.models.model.TextureSlot;
+import net.minecraft.client.data.models.model.TexturedModel;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -28,6 +29,12 @@ public class ModModelProvider extends ModelProvider {
             blocks.createTrivialCube(block.get());
         }
         cubeTop(blocks, ModBlocks.THERMAL_HARDENED_BRICK.get());
+
+        // Machines: front texture swaps to *_front_on while working (1.10.2 "active" models)
+        blocks.createFurnace(ModBlocks.COAL_REFINER.get(), TexturedModel.ORIENTABLE_ONLY_TOP);
+        blocks.createFurnace(ModBlocks.ATOM_EXTRACTOR.get(), TexturedModel.ORIENTABLE_ONLY_TOP);
+        blocks.createTrivialBlock(ModBlocks.CRAFTING_MACHINE.get(), TexturedModel.CUBE_BOTTOM_TOP);
+        blocks.createTrivialBlock(ModBlocks.CHEMISTRY_MACHINE.get(), TexturedModel.CUBE_TOP);
 
         // Flat items (everything that isn't a block item or a handheld tool)
         for (var entry : ModItems.ITEMS.getEntries()) {

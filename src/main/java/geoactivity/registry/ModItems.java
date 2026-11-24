@@ -3,6 +3,7 @@ package geoactivity.registry;
 import geoactivity.GeoActivity;
 import geoactivity.item.DropTeleportPerkItem;
 import geoactivity.item.Element;
+import geoactivity.item.InfoBlockItem;
 import geoactivity.item.TooltipItem;
 import geoactivity.perk.ArmorPerk;
 import geoactivity.perk.MachinePerk;
@@ -30,6 +31,12 @@ public final class ModItems {
     public static final DeferredItem<BlockItem> THERMAL_HARDENED_BRICK = ITEMS.registerSimpleBlockItem(ModBlocks.THERMAL_HARDENED_BRICK);
     public static final DeferredItem<BlockItem> HARDENED_GLASS = ITEMS.registerSimpleBlockItem(ModBlocks.HARDENED_GLASS);
     public static final DeferredItem<BlockItem> GRAPHITE_BASE = ITEMS.registerSimpleBlockItem(ModBlocks.GRAPHITE_BASE);
+
+    // Machines
+    public static final DeferredItem<BlockItem> COAL_REFINER = machineItem(ModBlocks.COAL_REFINER, "coal_refiner");
+    public static final DeferredItem<BlockItem> CRAFTING_MACHINE = machineItem(ModBlocks.CRAFTING_MACHINE, "crafting_machine");
+    public static final DeferredItem<BlockItem> ATOM_EXTRACTOR = machineItem(ModBlocks.ATOM_EXTRACTOR, "atom_extractor");
+    public static final DeferredItem<BlockItem> CHEMISTRY_MACHINE = machineItem(ModBlocks.CHEMISTRY_MACHINE, "chemistry_machine");
 
     // Coal and carbon
     public static final DeferredItem<Item> LIGNITE_COAL = ITEMS.registerSimpleItem("lignite_coal");
@@ -113,6 +120,6 @@ public final class ModItems {
 
     /** Block item for a machine block, with the shift-for-info tooltip from the lang file. */
     static DeferredItem<BlockItem> machineItem(Supplier<? extends Block> block, String name) {
-        return ITEMS.registerItem(name, p -> new geoactivity.item.InfoBlockItem(block.get(), p), p -> p.useBlockDescriptionPrefix());
+        return ITEMS.registerItem(name, p -> new InfoBlockItem(block.get(), p), p -> p.useBlockDescriptionPrefix());
     }
 }
