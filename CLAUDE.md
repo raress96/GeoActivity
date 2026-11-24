@@ -25,14 +25,13 @@ touching gameplay code.
 | 5 | Energy: Thermic Generator, Geothermal Generator, Thermic Melter, Tool Charger | done |
 | 6 | Tools, perk engine, item inventories, Auto Stone Builder | done |
 | 7 | Armor | done |
-| 8 | JEI | todo |
+| 8 | JEI | done |
 | 9 | Delete `legacy/`, README, finalise `CHANGELOG.md` 3.0.0, version 3.0.0, smoke tests | todo |
 
 Update this table (and the layout section) as phases land.
 
-**Next up (phase 8, JEI):** `compat/jei/` plugin with categories for the Coal Refiner (catalysts CR + ACR), Atom
-Extractor, Chemistry Machine and Crafting Machine (shaped + shapeless, perk list), reading the `*Recipes.all()` tables,
-plus info pages for the AOR, ChM and energy machines. Then cleanup/smoke tests (phase 9).
+**Next up (phase 9, finish):** delete `legacy/`, update the README (still mentions NEI), finalise the `CHANGELOG.md`
+3.0.0 entry, smoke tests (`runServer` log clean, `runClient` under Xvfb with JEI loaded).
 
 ## Porting rules
 
@@ -73,7 +72,9 @@ plus info pages for the AOR, ChM and energy machines. Then cleanup/smoke tests (
 - `perk/` – perk enums and `PerkData`.
 - `multiblock/` – shape checks for ACR (2×2×2) and AOR (28 blocks).
 - `worldgen/` – ore features + biome modifier (datagen).
-- `datagen/` – all providers. `compat/jei/` – JEI plugin.
+- `datagen/` – all providers. `compat/jei/` – JEI plugin (`@JeiPlugin`, compile-only API): one `TexturedCategory` per
+  machine drawn from its 1.10.2 GUI texture, recipes straight from `*Recipes.all()`. Never reference it from common
+  code or GameTests (JEI is optional and client-only).
 - `src/test/java` – JUnit; GameTests under `geoactivity.gametest`.
 
 Energy is NeoForge FE (RF-compatible) through the NeoForge energy capability; the bundled `cofh/api` is gone.

@@ -277,6 +277,11 @@ Port notes (phase 3):
   `ArmorHurtEvent`: 1 with a matching perk, 2 without, 0 when destroyed. Advanced armor opens its inventory (coal +
   perk-slot GUI, like the Advanced tools) on sneak + right-click; plain right-click refuels and equips it.
   Respiration/No Fall run in the worn item's inventory tick.
+- JEI (phase 8): categories for the Coal Refiner (catalysts: Coal Refiner and Advanced Coal Refiner; the separate
+  1.10.2 ACR category showed the same recipes twice side by side), Atom Extractor, Chemistry Machine and Crafting
+  Machine (shaped + shapeless), drawn from the 1.10.2 GUI textures and read from the Java recipe tables. Click areas
+  kept. Description pages for the AOR and ChM (1.10.2 text) plus new ones for the ACR and the three no-GUI energy
+  machines. Not ported: JEI recipe transfer (the "+" button that moves items into the machine).
 - Chemistry Machine: each element group must be on its own brick (1.10.2 only enforced this for consecutive groups;
   the JEI description already said one element type per brick).
 

@@ -18,7 +18,9 @@ come later.
   machines), all tools and their perks, the Auto Stone Builder, Reinforced and Advanced armor with armor perks.
 - Advanced armor protection works through the normal armor system now, with perks adding extra protection on top,
   so the exact numbers differ slightly from 2.4.
-- Still to come: JEI support.
+- JEI support: recipe pages for the Coal Refiner, Atom Extractor, Chemistry Machine and Crafting Machine, plus
+  description pages for the multiblocks and energy machines. Moving items into a machine from JEI (the "+" button) is
+  not supported yet.
 
 ### Fixed
 - Energy values above 32k showed wrong in the Geothermal Generator and Tool Charger GUIs.
