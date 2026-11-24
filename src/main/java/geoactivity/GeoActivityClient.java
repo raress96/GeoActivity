@@ -1,5 +1,7 @@
 package geoactivity;
 
+import geoactivity.client.screen.AdvancedCoalRefinerScreen;
+import geoactivity.client.screen.AdvancedOreRefinerScreen;
 import geoactivity.client.screen.AtomExtractorScreen;
 import geoactivity.client.screen.ChemistryMachineScreen;
 import geoactivity.client.screen.CoalRefinerScreen;
@@ -26,5 +28,7 @@ public final class GeoActivityClient {
         event.register(ModMenus.CRAFTING_MACHINE.get(), CraftingMachineScreen::new);
         event.register(ModMenus.ATOM_EXTRACTOR.get(), AtomExtractorScreen::new);
         event.register(ModMenus.CHEMISTRY_MACHINE.get(), ChemistryMachineScreen::new);
+        event.register(ModMenus.ADVANCED_COAL_REFINER.get(), AdvancedCoalRefinerScreen::new);
+        event.register(ModMenus.ADVANCED_ORE_REFINER.get(), AdvancedOreRefinerScreen::new);
     }
 }

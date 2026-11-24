@@ -4,6 +4,8 @@ import geoactivity.GeoActivity;
 import geoactivity.machine.chemistry.ChemistryMachineMenu;
 import geoactivity.machine.crafting.CraftingMachineMenu;
 import geoactivity.machine.extractor.AtomExtractorMenu;
+import geoactivity.machine.orerefiner.AdvancedOreRefinerMenu;
+import geoactivity.machine.refiner.AdvancedCoalRefinerMenu;
 import geoactivity.machine.refiner.CoalRefinerMenu;
 import java.util.function.Supplier;
 import net.minecraft.core.registries.Registries;
@@ -22,6 +24,11 @@ public final class ModMenus {
             () -> IMenuTypeExtension.create((id, inv, buf) -> new AtomExtractorMenu(id, inv)));
     public static final Supplier<MenuType<ChemistryMachineMenu>> CHEMISTRY_MACHINE = MENUS.register("chemistry_machine",
             () -> IMenuTypeExtension.create((id, inv, buf) -> new ChemistryMachineMenu(id, inv)));
+
+    public static final Supplier<MenuType<AdvancedCoalRefinerMenu>> ADVANCED_COAL_REFINER = MENUS.register("advanced_coal_refiner",
+            () -> IMenuTypeExtension.create((id, inv, buf) -> new AdvancedCoalRefinerMenu(id, inv)));
+    public static final Supplier<MenuType<AdvancedOreRefinerMenu>> ADVANCED_ORE_REFINER = MENUS.register("advanced_ore_refiner",
+            () -> IMenuTypeExtension.create((id, inv, buf) -> new AdvancedOreRefinerMenu(id, inv)));
 
     private ModMenus() {}
 }

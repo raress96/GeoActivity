@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "formed=false": {
+      "model": "geoactivity:block/advanced_coal_refiner"
+    },
+    "formed=true": {
+      "model": "geoactivity:block/advanced_coal_refiner_formed"
+    }
+  }
+}

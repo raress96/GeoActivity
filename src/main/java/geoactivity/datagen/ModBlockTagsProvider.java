@@ -25,10 +25,11 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 
         // 1.10.2 harvest level 2 = iron, 3 = diamond
         tag(BlockTags.NEEDS_IRON_TOOL).add(key(ModBlocks.LIGNITE_ORE), key(ModBlocks.BITUMINOUS_ORE), key(ModBlocks.GRAPHITE_BASE),
-                key(ModBlocks.COAL_REFINER), key(ModBlocks.CRAFTING_MACHINE), key(ModBlocks.ATOM_EXTRACTOR));
+                key(ModBlocks.COAL_REFINER), key(ModBlocks.CRAFTING_MACHINE), key(ModBlocks.ATOM_EXTRACTOR),
+                key(ModBlocks.ADVANCED_COAL_REFINER));
         tag(BlockTags.NEEDS_DIAMOND_TOOL).add(key(ModBlocks.ANTHRACITE_ORE), key(ModBlocks.HARDENED_BRICK),
                 key(ModBlocks.ADVANCED_HARDENED_BRICK), key(ModBlocks.THERMAL_HARDENED_BRICK), key(ModBlocks.HARDENED_GLASS),
-                key(ModBlocks.CHEMISTRY_MACHINE));
+                key(ModBlocks.CHEMISTRY_MACHINE), key(ModBlocks.ADVANCED_ORE_REFINER));
 
         tag(ModTags.Blocks.COAL_ORES).add(key(ModBlocks.LIGNITE_ORE), key(ModBlocks.BITUMINOUS_ORE), key(ModBlocks.ANTHRACITE_ORE));
         tag(Tags.BlockItems.ORES.block()).addTag(ModTags.Blocks.COAL_ORES);

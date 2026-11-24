@@ -5,6 +5,7 @@
     "geoactivity:graphite_base",
     "geoactivity:coal_refiner",
     "geoactivity:crafting_machine",
-    "geoactivity:atom_extractor"
+    "geoactivity:atom_extractor",
+    "geoactivity:advanced_coal_refiner"
   ]
 }

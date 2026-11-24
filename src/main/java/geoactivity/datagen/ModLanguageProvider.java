@@ -50,6 +50,10 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.CHEMISTRY_MACHINE, "Chemistry Machine");
         blockTooltip(ModBlocks.CHEMISTRY_MACHINE.get(), "Multiblock. Requires 4 Advanced Hardened Bricks and item frames.",
                 "Check the JEI description page.");
+        addBlock(ModBlocks.ADVANCED_COAL_REFINER, "Advanced Coal Refiner");
+        blockTooltip(ModBlocks.ADVANCED_COAL_REFINER.get(), "Multiblock: 2x2x2");
+        addBlock(ModBlocks.ADVANCED_ORE_REFINER, "Advanced Ore Refiner");
+        blockTooltip(ModBlocks.ADVANCED_ORE_REFINER.get(), "Complicated multiblock. Check the JEI description page.");
     }
 
     private void items() {

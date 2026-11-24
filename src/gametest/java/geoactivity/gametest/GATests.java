@@ -34,6 +34,7 @@ public final class GATests {
         SmokeTests.register();
         ContentTests.register();
         MachineTests.register();
+        MultiblockTests.register();
     }
 
     private GATests() {}

@@ -258,6 +258,9 @@ Port notes (phase 3):
 - Coal Refiner: "coal ore" input is now `c:ores/coal` (includes deepslate coal ore).
 - Crafting Machine: an interrupted craft keeps its result instead of losing it; a crafting machine broken mid-craft
   drops the pending result. The 1.10.2 armor-efficiency branch crashed (null perk slot); fixed.
+- Advanced Coal Refiner / Ore Refiner: each lane only processes when its output fits (1.10.2 could overfill a
+  stack past 64). Swallowing a formed ACR cube into an Ore Refiner drops that cube's items instead of deleting them.
+  Valid ores are `c:ores` items with a furnace recipe.
 - Chemistry Machine: each element group must be on its own brick (1.10.2 only enforced this for consecutive groups;
   the JEI description already said one element type per brick).
 

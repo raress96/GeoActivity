@@ -11,6 +11,8 @@
     "geoactivity:coal_refiner",
     "geoactivity:crafting_machine",
     "geoactivity:atom_extractor",
-    "geoactivity:chemistry_machine"
+    "geoactivity:chemistry_machine",
+    "geoactivity:advanced_coal_refiner",
+    "geoactivity:advanced_ore_refiner"
   ]
 }

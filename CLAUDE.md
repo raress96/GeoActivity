@@ -21,7 +21,7 @@ touching gameplay code.
 | 1 | Build (MDG, wrapper, Java 25), entrypoint, registries skeleton, asset moves, GameTest/JUnit harness, CI | done |
 | 2 | Ores + worldgen, simple items/blocks, vanilla recipes, tags, loot, lang, models (datagen) | done |
 | 3 | Machine framework; Coal Refiner, Atom Extractor, Crafting Machine, Chemistry Machine | done |
-| 4 | Multiblocks: Advanced Coal Refiner, Advanced Ore Refiner | todo |
+| 4 | Multiblocks: Advanced Coal Refiner, Advanced Ore Refiner | done |
 | 5 | Energy: Thermic Generator, Geothermal Generator, Thermic Melter, Tool Charger | todo |
 | 6 | Tools, perk engine, item inventories, Auto Stone Builder | todo |
 | 7 | Armor | todo |

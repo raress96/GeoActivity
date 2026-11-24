@@ -5,6 +5,7 @@
     "geoactivity:advanced_hardened_brick",
     "geoactivity:thermal_hardened_brick",
     "geoactivity:hardened_glass",
-    "geoactivity:chemistry_machine"
+    "geoactivity:chemistry_machine",
+    "geoactivity:advanced_ore_refiner"
   ]
 }

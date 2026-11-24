@@ -27,8 +27,12 @@ public abstract class MachineMenu extends AbstractContainerMenu {
 
     /** Call after adding the machine slots. */
     protected void addPlayerInventory(Inventory inventory) {
+        addPlayerInventory(inventory, 84);
+    }
+
+    protected void addPlayerInventory(Inventory inventory, int top) {
         machineSlots = slots.size();
-        addStandardInventorySlots(inventory, 8, 84);
+        addStandardInventorySlots(inventory, 8, top);
     }
 
     public int data(int index) {

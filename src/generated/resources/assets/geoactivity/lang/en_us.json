@@ -1,5 +1,9 @@
 {
+  "block.geoactivity.advanced_coal_refiner": "Advanced Coal Refiner",
+  "block.geoactivity.advanced_coal_refiner.tooltip.0": "Multiblock: 2x2x2",
   "block.geoactivity.advanced_hardened_brick": "Advanced Hardened Brick",
+  "block.geoactivity.advanced_ore_refiner": "Advanced Ore Refiner",
+  "block.geoactivity.advanced_ore_refiner.tooltip.0": "Complicated multiblock. Check the JEI description page.",
   "block.geoactivity.anthracite_ore": "Anthracite Ore",
   "block.geoactivity.atom_extractor": "Atom Extractor",
   "block.geoactivity.atom_extractor.tooltip.0": "Upgrade the speed by placing Advanced Hardened Bricks",

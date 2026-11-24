@@ -4,6 +4,8 @@ import geoactivity.GeoActivity;
 import geoactivity.machine.chemistry.ChemistryMachineBlock;
 import geoactivity.machine.crafting.CraftingMachineBlock;
 import geoactivity.machine.extractor.AtomExtractorBlock;
+import geoactivity.machine.orerefiner.AdvancedOreRefinerBlock;
+import geoactivity.machine.refiner.AdvancedCoalRefinerBlock;
 import geoactivity.machine.refiner.CoalRefinerBlock;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.block.Block;
@@ -48,6 +50,11 @@ public final class ModBlocks {
             AtomExtractorBlock::new, p -> machine(p, 5.0F, 12.0F));
     public static final DeferredBlock<ChemistryMachineBlock> CHEMISTRY_MACHINE = BLOCKS.registerBlock("chemistry_machine",
             ChemistryMachineBlock::new, p -> machine(p, 10.0F, 12.0F));
+
+    public static final DeferredBlock<AdvancedCoalRefinerBlock> ADVANCED_COAL_REFINER = BLOCKS.registerBlock("advanced_coal_refiner",
+            AdvancedCoalRefinerBlock::new, p -> machine(p, 3.5F, 9.0F));
+    public static final DeferredBlock<AdvancedOreRefinerBlock> ADVANCED_ORE_REFINER = BLOCKS.registerBlock("advanced_ore_refiner",
+            AdvancedOreRefinerBlock::new, p -> machine(p, 20.0F, 12.0F));
 
     private ModBlocks() {}
 

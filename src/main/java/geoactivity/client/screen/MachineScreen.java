@@ -14,7 +14,11 @@ public abstract class MachineScreen<M extends MachineMenu> extends AbstractConta
     private final Identifier texture;
 
     protected MachineScreen(M menu, Inventory inventory, Component title, String textureName) {
-        super(menu, inventory, title);
+        this(menu, inventory, title, textureName, DEFAULT_IMAGE_HEIGHT);
+    }
+
+    protected MachineScreen(M menu, Inventory inventory, Component title, String textureName, int height) {
+        super(menu, inventory, title, DEFAULT_IMAGE_WIDTH, height);
         this.texture = GeoActivity.id("textures/gui/container/" + textureName + ".png");
     }
 

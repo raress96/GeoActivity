@@ -72,6 +72,15 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('W', ModItems.GRAPHITE_BASE.get()).define('X', ModItems.EMPTY_ELEMENT_CONTAINER.get())
                 .define('Z', ModItems.PRECIOUS_ALLOY_INGOT.get())
                 .unlockedBy("has_graphite_base", has(ModItems.GRAPHITE_BASE.get())).save(output);
+        shaped(RecipeCategory.DECORATIONS, ModItems.ADVANCED_COAL_REFINER.get(), 2)
+                .pattern("XYX").pattern("WZW").pattern("XYX")
+                .define('X', Items.IRON_INGOT).define('Z', ModItems.COAL_REFINER.get())
+                .define('Y', ModItems.SMALL_PRECIOUS_ALLOY_INGOT.get()).define('W', Items.QUARTZ)
+                .unlockedBy("has_coal_refiner", has(ModItems.COAL_REFINER.get())).save(output);
+        shaped(RecipeCategory.DECORATIONS, ModItems.ADVANCED_ORE_REFINER.get())
+                .pattern("XWX").pattern("WZW").pattern("XWX")
+                .define('W', Items.DIAMOND).define('X', Items.EMERALD).define('Z', ModItems.GRAPHITE_BASE.get())
+                .unlockedBy("has_graphite_base", has(ModItems.GRAPHITE_BASE.get())).save(output);
     }
 
     private void misc() {

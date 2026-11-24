@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "W": "minecraft:quartz",
+    "X": "minecraft:iron_ingot",
+    "Y": "geoactivity:small_precious_alloy_ingot",
+    "Z": "geoactivity:coal_refiner"
+  },
+  "pattern": [
+    "XYX",
+    "WZW",
+    "XYX"
+  ],
+  "result": {
+    "count": 2,
+    "id": "geoactivity:advanced_coal_refiner"
+  }
+}

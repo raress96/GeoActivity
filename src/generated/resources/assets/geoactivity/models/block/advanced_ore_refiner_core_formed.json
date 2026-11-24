@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_top",
+  "textures": {
+    "side": "geoactivity:block/advanced_ore_refiner_core_formed",
+    "top": "geoactivity:block/advanced_ore_refiner"
+  }
+}
