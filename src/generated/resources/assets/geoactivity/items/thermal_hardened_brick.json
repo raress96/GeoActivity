@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "geoactivity:block/thermal_hardened_brick"
+  }
+}

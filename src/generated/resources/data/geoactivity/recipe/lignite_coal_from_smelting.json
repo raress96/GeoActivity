@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 2.0,
+  "ingredient": "geoactivity:lignite_ore",
+  "result": {
+    "id": "geoactivity:lignite_coal"
+  }
+}

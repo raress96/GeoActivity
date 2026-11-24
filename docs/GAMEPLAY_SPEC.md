@@ -60,6 +60,9 @@ Overworld only (dimension 0). Per chunk: N attempts of a vein (replaces stone) a
 | Hardened glass | glass, pickaxe level 3 | 20 | 130 | cutout, not full cube |
 | Graphite base | stone, pickaxe level 2 | – | – | cutout, not full cube |
 
+Explosion resistance in 1.10.2 was `setResistance(r)` → effective r × 3 / 5; the port stores the effective value
+(ores 9, bricks 90, glass 78, graphite base 9). Graphite base hardness is 3.
+
 Machines: iron material, pickaxe. Coal Refiner level 2 / hardness 3.5; Atom Extractor hardness 5; Chemistry Machine
 level 3 / hardness 10; AOR level 3 / hardness 20.
 
@@ -72,7 +75,8 @@ Transcribe from `GAInit.java` (legacy). Counts to verify: **34 shaped**, **4 sme
   thermal brick), 10 machines (e.g. coal refiner = gold, iron, furnaces, coal), 4 reinforced armor pieces, 8 misc
   (diamond from carbon parts; 4 graphite → coal; 6 graphite → carbon fiber; 2 fiber → stick; 3 precious alloy tiers;
   8 element containers).
-- Smelting: each ore → its coal (XP 2/3/4); any filled element container → empty container.
+- Smelting: each ore → its coal (XP 2/3/4); any filled element container → empty container (XP 0.5). The latter was one
+  wildcard recipe in 1.10.2 and is 19 JSON recipes now, so the port has 13 + 3 + 19 = 35 recipes after phase 2.
 
 ## 5. Machines
 

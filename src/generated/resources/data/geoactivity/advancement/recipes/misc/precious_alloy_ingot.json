@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_small_precious_alloy": {
+      "conditions": {
+        "items": [
+          {
+            "items": "geoactivity:small_precious_alloy_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "geoactivity:precious_alloy_ingot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_small_precious_alloy"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "geoactivity:precious_alloy_ingot"
+    ]
+  }
+}

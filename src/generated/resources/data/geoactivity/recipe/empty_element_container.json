@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": "geoactivity:carbon_stick",
+    "Y": "geoactivity:carbon_fiber",
+    "Z": "geoactivity:graphite"
+  },
+  "pattern": [
+    " Y ",
+    "XZX",
+    " Y "
+  ],
+  "result": {
+    "count": 8,
+    "id": "geoactivity:empty_element_container"
+  }
+}

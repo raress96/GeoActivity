@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_top",
+  "textures": {
+    "side": "geoactivity:block/thermal_hardened_brick",
+    "top": "geoactivity:block/thermal_hardened_brick_top"
+  }
+}

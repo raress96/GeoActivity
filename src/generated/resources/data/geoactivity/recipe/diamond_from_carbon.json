@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": "geoactivity:carbon_fiber",
+    "Y": "geoactivity:carbon_stick",
+    "Z": "geoactivity:graphite"
+  },
+  "pattern": [
+    "YXY",
+    "XZX",
+    "YXY"
+  ],
+  "result": {
+    "id": "minecraft:diamond"
+  }
+}

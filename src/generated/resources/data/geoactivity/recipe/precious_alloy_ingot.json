@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": "minecraft:emerald",
+    "Y": "geoactivity:small_precious_alloy_ingot"
+  },
+  "pattern": [
+    "XYX",
+    "YXY",
+    "XYX"
+  ],
+  "result": {
+    "id": "geoactivity:precious_alloy_ingot"
+  }
+}

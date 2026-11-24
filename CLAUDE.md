@@ -18,8 +18,8 @@ touching gameplay code.
 | Phase | Scope | State |
 |---|---|---|
 | 0 | CLAUDE.md, gameplay spec | done |
-| 1 | Build (MDG, wrapper, Java 25), entrypoint, registries skeleton, asset moves, GameTest/JUnit harness, CI | todo |
-| 2 | Ores + worldgen, simple items/blocks, vanilla recipes, tags, loot, lang, models (datagen) | todo |
+| 1 | Build (MDG, wrapper, Java 25), entrypoint, registries skeleton, asset moves, GameTest/JUnit harness, CI | done |
+| 2 | Ores + worldgen, simple items/blocks, vanilla recipes, tags, loot, lang, models (datagen) | done |
 | 3 | Machine framework; Coal Refiner, Atom Extractor, Crafting Machine, Chemistry Machine | todo |
 | 4 | Multiblocks: Advanced Coal Refiner, Advanced Ore Refiner | todo |
 | 5 | Energy: Thermic Generator, Geothermal Generator, Thermic Melter, Tool Charger | todo |

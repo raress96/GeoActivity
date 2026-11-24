@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "X": "geoactivity:graphite",
+    "Y": "minecraft:stone_bricks",
+    "Z": "geoactivity:carbon_stick"
+  },
+  "pattern": [
+    "XYX",
+    "YZY",
+    "XYX"
+  ],
+  "result": {
+    "count": 8,
+    "id": "geoactivity:hardened_brick"
+  }
+}

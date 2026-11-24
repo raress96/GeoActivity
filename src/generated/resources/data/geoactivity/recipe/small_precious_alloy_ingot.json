@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": "minecraft:gold_ingot",
+    "Y": "minecraft:diamond"
+  },
+  "pattern": [
+    "X",
+    "Y",
+    "X"
+  ],
+  "result": {
+    "id": "geoactivity:small_precious_alloy_ingot"
+  }
+}

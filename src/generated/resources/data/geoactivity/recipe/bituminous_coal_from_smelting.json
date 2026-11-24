@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 3.0,
+  "ingredient": "geoactivity:bituminous_ore",
+  "result": {
+    "id": "geoactivity:bituminous_coal"
+  }
+}

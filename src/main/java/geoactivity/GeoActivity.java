@@ -3,6 +3,7 @@ package geoactivity;
 import com.mojang.logging.LogUtils;
 import geoactivity.registry.ModBlocks;
 import geoactivity.registry.ModCreativeTabs;
+import geoactivity.registry.ModDataComponents;
 import geoactivity.registry.ModItems;
 import net.minecraft.resources.Identifier;
 import net.neoforged.bus.api.IEventBus;
@@ -18,6 +19,7 @@ public final class GeoActivity {
     public GeoActivity(IEventBus modBus, ModContainer container) {
         ModBlocks.BLOCKS.register(modBus);
         ModItems.ITEMS.register(modBus);
+        ModDataComponents.COMPONENTS.register(modBus);
         ModCreativeTabs.TABS.register(modBus);
     }
 
