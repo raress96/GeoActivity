@@ -26,4 +26,9 @@ public class CraftingMachineScreen extends MachineScreen<CraftingMachineMenu> {
         }
         sprite(graphics, 62, 42, 176, 14, menu.craftProgress(40), 16);
     }
+
+    @Override
+    protected boolean showInventoryLabel() {
+        return false;
+    }
 }

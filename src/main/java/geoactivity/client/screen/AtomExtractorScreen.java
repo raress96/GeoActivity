@@ -14,4 +14,9 @@ public class AtomExtractorScreen extends MachineScreen<AtomExtractorMenu> {
     protected void drawBars(GuiGraphicsExtractor graphics) {
         sprite(graphics, 42, 30, 176, 14, menu.progress(35) + 1, 16);
     }
+
+    @Override
+    protected boolean showInventoryLabel() {
+        return false;
+    }
 }

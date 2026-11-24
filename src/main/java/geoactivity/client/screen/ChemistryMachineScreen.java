@@ -8,4 +8,9 @@ public class ChemistryMachineScreen extends MachineScreen<ChemistryMachineMenu> 
     public ChemistryMachineScreen(ChemistryMachineMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title, "chemistry_machine");
     }
+
+    @Override
+    protected boolean showInventoryLabel() {
+        return false;
+    }
 }

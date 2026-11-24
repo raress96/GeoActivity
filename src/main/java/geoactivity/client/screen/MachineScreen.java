@@ -35,6 +35,25 @@ public abstract class MachineScreen<M extends MachineMenu> extends AbstractConta
         drawBars(graphics);
     }
 
+    /**
+     * Whether to draw the "Inventory" label. 1.10.2 left it out on GUIs that have machine slots where it would go
+     * (Crafting Machine, Atom Extractor, Chemistry Machine).
+     */
+    protected boolean showInventoryLabel() {
+        return true;
+    }
+
+    @Override
+    protected void extractLabels(GuiGraphicsExtractor graphics, int mouseX, int mouseY) {
+        if (showInventoryLabel()) {
+            super.extractLabels(graphics, mouseX, mouseY);
+        } else {
+            graphics.text(font, title, titleLabelX, titleLabelY, LABEL_COLOR, false);
+        }
+    }
+
+    protected static final int LABEL_COLOR = 0xFF404040;
+
     /** Draws progress/fuel bars on top of the background. */
     protected void drawBars(GuiGraphicsExtractor graphics) {}
 
