@@ -2,6 +2,8 @@ package geoactivity.registry;
 
 import geoactivity.GeoActivity;
 import geoactivity.item.DropTeleportPerkItem;
+import geoactivity.armor.AdvancedArmorItem;
+import geoactivity.armor.ModArmorMaterials;
 import geoactivity.item.Element;
 import geoactivity.item.InfoBlockItem;
 import geoactivity.tool.AutoStoneBuilderItem;
@@ -10,6 +12,7 @@ import geoactivity.tool.ToolProfile;
 import geoactivity.tool.ToolProfiles;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.ToolMaterial;
+import net.minecraft.world.item.equipment.ArmorType;
 import geoactivity.item.TooltipItem;
 import geoactivity.perk.ArmorPerk;
 import geoactivity.perk.MachinePerk;
@@ -96,10 +99,28 @@ public final class ModItems {
     public static final DeferredItem<PerkTool> REDSTONE_BATTLE_MINER = tool("redstone_battle_miner", ToolProfiles.REDSTONE_BATTLE_MINER, false);
     public static final DeferredItem<PerkTool> ADVANCED_REDSTONE_BATTLE_MINER = tool("advanced_redstone_battle_miner",
             ToolProfiles.ADVANCED_REDSTONE_BATTLE_MINER, false);
+    // Armor
+    public static final DeferredItem<Item> REINFORCED_HELMET = reinforcedArmor("reinforced_helmet", ArmorType.HELMET);
+    public static final DeferredItem<Item> REINFORCED_CHESTPLATE = reinforcedArmor("reinforced_chestplate", ArmorType.CHESTPLATE);
+    public static final DeferredItem<Item> REINFORCED_LEGGINGS = reinforcedArmor("reinforced_leggings", ArmorType.LEGGINGS);
+    public static final DeferredItem<Item> REINFORCED_BOOTS = reinforcedArmor("reinforced_boots", ArmorType.BOOTS);
+    public static final DeferredItem<AdvancedArmorItem> ADVANCED_HELMET = advancedArmor("advanced_helmet", ArmorType.HELMET);
+    public static final DeferredItem<AdvancedArmorItem> ADVANCED_CHESTPLATE = advancedArmor("advanced_chestplate", ArmorType.CHESTPLATE);
+    public static final DeferredItem<AdvancedArmorItem> ADVANCED_LEGGINGS = advancedArmor("advanced_leggings", ArmorType.LEGGINGS);
+    public static final DeferredItem<AdvancedArmorItem> ADVANCED_BOOTS = advancedArmor("advanced_boots", ArmorType.BOOTS);
+
     public static final DeferredItem<AutoStoneBuilderItem> AUTO_STONE_BUILDER = ITEMS.registerItem("auto_stone_builder",
             AutoStoneBuilderItem::new, p -> p.durability(1000));
 
     private ModItems() {}
+
+    private static DeferredItem<Item> reinforcedArmor(String name, ArmorType type) {
+        return ITEMS.registerItem(name, Item::new, p -> p.humanoidArmor(ModArmorMaterials.REINFORCED, type));
+    }
+
+    private static DeferredItem<AdvancedArmorItem> advancedArmor(String name, ArmorType type) {
+        return ITEMS.registerItem(name, p -> new AdvancedArmorItem(p, type), p -> AdvancedArmorItem.properties(p, type));
+    }
 
     private static DeferredItem<PerkTool> tool(String name, ToolProfile profile, boolean crafted) {
         return ITEMS.registerItem(name, p -> crafted ? new PerkTool.Crafted(p, profile) : new PerkTool(p, profile), p -> {

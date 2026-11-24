@@ -40,7 +40,7 @@ import org.jspecify.annotations.Nullable;
  * with sneak + use, refuels from its first fuel slot on use, and carries perks. Area/capitator breaking and the drop
  * perks live in {@link ToolEvents}.
  */
-public class PerkTool extends Item implements NoCraftingRepair {
+public class PerkTool extends Item implements NoCraftingRepair, ProfiledItem {
     private final ToolProfile profile;
 
     public PerkTool(Properties properties, ToolProfile profile) {
@@ -48,6 +48,7 @@ public class PerkTool extends Item implements NoCraftingRepair {
         this.profile = profile;
     }
 
+    @Override
     public ToolProfile profile() {
         return profile;
     }

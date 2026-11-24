@@ -15,8 +15,10 @@ come later.
 - Ore generation numbers stay the same; the old `geoactivity.cfg` is replaced by datapack overrides.
 - Recipes that used OreDictionary names now use item tags (e.g. any `c:gems/diamond`).
 - Ported so far: ores and world generation, all items, the 10 machines (including both multiblocks and the 4 energy
-  machines), all tools and their perks, the Auto Stone Builder.
-- Still to come: Reinforced and Advanced armor, JEI support.
+  machines), all tools and their perks, the Auto Stone Builder, Reinforced and Advanced armor with armor perks.
+- Advanced armor protection works through the normal armor system now, with perks adding extra protection on top,
+  so the exact numbers differ slightly from 2.4.
+- Still to come: JEI support.
 
 ### Fixed
 - Energy values above 32k showed wrong in the Geothermal Generator and Tool Charger GUIs.

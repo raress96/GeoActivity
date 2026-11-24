@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "geoactivity:reinforced"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "geoactivity:reinforced"
+      }
+    ]
+  }
+}

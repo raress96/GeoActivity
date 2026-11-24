@@ -270,6 +270,13 @@ Port notes (phase 3):
   Area/capitator blocks are broken through the player's normal block breaking (protection, events, drops, wear).
   Tree felling is capped at 256 blocks. Damage never reaches max: tools stop at their "destroyed" threshold.
   The RF miner stores FE in a component and shows a charge bar (1.10.2 abused the damage bar).
+- Armor (phase 7): vanilla armor attributes carry the base protection. Advanced armor uses its 1.10.2 armor-bar
+  values (helmet 3, chest 8, legs 6, boots 3, toughness 2; none when destroyed) instead of the material's {4, 10, 7,
+  4}, which only fed the old `ISpecialArmor` ratio. Perks add their 1.10.2 share (General +1/+2/+1/+1, typed +2/+3/+2/
+  +2, out of 25) as an extra cut in `LivingIncomingDamageEvent`, before vanilla armor. Wear per hit comes from
+  `ArmorHurtEvent`: 1 with a matching perk, 2 without, 0 when destroyed. Advanced armor opens its inventory (coal +
+  perk-slot GUI, like the Advanced tools) on sneak + right-click; plain right-click refuels and equips it.
+  Respiration/No Fall run in the worn item's inventory tick.
 - Chemistry Machine: each element group must be on its own brick (1.10.2 only enforced this for consecutive groups;
   the JEI description already said one element type per brick).
 

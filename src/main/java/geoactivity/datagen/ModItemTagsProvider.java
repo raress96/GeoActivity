@@ -33,6 +33,10 @@ public class ModItemTagsProvider extends BlockTagCopyingItemTagProvider {
         tag(net.minecraft.tags.ItemTags.AXES).add(ModItems.REINFORCED_AXE.key());
         tag(net.minecraft.tags.ItemTags.SHOVELS).add(ModItems.REINFORCED_SHOVEL.key());
         tag(net.minecraft.tags.ItemTags.HOES).add(ModItems.REINFORCED_HOE.key());
+        tag(net.minecraft.tags.ItemTags.HEAD_ARMOR).add(ModItems.REINFORCED_HELMET.key(), ModItems.ADVANCED_HELMET.key());
+        tag(net.minecraft.tags.ItemTags.CHEST_ARMOR).add(ModItems.REINFORCED_CHESTPLATE.key(), ModItems.ADVANCED_CHESTPLATE.key());
+        tag(net.minecraft.tags.ItemTags.LEG_ARMOR).add(ModItems.REINFORCED_LEGGINGS.key(), ModItems.ADVANCED_LEGGINGS.key());
+        tag(net.minecraft.tags.ItemTags.FOOT_ARMOR).add(ModItems.REINFORCED_BOOTS.key(), ModItems.ADVANCED_BOOTS.key());
         var elements = tag(ModTags.Items.FILLED_ELEMENT_CONTAINERS);
         ModItems.ELEMENT_CONTAINERS.values().forEach(e -> elements.add(e.key()));
     }

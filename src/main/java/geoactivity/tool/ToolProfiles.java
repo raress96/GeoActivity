@@ -52,6 +52,11 @@ public final class ToolProfiles {
             BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 12.0F, -3.0F, 0, 0, NO_FUEL, 0, 1, 1, PerkSource.INVENTORY, 0, 12,
             new Limits(4, 0, 4, 4, 4), Area.LEVELS, Capitator.LOGS_OR_COLUMN, "advanced_redstone_battle_miner", RF_SLOTS);
 
+    /** Advanced Armor: same fuel and GUI as the Advanced tools; "destroyed" at max damage − 2 (checked per piece). */
+    public static final ToolProfile ADVANCED_ARMOR = new ToolProfile(Set.of(), false, 1.0F, BlockTags.INCORRECT_FOR_DIAMOND_TOOL,
+            0.0F, 0.0F, 0, 0, ADV_FUEL, 10, 0, 0, PerkSource.CRAFTED, 1, 1, Limits.SINGLE, Area.NONE, Capitator.NONE,
+            "advanced_tool", ADV_SLOTS);
+
     /** RF miner: 5M FE, 20k FE/t in, 1000 FE per use (double at radius level 3+). */
     public static final int RF_CAPACITY = 5_000_000, RF_MAX_INPUT = 20_000, RF_PER_USE = 1000;
 

@@ -159,6 +159,22 @@ public class ModLanguageProvider extends LanguageProvider {
         add("tooltip.geoactivity.perk.drop_teleport", "Teleports block drops.");
         add("tooltip.geoactivity.perk.armor_bypass", "Deals damage that bypasses armor.");
         add("tooltip.geoactivity.perk.blank", "");
+
+        addItem(ModItems.REINFORCED_HELMET, "Reinforced Helmet");
+        addItem(ModItems.REINFORCED_CHESTPLATE, "Reinforced Chestplate");
+        addItem(ModItems.REINFORCED_LEGGINGS, "Reinforced Leggings");
+        addItem(ModItems.REINFORCED_BOOTS, "Reinforced Boots");
+        addItem(ModItems.ADVANCED_HELMET, "Advanced Helmet");
+        addItem(ModItems.ADVANCED_CHESTPLATE, "Advanced Chestplate");
+        addItem(ModItems.ADVANCED_LEGGINGS, "Advanced Leggings");
+        addItem(ModItems.ADVANCED_BOOTS, "Advanced Boots");
+        add("tooltip.geoactivity.armor_perk.general", "Extra protection against all damage!");
+        add("tooltip.geoactivity.armor_perk.blast", "Extra protection against explosions!");
+        add("tooltip.geoactivity.armor_perk.fire", "Extra protection against fire damage!");
+        add("tooltip.geoactivity.armor_perk.magic", "Extra protection against magic damage!");
+        add("tooltip.geoactivity.armor_perk.projectile", "Extra protection against projectiles!");
+        add("tooltip.geoactivity.armor_perk.no_fall", "Take no fall damage.");
+        add("tooltip.geoactivity.armor_perk.respiration", "Breathe underwater.");
     }
 
     private void elements() {

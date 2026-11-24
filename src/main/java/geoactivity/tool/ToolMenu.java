@@ -26,7 +26,7 @@ public class ToolMenu extends AbstractContainerMenu {
         this.player = inventory.player;
         this.toolSlot = toolSlot;
         ItemStack tool = inventory.getItem(toolSlot);
-        this.profile = tool.getItem() instanceof PerkTool perkTool ? perkTool.profile() : ToolProfiles.REINFORCED_MINER;
+        this.profile = tool.getItem() instanceof ProfiledItem profiled ? profiled.profile() : ToolProfiles.REINFORCED_MINER;
         int size = profile.inventorySize();
         this.container = new SimpleContainer(size);
         NonNullList<ItemStack> items = ToolLogic.inventory(tool, size);
@@ -80,12 +80,17 @@ public class ToolMenu extends AbstractContainerMenu {
         };
     }
 
-    /** Advanced tools show their perk (read-only) like 1.10.2. */
+    /** Advanced tools and armor show their perk (read-only) like 1.10.2. */
     private static ItemStack installedPerk(ItemStack tool) {
         var perks = ToolLogic.perks(tool);
         for (ToolPerk perk : ToolPerk.values()) {
             if (perks.has(perk)) {
                 return new ItemStack(ModItems.toolPerk(perk));
+            }
+        }
+        for (geoactivity.perk.ArmorPerk perk : geoactivity.perk.ArmorPerk.values()) {
+            if (perks.has(perk)) {
+                return new ItemStack(ModItems.armorPerk(perk));
             }
         }
         return ItemStack.EMPTY;
@@ -98,7 +103,7 @@ public class ToolMenu extends AbstractContainerMenu {
             return;
         }
         ItemStack tool = tool();
-        if (!(tool.getItem() instanceof PerkTool)) {
+        if (!(tool.getItem() instanceof ProfiledItem)) {
             return;
         }
         NonNullList<ItemStack> items = NonNullList.withSize(container.getContainerSize(), ItemStack.EMPTY);
@@ -148,6 +153,6 @@ public class ToolMenu extends AbstractContainerMenu {
 
     @Override
     public boolean stillValid(Player player) {
-        return tool().getItem() instanceof PerkTool;
+        return tool().getItem() instanceof ProfiledItem;
     }
 }

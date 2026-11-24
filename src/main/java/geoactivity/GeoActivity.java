@@ -1,6 +1,7 @@
 package geoactivity;
 
 import com.mojang.logging.LogUtils;
+import geoactivity.armor.ArmorRecipes;
 import geoactivity.registry.ModBlockEntities;
 import geoactivity.registry.ModBlocks;
 import geoactivity.registry.ModCreativeTabs;
@@ -28,6 +29,7 @@ public final class GeoActivity {
         ModMenus.MENUS.register(modBus);
         modBus.addListener(ModBlockEntities::registerCapabilities);
         ToolRecipes.register();
+        ArmorRecipes.register();
     }
 
     public static Identifier id(String path) {

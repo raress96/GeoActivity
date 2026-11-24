@@ -26,6 +26,7 @@ public class ModRecipeProvider extends RecipeProvider {
         machines();
         energyMachines();
         tools();
+        armor();
         misc();
         smelting();
     }
@@ -123,6 +124,13 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern(" YZ").pattern(" XY").pattern("X  ")
                 .define('X', ModItems.CARBON_STICK.get()).define('Z', ModItems.SMALL_PRECIOUS_ALLOY_INGOT.get()).define('Y', Blocks.REDSTONE_BLOCK)
                 .unlockedBy("has_carbon_stick", has(ModItems.CARBON_STICK.get())).save(output);
+    }
+
+    private void armor() {
+        toolUpgrade(ModItems.REINFORCED_HELMET.get(), Items.IRON_HELMET, "YSY", "X X");
+        toolUpgrade(ModItems.REINFORCED_CHESTPLATE.get(), Items.IRON_CHESTPLATE, "X X", "YSY", "XYX");
+        toolUpgrade(ModItems.REINFORCED_LEGGINGS.get(), Items.IRON_LEGGINGS, "X X", "X X", "YSY");
+        toolUpgrade(ModItems.REINFORCED_BOOTS.get(), Items.IRON_BOOTS, "X X", "YSY");
     }
 
     private void toolUpgrade(ItemLike result, ItemLike base, String... rows) {

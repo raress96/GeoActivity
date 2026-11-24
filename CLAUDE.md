@@ -24,16 +24,15 @@ touching gameplay code.
 | 4 | Multiblocks: Advanced Coal Refiner, Advanced Ore Refiner | done |
 | 5 | Energy: Thermic Generator, Geothermal Generator, Thermic Melter, Tool Charger | done |
 | 6 | Tools, perk engine, item inventories, Auto Stone Builder | done |
-| 7 | Armor | todo |
+| 7 | Armor | done |
 | 8 | JEI | todo |
 | 9 | Delete `legacy/`, README, finalise `CHANGELOG.md` 3.0.0, version 3.0.0, smoke tests | todo |
 
 Update this table (and the layout section) as phases land.
 
-**Next up (phase 7, armor):** Reinforced + Advanced armor (`ArmorMaterial`, equipment assets from
-`textures/entity/equipment/humanoid*/`), armor perks via `LivingIncomingDamageEvent`, no-fall/respiration in the
-inventory tick, the 8 armor Crafting Machine recipes (`CraftingMachineRecipes.addProvider`, `PerkableArmor`), and the 4
-vanilla Reinforced armor recipes. Then JEI (phase 8) and cleanup/smoke tests (phase 9).
+**Next up (phase 8, JEI):** `compat/jei/` plugin with categories for the Coal Refiner (catalysts CR + ACR), Atom
+Extractor, Chemistry Machine and Crafting Machine (shaped + shapeless, perk list), reading the `*Recipes.all()` tables,
+plus info pages for the AOR, ChM and energy machines. Then cleanup/smoke tests (phase 9).
 
 ## Porting rules
 
@@ -68,6 +67,9 @@ vanilla Reinforced armor recipes. Then JEI (phase 8) and cleanup/smoke tests (ph
   `BlockDropsEvent`), `ToolMenu` the tool inventory, plus the Auto Stone Builder. Per-stack state is in data components
   (`geoactivity:perks`, `geoactivity:energy`, `geoactivity:drop_target`, `geoactivity:builder_state`,
   `minecraft:container` for tool inventories). Reinforced tools are vanilla-style items (`Item.Properties.pickaxe(...)`).
+- `armor/` – `ModArmorMaterials` (Reinforced = plain vanilla armor), `AdvancedArmorItem` (coal fuel, one perk, tool-style
+  inventory via `ProfiledItem` + `ToolMenu`), `ArmorEvents` (perk damage cut, wear), `ArmorRecipes` (Crafting Machine).
+  Equipment assets in `assets/geoactivity/equipment/`.
 - `perk/` – perk enums and `PerkData`.
 - `multiblock/` – shape checks for ACR (2×2×2) and AOR (28 blocks).
 - `worldgen/` – ore features + biome modifier (datagen).
