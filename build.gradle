@@ -57,9 +57,12 @@ neoForge {
             client()
             sourceSet = sourceSets.gametest
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
-            // ./gradlew runClient -PquickPlay=<world> joins run/saves/<world> straight away (smoke tests)
+            // Smoke tests: -PquickPlay=<world> joins run/saves/<world>, -PquickPlayServer=<host:port> joins a server
             if (project.hasProperty('quickPlay')) {
                 programArguments.addAll '--quickPlaySingleplayer', project.property('quickPlay').toString(),
+                        '--width', '1280', '--height', '720'
+            } else if (project.hasProperty('quickPlayServer')) {
+                programArguments.addAll '--quickPlayMultiplayer', project.property('quickPlayServer').toString(),
                         '--width', '1280', '--height', '720'
             }
         }
@@ -67,6 +70,8 @@ neoForge {
         server {
             server()
             sourceSet = sourceSets.gametest
+            // own directory, so a dev server and a dev client can run side by side
+            gameDirectory = project.file('run/server')
             programArgument '--nogui'
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }

@@ -22,8 +22,9 @@ public class AutoStoneBuilderScreen extends AbstractContainerScreen<AutoStoneBui
         graphics.blit(RenderPipelines.GUI_TEXTURED, TEXTURE, leftPos, topPos, 0.0F, 0.0F, imageWidth, imageHeight, 256, 256);
     }
 
+    /** 1.10.2 drew only the title, at (45, 8); an "Inventory" label would sit on the builder's left slot. */
     @Override
     protected void extractLabels(GuiGraphicsExtractor graphics, int mouseX, int mouseY) {
-        graphics.text(font, playerInventoryTitle, inventoryLabelX, inventoryLabelY, -12566464, false);
+        graphics.text(font, title, 45, 8, -12566464, false);
     }
 }

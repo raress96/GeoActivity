@@ -88,9 +88,10 @@ Java 25 is provisioned by the Gradle toolchain (foojay); the system JDK (21) onl
 ./gradlew build                # compile + unit tests + jar (build/libs/geoactivity-<ver>.jar)
 ./gradlew runData              # datagen -> src/generated/resources (commit the output)
 ./gradlew runGameTestServer    # headless GameTests; non-zero exit on failure
-./gradlew runServer            # dedicated server (--nogui); accept EULA in run/eula.txt
+./gradlew runServer            # dedicated server (--nogui) in run/server; accept EULA in run/server/eula.txt
 ./gradlew runClient            # dev client (JEI included at runtime)
 ./gradlew runClient -PquickPlay=<world>   # joins run/saves/<world> directly
+./gradlew runClient -PquickPlayServer=localhost:25565   # joins the dev server (run it alongside)
 ```
 
 Headless client in a container (Mesa llvmpipe; needs `mesa-utils`/`xdotool` only for debugging and driving it):
@@ -102,6 +103,11 @@ Xvfb :99 -screen 0 1280x720x24 +extension GLX &
 DISPLAY=:99 SDL_VIDEO_FORCE_EGL=1 ./gradlew runClient -PquickPlay=smoke   # world copied from run/world after runServer
 DISPLAY=:99 import -window root shot.png                                  # screenshot (ImageMagick)
 ```
+
+Driving it: `xdotool` for keys/clicks; aim with `/tp @s x y z yaw pitch` (don't move the mouse in-game). For
+multiplayer, put `online-mode=false` in `run/server/server.properties` and op the dev player in `run/server/ops.json`
+(offline UUID of `Dev`). Long setups go in a datapack function (`world/datapacks/<name>/data/<ns>/function/*.mcfunction`,
+`pack.mcmeta` with `min_format`/`max_format` 121) run with `/function`; typing many chat commands drops characters.
 
 ## Testing
 
