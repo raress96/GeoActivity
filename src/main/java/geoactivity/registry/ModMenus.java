@@ -1,0 +1,48 @@
+package geoactivity.registry;
+
+import geoactivity.GeoActivity;
+import geoactivity.machine.chemistry.ChemistryMachineMenu;
+import geoactivity.machine.crafting.CraftingMachineMenu;
+import geoactivity.tool.AutoStoneBuilderMenu;
+import geoactivity.tool.ToolMenu;
+import geoactivity.machine.energy.GeothermalGeneratorMenu;
+import geoactivity.machine.energy.ToolChargerMenu;
+import geoactivity.machine.extractor.AtomExtractorMenu;
+import geoactivity.machine.orerefiner.AdvancedOreRefinerMenu;
+import geoactivity.machine.refiner.AdvancedCoalRefinerMenu;
+import geoactivity.machine.refiner.CoalRefinerMenu;
+import java.util.function.Supplier;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.world.inventory.MenuType;
+import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
+public final class ModMenus {
+    public static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU, GeoActivity.MOD_ID);
+
+    public static final Supplier<MenuType<CoalRefinerMenu>> COAL_REFINER = MENUS.register("coal_refiner",
+            () -> IMenuTypeExtension.create((id, inv, buf) -> new CoalRefinerMenu(id, inv)));
+    public static final Supplier<MenuType<CraftingMachineMenu>> CRAFTING_MACHINE = MENUS.register("crafting_machine",
+            () -> IMenuTypeExtension.create((id, inv, buf) -> new CraftingMachineMenu(id, inv)));
+    public static final Supplier<MenuType<AtomExtractorMenu>> ATOM_EXTRACTOR = MENUS.register("atom_extractor",
+            () -> IMenuTypeExtension.create((id, inv, buf) -> new AtomExtractorMenu(id, inv)));
+    public static final Supplier<MenuType<ChemistryMachineMenu>> CHEMISTRY_MACHINE = MENUS.register("chemistry_machine",
+            () -> IMenuTypeExtension.create((id, inv, buf) -> new ChemistryMachineMenu(id, inv)));
+
+    public static final Supplier<MenuType<AdvancedCoalRefinerMenu>> ADVANCED_COAL_REFINER = MENUS.register("advanced_coal_refiner",
+            () -> IMenuTypeExtension.create((id, inv, buf) -> new AdvancedCoalRefinerMenu(id, inv)));
+    public static final Supplier<MenuType<AdvancedOreRefinerMenu>> ADVANCED_ORE_REFINER = MENUS.register("advanced_ore_refiner",
+            () -> IMenuTypeExtension.create((id, inv, buf) -> new AdvancedOreRefinerMenu(id, inv)));
+
+    public static final Supplier<MenuType<GeothermalGeneratorMenu>> GEOTHERMAL_GENERATOR = MENUS.register("geothermal_generator",
+            () -> IMenuTypeExtension.create((id, inv, buf) -> new GeothermalGeneratorMenu(id, inv)));
+    public static final Supplier<MenuType<ToolChargerMenu>> TOOL_CHARGER = MENUS.register("tool_charger",
+            () -> IMenuTypeExtension.create((id, inv, buf) -> new ToolChargerMenu(id, inv)));
+
+    public static final Supplier<MenuType<ToolMenu>> TOOL = MENUS.register("tool",
+            () -> IMenuTypeExtension.create((id, inv, buf) -> new ToolMenu(id, inv, buf.readVarInt())));
+    public static final Supplier<MenuType<AutoStoneBuilderMenu>> AUTO_STONE_BUILDER = MENUS.register("auto_stone_builder",
+            () -> IMenuTypeExtension.create((id, inv, buf) -> new AutoStoneBuilderMenu(id, inv, buf.readVarInt())));
+
+    private ModMenus() {}
+}

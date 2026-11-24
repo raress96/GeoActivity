@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "geoactivity:item/carbon_ore_cutter"
+  }
+}

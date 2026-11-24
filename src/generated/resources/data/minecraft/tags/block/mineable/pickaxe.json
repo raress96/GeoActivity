@@ -1,0 +1,22 @@
+{
+  "values": [
+    "geoactivity:lignite_ore",
+    "geoactivity:bituminous_ore",
+    "geoactivity:anthracite_ore",
+    "geoactivity:hardened_brick",
+    "geoactivity:advanced_hardened_brick",
+    "geoactivity:thermal_hardened_brick",
+    "geoactivity:hardened_glass",
+    "geoactivity:graphite_base",
+    "geoactivity:coal_refiner",
+    "geoactivity:crafting_machine",
+    "geoactivity:atom_extractor",
+    "geoactivity:chemistry_machine",
+    "geoactivity:advanced_coal_refiner",
+    "geoactivity:advanced_ore_refiner",
+    "geoactivity:thermic_generator",
+    "geoactivity:tool_charger",
+    "geoactivity:geothermal_generator",
+    "geoactivity:thermic_melter"
+  ]
+}

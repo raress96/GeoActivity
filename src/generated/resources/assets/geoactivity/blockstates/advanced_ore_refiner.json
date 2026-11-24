@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "core=false,formed=false": {
+      "model": "geoactivity:block/advanced_ore_refiner_formed"
+    },
+    "core=false,formed=true": {
+      "model": "geoactivity:block/advanced_ore_refiner_formed"
+    },
+    "core=true,formed=false": {
+      "model": "geoactivity:block/advanced_ore_refiner"
+    },
+    "core=true,formed=true": {
+      "model": "geoactivity:block/advanced_ore_refiner_core_formed"
+    }
+  }
+}

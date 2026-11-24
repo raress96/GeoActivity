@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_graphite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "geoactivity:graphite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "geoactivity:carbon_fiber"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_graphite"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "geoactivity:carbon_fiber"
+    ]
+  }
+}

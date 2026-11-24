@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 4.0,
+  "ingredient": "geoactivity:anthracite_ore",
+  "result": {
+    "id": "geoactivity:anthracite_coal"
+  }
+}

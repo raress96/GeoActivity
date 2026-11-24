@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_carbon_stick": {
+      "conditions": {
+        "items": [
+          {
+            "items": "geoactivity:carbon_stick"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "geoactivity:diamond_from_carbon"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_carbon_stick"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "geoactivity:diamond_from_carbon"
+    ]
+  }
+}

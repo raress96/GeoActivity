@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "geoactivity:block/tool_charger"
+    }
+  }
+}

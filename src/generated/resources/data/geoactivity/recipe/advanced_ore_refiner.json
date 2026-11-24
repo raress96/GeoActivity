@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "W": "minecraft:diamond",
+    "X": "minecraft:emerald",
+    "Z": "geoactivity:graphite_base"
+  },
+  "pattern": [
+    "XWX",
+    "WZW",
+    "XWX"
+  ],
+  "result": {
+    "id": "geoactivity:advanced_ore_refiner"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": "geoactivity:carbon_fiber"
+  },
+  "pattern": [
+    "X",
+    "X"
+  ],
+  "result": {
+    "id": "geoactivity:carbon_stick"
+  }
+}

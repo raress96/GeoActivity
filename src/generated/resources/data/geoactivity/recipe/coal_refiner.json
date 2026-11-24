@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "W": "minecraft:iron_ingot",
+    "X": "minecraft:gold_ingot",
+    "Y": "minecraft:furnace",
+    "Z": "minecraft:coal"
+  },
+  "pattern": [
+    "XYX",
+    "WZW",
+    "XYX"
+  ],
+  "result": {
+    "id": "geoactivity:coal_refiner"
+  }
+}

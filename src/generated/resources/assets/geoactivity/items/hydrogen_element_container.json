@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "geoactivity:item/hydrogen_element_container"
+  }
+}

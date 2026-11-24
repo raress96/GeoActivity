@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sodium_element_container": {
+      "conditions": {
+        "items": [
+          {
+            "items": "geoactivity:sodium_element_container"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "geoactivity:empty_element_container_from_sodium"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_sodium_element_container"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "geoactivity:empty_element_container_from_sodium"
+    ]
+  }
+}

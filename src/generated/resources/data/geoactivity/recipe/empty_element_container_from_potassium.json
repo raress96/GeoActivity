@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 0.5,
+  "ingredient": "geoactivity:potassium_element_container",
+  "result": {
+    "id": "geoactivity:empty_element_container"
+  }
+}

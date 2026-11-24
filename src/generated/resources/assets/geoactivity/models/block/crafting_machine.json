@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "geoactivity:block/crafting_machine_bottom",
+    "side": "geoactivity:block/crafting_machine_side",
+    "top": "geoactivity:block/crafting_machine_top"
+  }
+}

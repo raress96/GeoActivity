@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "W": "minecraft:iron_block",
+    "X": "geoactivity:carbon_fiber",
+    "Y": "geoactivity:carbon_stick",
+    "Z": "geoactivity:hardened_brick"
+  },
+  "pattern": [
+    " W ",
+    "ZYZ",
+    "XXX"
+  ],
+  "result": {
+    "id": "geoactivity:thermal_hardened_brick"
+  }
+}

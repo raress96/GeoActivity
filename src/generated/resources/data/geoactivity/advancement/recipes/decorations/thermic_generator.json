@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_graphite_base": {
+      "conditions": {
+        "items": [
+          {
+            "items": "geoactivity:graphite_base"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "geoactivity:thermic_generator"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_graphite_base"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "geoactivity:thermic_generator"
+    ]
+  }
+}

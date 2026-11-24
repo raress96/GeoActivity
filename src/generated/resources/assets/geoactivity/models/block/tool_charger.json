@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_top",
+  "textures": {
+    "side": "geoactivity:block/tool_charger_side",
+    "top": "geoactivity:block/tool_charger_top"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "geoactivity:item/phosphorus_element_container"
+  }
+}

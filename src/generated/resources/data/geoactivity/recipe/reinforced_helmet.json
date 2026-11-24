@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "S": "minecraft:iron_helmet",
+    "X": "minecraft:iron_ingot",
+    "Y": "minecraft:gold_ingot"
+  },
+  "pattern": [
+    "YSY",
+    "X X"
+  ],
+  "result": {
+    "id": "geoactivity:reinforced_helmet"
+  }
+}

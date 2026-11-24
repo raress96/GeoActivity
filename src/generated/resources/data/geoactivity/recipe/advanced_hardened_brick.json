@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "X": "minecraft:gold_ingot",
+    "Y": "geoactivity:carbon_stick",
+    "Z": "geoactivity:hardened_brick"
+  },
+  "pattern": [
+    "XYX",
+    "ZZZ",
+    "XYX"
+  ],
+  "result": {
+    "id": "geoactivity:advanced_hardened_brick"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "geoactivity:block/chemistry_machine"
+    }
+  }
+}

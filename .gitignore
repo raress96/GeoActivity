@@ -1,85 +1,44 @@
-/*.class
-/dist
-/download
-/push.sh
-/remotebuild.py
-/libs
+### Gradle ###
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/**/build/
 
-## Gradle
-/.gradle
-/build
-/eclipse
-/gradlew.bat
-/gradlew
-
-## ForgeGradle
-/run
-/out
-
-## Idea
+### IntelliJ IDEA ###
+.idea/
+*.iws
 *.iml
 *.ipr
-*.iws
+out/
+!**/src/**/out/
 
-## Eclipse
-/.settings
-/.metadata
-/.classpath
-/.project
-/bin
-/.idea
-/client/
-/Server/
-/classes/
-/GeoActivity_Client.launch
-/GeoActivity_Server.launch
+.run/
 
-## misc
-/TCDEOBF.jar*
+### Eclipse ###
+.apt_generated
+.classpath
+.eclipse/
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/**/bin/
 
-## Ignore OS cache files
-/*.DS_Store
-/_MACOSX
-/Thumbs.db
+### VS Code ###
+.vscode/
 
-## Ignore unnecessary files
-/*.log
-/*.lck
+### Mac OS ###
+.DS_Store
 
-## Forge
-/CREDITS-fml.txt
-/LICENSE-fml.txt
-/MinecraftForge-Credits.txt
-/MinecraftForge-License.txt
-/lib
+### Minecraft Modding ###
+run/
+!**/src/**/run/
+**/src/generated/**/.cache/
+repo/
+!**/src/**/repo/
 
-##Minecraft
-/options.txt
-/saves
-/logs
-/config
-/crash-reports
-/mods/
-/reports/
-/recipes/
-/dumps/
-/*.zip
-/world/
-/screenshots/
-/banned-ips.json
-/banned-ips.txt.converted
-/banned-players.json
-/banned-players.txt.converted
-/eula.txt
-/asm/
-/structures/
-/ops.json
-/ops.txt.converted
-/resourcepacks
-/server.properties
-/servers.dat
-/CoroPets
-/usercache.json
-/usernamecache.json
-/white-list.txt.converted
-/whitelist.json
+### Dev runs ###
+run-*/
+*.log

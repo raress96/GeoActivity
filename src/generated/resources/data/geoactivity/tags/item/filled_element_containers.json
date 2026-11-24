@@ -1,0 +1,23 @@
+{
+  "values": [
+    "geoactivity:hydrogen_element_container",
+    "geoactivity:helium_element_container",
+    "geoactivity:lithium_element_container",
+    "geoactivity:carbon_element_container",
+    "geoactivity:nitrogen_element_container",
+    "geoactivity:oxygen_element_container",
+    "geoactivity:neon_element_container",
+    "geoactivity:sodium_element_container",
+    "geoactivity:magnesium_element_container",
+    "geoactivity:aluminium_element_container",
+    "geoactivity:silicon_element_container",
+    "geoactivity:phosphorus_element_container",
+    "geoactivity:sulfur_element_container",
+    "geoactivity:chlorine_element_container",
+    "geoactivity:potassium_element_container",
+    "geoactivity:calcium_element_container",
+    "geoactivity:iron_element_container",
+    "geoactivity:iodine_element_container",
+    "geoactivity:gold_element_container"
+  ]
+}

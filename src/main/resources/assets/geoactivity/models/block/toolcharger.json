@@ -1,7 +1,0 @@
-{
-    "parent": "block/cube_top",
-    "textures": {
-        "top": "geoactivity:blocks/toolcharger_top",
-        "side": "geoactivity:blocks/toolcharger_side"
-    }
-}

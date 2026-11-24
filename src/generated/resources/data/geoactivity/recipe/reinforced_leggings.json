@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "S": "minecraft:iron_leggings",
+    "X": "minecraft:iron_ingot",
+    "Y": "minecraft:gold_ingot"
+  },
+  "pattern": [
+    "X X",
+    "X X",
+    "YSY"
+  ],
+  "result": {
+    "id": "geoactivity:reinforced_leggings"
+  }
+}

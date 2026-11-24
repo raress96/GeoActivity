@@ -1,0 +1,15 @@
+{
+  "values": [
+    "geoactivity:lignite_ore",
+    "geoactivity:bituminous_ore",
+    "geoactivity:graphite_base",
+    "geoactivity:coal_refiner",
+    "geoactivity:crafting_machine",
+    "geoactivity:atom_extractor",
+    "geoactivity:advanced_coal_refiner",
+    "geoactivity:thermic_generator",
+    "geoactivity:tool_charger",
+    "geoactivity:geothermal_generator",
+    "geoactivity:thermic_melter"
+  ]
+}

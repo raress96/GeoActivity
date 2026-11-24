@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": [
+    "geoactivity:ore_lignite",
+    "geoactivity:ore_bituminous",
+    "geoactivity:ore_anthracite"
+  ],
+  "step": "underground_ores"
+}

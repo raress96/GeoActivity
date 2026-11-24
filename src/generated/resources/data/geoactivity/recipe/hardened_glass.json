@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "X": "minecraft:glass",
+    "Y": "geoactivity:carbon_stick",
+    "Z": "geoactivity:carbon_fiber"
+  },
+  "pattern": [
+    "XYX",
+    "XZX",
+    "XYX"
+  ],
+  "result": {
+    "count": 8,
+    "id": "geoactivity:hardened_glass"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "X": "geoactivity:graphite",
+    "Y": "geoactivity:carbon_stick",
+    "Z": "geoactivity:carbon_fiber"
+  },
+  "pattern": [
+    "XYX",
+    "ZXZ",
+    "XYX"
+  ],
+  "result": {
+    "id": "geoactivity:graphite_base"
+  }
+}

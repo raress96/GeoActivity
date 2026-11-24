@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "W": "geoactivity:graphite_base",
+    "X": "geoactivity:empty_element_container",
+    "Z": "geoactivity:precious_alloy_ingot"
+  },
+  "pattern": [
+    "XXX",
+    "WZW",
+    "XXX"
+  ],
+  "result": {
+    "id": "geoactivity:chemistry_machine"
+  }
+}

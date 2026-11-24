@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "condition": {
+            "type": "minecraft:match_block",
+            "blocks": "geoactivity:advanced_ore_refiner",
+            "state": {
+              "core": "true"
+            }
+          },
+          "name": "geoactivity:advanced_ore_refiner"
+        }
+      ],
+      "rolls": 1
+    }
+  ],
+  "random_sequence": "geoactivity:blocks/advanced_ore_refiner"
+}
