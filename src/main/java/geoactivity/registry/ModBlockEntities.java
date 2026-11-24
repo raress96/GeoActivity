@@ -3,6 +3,10 @@ package geoactivity.registry;
 import geoactivity.GeoActivity;
 import geoactivity.machine.chemistry.ChemistryMachineBlockEntity;
 import geoactivity.machine.crafting.CraftingMachineBlockEntity;
+import geoactivity.machine.energy.GeothermalGeneratorBlockEntity;
+import geoactivity.machine.energy.ThermicGeneratorBlockEntity;
+import geoactivity.machine.energy.ThermicMelterBlockEntity;
+import geoactivity.machine.energy.ToolChargerBlockEntity;
 import geoactivity.machine.extractor.AtomExtractorBlockEntity;
 import geoactivity.machine.orerefiner.AdvancedOreRefinerBlockEntity;
 import geoactivity.machine.refiner.AdvancedCoalRefinerBlockEntity;
@@ -34,6 +38,15 @@ public final class ModBlockEntities {
     public static final Supplier<BlockEntityType<AdvancedOreRefinerBlockEntity>> ADVANCED_ORE_REFINER = BLOCK_ENTITIES.register(
             "advanced_ore_refiner", () -> new BlockEntityType<>(AdvancedOreRefinerBlockEntity::new, ModBlocks.ADVANCED_ORE_REFINER.get()));
 
+    public static final Supplier<BlockEntityType<ThermicGeneratorBlockEntity>> THERMIC_GENERATOR = BLOCK_ENTITIES.register(
+            "thermic_generator", () -> new BlockEntityType<>(ThermicGeneratorBlockEntity::new, ModBlocks.THERMIC_GENERATOR.get()));
+    public static final Supplier<BlockEntityType<ToolChargerBlockEntity>> TOOL_CHARGER = BLOCK_ENTITIES.register(
+            "tool_charger", () -> new BlockEntityType<>(ToolChargerBlockEntity::new, ModBlocks.TOOL_CHARGER.get()));
+    public static final Supplier<BlockEntityType<GeothermalGeneratorBlockEntity>> GEOTHERMAL_GENERATOR = BLOCK_ENTITIES.register(
+            "geothermal_generator", () -> new BlockEntityType<>(GeothermalGeneratorBlockEntity::new, ModBlocks.GEOTHERMAL_GENERATOR.get()));
+    public static final Supplier<BlockEntityType<ThermicMelterBlockEntity>> THERMIC_MELTER = BLOCK_ENTITIES.register(
+            "thermic_melter", () -> new BlockEntityType<>(ThermicMelterBlockEntity::new, ModBlocks.THERMIC_MELTER.get()));
+
     private ModBlockEntities() {}
 
     /** Hoppers/pipes see machine inventories through their sided rules. */
@@ -41,6 +54,12 @@ public final class ModBlockEntities {
         for (var type : java.util.List.of(COAL_REFINER, CRAFTING_MACHINE, ATOM_EXTRACTOR, CHEMISTRY_MACHINE)) {
             event.registerBlockEntity(Capabilities.Item.BLOCK, type.get(), (be, side) -> new WorldlyContainerWrapper((WorldlyContainer) be, side));
         }
+        event.registerBlockEntity(Capabilities.Item.BLOCK, TOOL_CHARGER.get(), (be, side) -> new WorldlyContainerWrapper(be, side));
+        // energy: generators output on their sides, the melter and charger only accept
+        event.registerBlockEntity(Capabilities.Energy.BLOCK, THERMIC_GENERATOR.get(), ThermicGeneratorBlockEntity::energyFor);
+        event.registerBlockEntity(Capabilities.Energy.BLOCK, GEOTHERMAL_GENERATOR.get(), GeothermalGeneratorBlockEntity::energyFor);
+        event.registerBlockEntity(Capabilities.Energy.BLOCK, THERMIC_MELTER.get(), (be, side) -> be.energy());
+        event.registerBlockEntity(Capabilities.Energy.BLOCK, TOOL_CHARGER.get(), (be, side) -> be.energyInput());
         // multiblocks: only while formed (every member forwards to the core's inventory)
         for (var type : java.util.List.of(ADVANCED_COAL_REFINER, ADVANCED_ORE_REFINER)) {
             event.registerBlockEntity(Capabilities.Item.BLOCK, type.get(),

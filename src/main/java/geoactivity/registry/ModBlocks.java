@@ -2,6 +2,11 @@ package geoactivity.registry;
 
 import geoactivity.GeoActivity;
 import geoactivity.machine.chemistry.ChemistryMachineBlock;
+import geoactivity.machine.energy.EnergyMachineBlock;
+import geoactivity.machine.energy.GeothermalGeneratorBlockEntity;
+import geoactivity.machine.energy.ThermicGeneratorBlockEntity;
+import geoactivity.machine.energy.ThermicMelterBlockEntity;
+import geoactivity.machine.energy.ToolChargerBlockEntity;
 import geoactivity.machine.crafting.CraftingMachineBlock;
 import geoactivity.machine.extractor.AtomExtractorBlock;
 import geoactivity.machine.orerefiner.AdvancedOreRefinerBlock;
@@ -55,6 +60,20 @@ public final class ModBlocks {
             AdvancedCoalRefinerBlock::new, p -> machine(p, 3.5F, 9.0F));
     public static final DeferredBlock<AdvancedOreRefinerBlock> ADVANCED_ORE_REFINER = BLOCKS.registerBlock("advanced_ore_refiner",
             AdvancedOreRefinerBlock::new, p -> machine(p, 20.0F, 12.0F));
+
+    // Energy machines (1.10.2 resistance 15 -> 9)
+    public static final DeferredBlock<EnergyMachineBlock<ThermicGeneratorBlockEntity>> THERMIC_GENERATOR = BLOCKS.registerBlock(
+            "thermic_generator", p -> new EnergyMachineBlock<>(p, ModBlockEntities.THERMIC_GENERATOR, ThermicGeneratorBlockEntity::serverTick),
+            p -> machine(p, 10.0F, 9.0F));
+    public static final DeferredBlock<EnergyMachineBlock<ToolChargerBlockEntity>> TOOL_CHARGER = BLOCKS.registerBlock(
+            "tool_charger", p -> new EnergyMachineBlock<>(p, ModBlockEntities.TOOL_CHARGER, ToolChargerBlockEntity::serverTick),
+            p -> machine(p, 10.0F, 9.0F));
+    public static final DeferredBlock<EnergyMachineBlock<GeothermalGeneratorBlockEntity>> GEOTHERMAL_GENERATOR = BLOCKS.registerBlock(
+            "geothermal_generator", p -> new EnergyMachineBlock<>(p, ModBlockEntities.GEOTHERMAL_GENERATOR, GeothermalGeneratorBlockEntity::serverTick),
+            p -> machine(p, 3.0F, 9.0F));
+    public static final DeferredBlock<EnergyMachineBlock<ThermicMelterBlockEntity>> THERMIC_MELTER = BLOCKS.registerBlock(
+            "thermic_melter", p -> new EnergyMachineBlock<>(p, ModBlockEntities.THERMIC_MELTER, ThermicMelterBlockEntity::serverTick),
+            p -> machine(p, 10.0F, 9.0F));
 
     private ModBlocks() {}
 

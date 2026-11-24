@@ -40,6 +40,7 @@ public class ModModelProvider extends ModelProvider {
         blocks.createTrivialBlock(ModBlocks.CRAFTING_MACHINE.get(), TexturedModel.CUBE_BOTTOM_TOP);
         blocks.createTrivialBlock(ModBlocks.CHEMISTRY_MACHINE.get(), TexturedModel.CUBE_TOP);
         multiblocks(blocks);
+        energyMachines(blocks);
 
         // Flat items (everything that isn't a block item or a handheld tool)
         for (var entry : ModItems.ITEMS.getEntries()) {
@@ -53,6 +54,27 @@ public class ModModelProvider extends ModelProvider {
     /** Tools are rendered like vanilla tools. Filled in as tools are ported. */
     static boolean isHandheld(Item item) {
         return false;
+    }
+
+    private static void energyMachines(BlockModelGenerators blocks) {
+        Block tg = ModBlocks.THERMIC_GENERATOR.get();
+        simple(blocks, tg, ModelTemplates.CUBE_BOTTOM_TOP, new TextureMapping()
+                .put(TextureSlot.SIDE, TextureMapping.getBlockTexture(tg, "_side"))
+                .put(TextureSlot.TOP, TextureMapping.getBlockTexture(tg, "_side"))
+                .put(TextureSlot.BOTTOM, TextureMapping.getBlockTexture(tg, "_bottom")));
+        Block gg = ModBlocks.GEOTHERMAL_GENERATOR.get();
+        simple(blocks, gg, ModelTemplates.CUBE_BOTTOM_TOP, new TextureMapping()
+                .put(TextureSlot.SIDE, TextureMapping.getBlockTexture(gg, "_side"))
+                .put(TextureSlot.TOP, TextureMapping.getBlockTexture(gg, "_bottom"))
+                .put(TextureSlot.BOTTOM, TextureMapping.getBlockTexture(gg, "_bottom")));
+        blocks.createTrivialCube(ModBlocks.THERMIC_MELTER.get());
+        blocks.createTrivialBlock(ModBlocks.TOOL_CHARGER.get(), TexturedModel.CUBE_TOP);
+    }
+
+    private static void simple(BlockModelGenerators blocks, Block block, net.minecraft.client.data.models.model.ModelTemplate template,
+            TextureMapping textures) {
+        var model = template.create(block, textures, blocks.modelOutput);
+        blocks.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block, BlockModelGenerators.plainVariant(model)));
     }
 
     /** ACR: plain until formed. AOR: core plain/formed, other members show the "formed" texture. */

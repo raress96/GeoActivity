@@ -54,6 +54,28 @@ public class ModLanguageProvider extends LanguageProvider {
         blockTooltip(ModBlocks.ADVANCED_COAL_REFINER.get(), "Multiblock: 2x2x2");
         addBlock(ModBlocks.ADVANCED_ORE_REFINER, "Advanced Ore Refiner");
         blockTooltip(ModBlocks.ADVANCED_ORE_REFINER.get(), "Complicated multiblock. Check the JEI description page.");
+        addBlock(ModBlocks.THERMIC_GENERATOR, "Thermic Generator");
+        blockTooltip(ModBlocks.THERMIC_GENERATOR.get(), "Requires Thermal Hardened Bricks to be adjacent to it.",
+                "Produces 20 FE/t per Thermal Hardened Brick.", "Only outputs power through the bottom.");
+        addBlock(ModBlocks.TOOL_CHARGER, "Tool Charger");
+        blockTooltip(ModBlocks.TOOL_CHARGER.get(), "Used to charge FE (RF) powered Redstone Tools.");
+        addBlock(ModBlocks.GEOTHERMAL_GENERATOR, "Geothermal Generator");
+        blockTooltip(ModBlocks.GEOTHERMAL_GENERATOR.get(),
+                "Generates FE from lava pools. Placed in a lava pool, it will scan all lava blocks",
+                "recursively to a distance of up to 25 meters from the block every minute.",
+                "For each lava block found, it will generate 4 FE/t. Output to bottom/top only.",
+                "Works better at lower altitudes.",
+                "It has a 40% chance to turn lava blocks in a 3x3x3 cube centered around the block",
+                "into obsidian, so it will eventually stop working.",
+                "Use the Thermic Melter to solve this problem.");
+        addBlock(ModBlocks.THERMIC_MELTER, "Thermic Melter");
+        blockTooltip(ModBlocks.THERMIC_MELTER.get(), "Turns obsidian in a 5x5x5 cube centered around the block slowly into lava.",
+                "Uses 10 FE/t passively and 50k FE per obsidian block.", "Transfer (in): 500 FE/t");
+        add("gui.geoactivity.energy", "Energy: ");
+        add("gui.geoactivity.lava_blocks", "Lava Blocks: %s");
+        add("gui.geoactivity.efficiency", "Efficiency: %s%%");
+        add("gui.geoactivity.fe_per_tick", "FE/t: %s");
+        add("gui.geoactivity.update_in", "Update in:");
     }
 
     private void items() {

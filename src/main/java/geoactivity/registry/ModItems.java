@@ -39,6 +39,10 @@ public final class ModItems {
     public static final DeferredItem<BlockItem> CHEMISTRY_MACHINE = machineItem(ModBlocks.CHEMISTRY_MACHINE, "chemistry_machine");
     public static final DeferredItem<BlockItem> ADVANCED_COAL_REFINER = machineItem(ModBlocks.ADVANCED_COAL_REFINER, "advanced_coal_refiner");
     public static final DeferredItem<BlockItem> ADVANCED_ORE_REFINER = machineItem(ModBlocks.ADVANCED_ORE_REFINER, "advanced_ore_refiner");
+    public static final DeferredItem<BlockItem> THERMIC_GENERATOR = machineItem(ModBlocks.THERMIC_GENERATOR, "thermic_generator");
+    public static final DeferredItem<BlockItem> TOOL_CHARGER = machineItem(ModBlocks.TOOL_CHARGER, "tool_charger");
+    public static final DeferredItem<BlockItem> GEOTHERMAL_GENERATOR = machineItem(ModBlocks.GEOTHERMAL_GENERATOR, "geothermal_generator");
+    public static final DeferredItem<BlockItem> THERMIC_MELTER = machineItem(ModBlocks.THERMIC_MELTER, "thermic_melter");
 
     // Coal and carbon
     public static final DeferredItem<Item> LIGNITE_COAL = ITEMS.registerSimpleItem("lignite_coal");

@@ -261,6 +261,10 @@ Port notes (phase 3):
 - Advanced Coal Refiner / Ore Refiner: each lane only processes when its output fits (1.10.2 could overfill a
   stack past 64). Swallowing a formed ACR cube into an Ore Refiner drops that cube's items instead of deleting them.
   Valid ores are `c:ores` items with a furnace recipe.
+- Energy machines (phase 5): energy is NeoForge FE (same numbers as RF). The Geothermal Generator's lava scan is an
+  iterative flood fill (1.10.2 recursed and could overflow the stack on big lakes); the Thermic Generator re-counts
+  its bricks every second (1.10.2 only on neighbour changes, so sky changes went unnoticed). The Tool Charger charges
+  any item with the NeoForge energy capability (1.10.2: any CoFH RF item).
 - Chemistry Machine: each element group must be on its own brick (1.10.2 only enforced this for consecutive groups;
   the JEI description already said one element type per brick).
 

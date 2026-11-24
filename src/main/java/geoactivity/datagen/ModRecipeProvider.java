@@ -24,6 +24,7 @@ public class ModRecipeProvider extends RecipeProvider {
     protected void buildRecipes() {
         blocks();
         machines();
+        energyMachines();
         misc();
         smelting();
     }
@@ -80,6 +81,28 @@ public class ModRecipeProvider extends RecipeProvider {
         shaped(RecipeCategory.DECORATIONS, ModItems.ADVANCED_ORE_REFINER.get())
                 .pattern("XWX").pattern("WZW").pattern("XWX")
                 .define('W', Items.DIAMOND).define('X', Items.EMERALD).define('Z', ModItems.GRAPHITE_BASE.get())
+                .unlockedBy("has_graphite_base", has(ModItems.GRAPHITE_BASE.get())).save(output);
+    }
+
+    private void energyMachines() {
+        shaped(RecipeCategory.DECORATIONS, ModItems.THERMIC_GENERATOR.get())
+                .pattern("XXX").pattern("XZX").pattern("XRX")
+                .define('X', Items.IRON_INGOT).define('Z', ModItems.GRAPHITE_BASE.get()).define('R', Blocks.REDSTONE_BLOCK)
+                .unlockedBy("has_graphite_base", has(ModItems.GRAPHITE_BASE.get())).save(output);
+        shaped(RecipeCategory.DECORATIONS, ModItems.TOOL_CHARGER.get())
+                .pattern("XRX").pattern("WZW").pattern("XWX")
+                .define('X', Items.IRON_INGOT).define('Z', ModItems.GRAPHITE_BASE.get()).define('R', Blocks.REDSTONE_BLOCK)
+                .define('W', Items.REDSTONE)
+                .unlockedBy("has_graphite_base", has(ModItems.GRAPHITE_BASE.get())).save(output);
+        shaped(RecipeCategory.DECORATIONS, ModItems.GEOTHERMAL_GENERATOR.get())
+                .pattern("XRX").pattern("WZW").pattern("XRX")
+                .define('X', ModItems.CARBON_STICK.get()).define('Z', ModItems.GRAPHITE_BASE.get()).define('R', Blocks.REDSTONE_BLOCK)
+                .define('W', ModItems.HARDENED_BRICK.get())
+                .unlockedBy("has_graphite_base", has(ModItems.GRAPHITE_BASE.get())).save(output);
+        shaped(RecipeCategory.DECORATIONS, ModItems.THERMIC_MELTER.get())
+                .pattern("XRX").pattern("RIR").pattern("XZX")
+                .define('X', ModItems.CARBON_STICK.get()).define('Z', ModItems.GRAPHITE_BASE.get()).define('R', Items.REDSTONE)
+                .define('I', Blocks.IRON_BLOCK)
                 .unlockedBy("has_graphite_base", has(ModItems.GRAPHITE_BASE.get())).save(output);
     }
 

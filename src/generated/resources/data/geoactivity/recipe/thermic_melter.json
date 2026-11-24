@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "I": "minecraft:iron_block",
+    "R": "minecraft:redstone",
+    "X": "geoactivity:carbon_stick",
+    "Z": "geoactivity:graphite_base"
+  },
+  "pattern": [
+    "XRX",
+    "RIR",
+    "XZX"
+  ],
+  "result": {
+    "id": "geoactivity:thermic_melter"
+  }
+}

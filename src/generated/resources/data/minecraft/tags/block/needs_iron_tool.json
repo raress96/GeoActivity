@@ -6,6 +6,10 @@
     "geoactivity:coal_refiner",
     "geoactivity:crafting_machine",
     "geoactivity:atom_extractor",
-    "geoactivity:advanced_coal_refiner"
+    "geoactivity:advanced_coal_refiner",
+    "geoactivity:thermic_generator",
+    "geoactivity:tool_charger",
+    "geoactivity:geothermal_generator",
+    "geoactivity:thermic_melter"
   ]
 }

@@ -26,7 +26,7 @@ import net.neoforged.neoforge.registries.RegisterEvent;
 public final class GATests {
     public static final String PLATFORM = "platform";
 
-    private record TestDef(String name, String structure, int maxTicks, Consumer<GameTestHelper> function) {}
+    private record TestDef(String name, String structure, int maxTicks, boolean skyAccess, Consumer<GameTestHelper> function) {}
 
     private static final List<TestDef> TESTS = new ArrayList<>();
 
@@ -35,6 +35,7 @@ public final class GATests {
         ContentTests.register();
         MachineTests.register();
         MultiblockTests.register();
+        EnergyTests.register();
     }
 
     private GATests() {}
@@ -44,7 +45,12 @@ public final class GATests {
     }
 
     public static void test(String name, String structure, int maxTicks, Consumer<GameTestHelper> function) {
-        TESTS.add(new TestDef(name, structure, maxTicks, function));
+        TESTS.add(new TestDef(name, structure, maxTicks, false, function));
+    }
+
+    /** A test whose area is open to the sky (Thermic Generator bricks need to see it). */
+    public static void skyTest(String name, int maxTicks, Consumer<GameTestHelper> function) {
+        TESTS.add(new TestDef(name, PLATFORM, maxTicks, true, function));
     }
 
     private static ResourceKey<Consumer<GameTestHelper>> functionKey(String name) {
@@ -64,7 +70,8 @@ public final class GATests {
     static void registerTests(RegisterGameTestsEvent event) {
         Holder<TestEnvironmentDefinition<?>> environment = event.registerEnvironment(GeoActivity.id("default"));
         for (TestDef def : TESTS) {
-            var data = new TestData<>(environment, GeoActivity.id(def.structure()), def.maxTicks(), 0, true);
+            var data = new TestData<>(environment, net.minecraft.world.level.Level.OVERWORLD, GeoActivity.id(def.structure()),
+                    def.maxTicks(), 0, true, net.minecraft.world.level.block.Rotation.NONE, false, 1, 1, def.skyAccess(), 0);
             event.registerTest(GeoActivity.id(def.name()), new FunctionGameTestInstance(functionKey(def.name()), data));
         }
     }

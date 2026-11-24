@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "geoactivity:block/thermic_generator_bottom",
+    "side": "geoactivity:block/thermic_generator_side",
+    "top": "geoactivity:block/thermic_generator_side"
+  }
+}

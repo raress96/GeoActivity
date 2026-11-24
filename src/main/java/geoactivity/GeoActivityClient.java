@@ -6,6 +6,8 @@ import geoactivity.client.screen.AtomExtractorScreen;
 import geoactivity.client.screen.ChemistryMachineScreen;
 import geoactivity.client.screen.CoalRefinerScreen;
 import geoactivity.client.screen.CraftingMachineScreen;
+import geoactivity.client.screen.GeothermalGeneratorScreen;
+import geoactivity.client.screen.ToolChargerScreen;
 import geoactivity.registry.ModMenus;
 import geoactivity.util.Tooltips;
 import net.minecraft.client.Minecraft;
@@ -30,5 +32,7 @@ public final class GeoActivityClient {
         event.register(ModMenus.CHEMISTRY_MACHINE.get(), ChemistryMachineScreen::new);
         event.register(ModMenus.ADVANCED_COAL_REFINER.get(), AdvancedCoalRefinerScreen::new);
         event.register(ModMenus.ADVANCED_ORE_REFINER.get(), AdvancedOreRefinerScreen::new);
+        event.register(ModMenus.GEOTHERMAL_GENERATOR.get(), GeothermalGeneratorScreen::new);
+        event.register(ModMenus.TOOL_CHARGER.get(), ToolChargerScreen::new);
     }
 }

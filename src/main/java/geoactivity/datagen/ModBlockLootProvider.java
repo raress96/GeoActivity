@@ -38,6 +38,10 @@ public class ModBlockLootProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.ATOM_EXTRACTOR.get());
         dropSelf(ModBlocks.CHEMISTRY_MACHINE.get());
         dropSelf(ModBlocks.ADVANCED_COAL_REFINER.get());
+        dropSelf(ModBlocks.THERMIC_GENERATOR.get());
+        dropSelf(ModBlocks.TOOL_CHARGER.get());
+        dropSelf(ModBlocks.GEOTHERMAL_GENERATOR.get());
+        dropSelf(ModBlocks.THERMIC_MELTER.get());
         // only the core drops the refiner; other members give back their brick/ACR from the block entity
         Block aor = ModBlocks.ADVANCED_ORE_REFINER.get();
         add(aor, LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ContextIntProviders.exactly(1))
