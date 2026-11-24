@@ -26,7 +26,7 @@ touching gameplay code.
 | 6 | Tools, perk engine, item inventories, Auto Stone Builder | done |
 | 7 | Armor | todo |
 | 8 | JEI | todo |
-| 9 | Delete `legacy/`, README/Changelog, version 3.0.0, smoke tests | todo |
+| 9 | Delete `legacy/`, README, finalise `CHANGELOG.md` 3.0.0, version 3.0.0, smoke tests | todo |
 
 Update this table (and the layout section) as phases land.
 
