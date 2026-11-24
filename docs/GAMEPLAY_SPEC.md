@@ -51,6 +51,7 @@ Overworld only (dimension 0). Per chunk: N attempts of a vein (replaces stone) a
 - Old config `config/GeoActivity/geoactivity.cfg` (attempts, minY, maxY, vein size per ore). Port: values live in the
   placed features; override with a datapack.
 - **[QUIRK]** The new coals are not furnace fuel in vanilla furnaces. Only the mod's machines and tools burn them.
+  3.0.0 balance pass: vanilla furnace fuel at 2400/3200/4800 ticks (lignite/bituminous/anthracite).
 
 ## 3. Simple blocks
 
@@ -189,7 +190,7 @@ which are reused as-is.
 - Hoe action (battle axe, battle miners): grass/dirt → farmland, coarse dirt → dirt.
 - Item GUIs open with sneak + right-click.
 - **[BUG]** Reinforced Miner `getToolClasses` says pickaxe + axe (should be pickaxe + shovel).
-- **[BUG]** Redstone tools only burn fuel slot 0; slots 1–3 just hold items.
+- **[BUG]** Redstone tools only burn fuel slot 0; slots 1–3 just hold items. Fixed in the 3.0.0 balance pass.
 
 ### 6.3 Perks on tools
 Redstone tools: perk items sit in the tool's inventory; on GUI close they become flags/levels on the stack. Advanced
@@ -208,11 +209,12 @@ tools/armor: perks only via the Crafting Machine, one perk at a time.
 | capitator | mining speed −8. Adv Axe: fells matching blocks (recursive 3×3×3). Redstone Battle Axe: same, any log. Redstone Miner: column of matching blocks ~9 up/down. Battle Miner + RF miner: logs felled, otherwise a 5 up / 5 down column | – |
 | no drops | block deleted, no drops (stone-break sound on redstone tools) | overrides everything |
 | drop teleport | drops inserted into a bound inventory (sneak-use on an inventory to bind, right-click air to unbind); leftovers drop. Redstone tools + RF miner only | – |
-| armor bypass | **[BUG]** not implemented; only a tooltip ("damage/3 armor bypass damage") | – |
+| armor bypass | **[BUG]** not implemented; only a tooltip ("damage/3 armor bypass damage"). 3.0.0: armor reduces only two thirds of a melee hit | – |
 
 Drop priority: no drops > silk touch > smelting > fortune > (radius/capitator/droptp manual drops) > vanilla.
 Area breaking requires hardness > 0, harvest level ≤ 3, an effective tool, and edit permission; creative just clears.
-- **[BUG]** Advanced pickaxe/shovel capitator column never fires (`pos.add(0, yPos, 0)` misuse).
+- **[BUG]** Advanced pickaxe/shovel capitator column never fires (`pos.add(0, yPos, 0)` misuse). 3.0.0: they use the
+  Redstone Miner's column (matching blocks, 10 up / 9 down; the broken loop aimed at 9 / 9).
 
 ### 6.4 Machine perks
 - ACR (2 slots): time × (1 − 0.25·speed), fuel × (1 + 0.5·efficiency).
@@ -234,7 +236,7 @@ Area breaking requires hardness > 0, harvest level ≤ 3, an effective tool, and
 ## 7. Armor
 
 - Reinforced: durability factor 30, protection {2, 6, 5, 2} in old array order, enchantability 18. Plain armor.
-  **[QUIRK]** Read as boots 2, legs 6, chest 5, helmet 2 → legs give more than the chest.
+  **[QUIRK]** Read as boots 2, legs 6, chest 5, helmet 2 → legs give more than the chest. 3.0.0: chest 6, legs 5.
 - Advanced: durability factor 35, protection {4, 10, 7, 4}, toughness 2, enchantability 8. Crafted at max damage − 2
   (empty), refuelled with coal like Advanced tools. Destroyed at max − 2 (absorbs ~1 damage).
 - Advanced absorption (old `ISpecialArmor`): per piece armor/25, uncapped. General perk adds +1/+2/+1/+1
@@ -286,6 +288,10 @@ Port notes (phase 3):
   the JEI description already said one element type per brick).
 
 
+Balance pass (3.0.0, decided by Rares): the six "balance pass" rows below were changed. Kept on purpose: the cheap
+graphite → diamond recipe (about 3 anthracite coal per diamond) and the Chemistry Machine's gold → blaze rods →
+emerald chain; they are part of the mod's identity. Revisit with player feedback.
+
 | Item | Decision |
 |---|---|
 | GUI energy short overflow (GG, TC) | fixed (technical) |
@@ -293,13 +299,13 @@ Port notes (phase 3):
 | AOR/experience perk localized "Ore" name check | fixed via `#c:ores` (technical) |
 | ChM trigger via `onNeighborChange` | fixed via `neighborChanged` (technical) |
 | CrM wipes enchantments/data when applying a perk | fixed: only the perk is replaced (technical); one-perk limit kept |
-| Coal item rarity check always COMMON | kept (cosmetic), revisit in balance pass |
+| Coal item rarity check always COMMON | balance pass: anthracite uncommon, as intended |
 | Reinforced Miner tool classes pickaxe + axe | ported as pickaxe + shovel (the item's intent, matches its mining speed) |
-| Redstone tools burn only fuel slot 0 | kept, balance pass |
-| Adv pickaxe/shovel capitator never fires | kept, balance pass |
-| Armor bypass perk not implemented | kept as tooltip-only, balance pass |
-| Reinforced armor legs > chest | kept, balance pass |
-| New coals not vanilla furnace fuel | kept, balance pass |
+| Redstone tools burn only fuel slot 0 | balance pass: all 4 fuel slots burn, in order |
+| Adv pickaxe/shovel capitator never fires | balance pass: column of matching blocks, like the Redstone Miner |
+| Armor bypass perk not implemented | balance pass: armor reduces only 2/3 of a melee hit (NeoForge `DamageContainer` armor modifier) |
+| Reinforced armor legs > chest | balance pass: {2, 6, 5, 2} like vanilla iron |
+| New coals not vanilla furnace fuel | balance pass: 1.5×/2×/3× coal (`cookingFuel` + `context_int_provider`) |
 | Ore fortune table | vanilla ore formula (can't port 1:1) |
 | Advanced armor absorption math | approximated (can't port 1:1) |
 | Material-based tool effectiveness | tags (can't port 1:1) |

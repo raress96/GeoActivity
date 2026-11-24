@@ -23,6 +23,8 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -38,6 +40,8 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.common.damagesource.DamageContainer;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.level.BlockDropsEvent;
 import net.neoforged.neoforge.event.level.block.BreakBlockEvent;
 import net.neoforged.neoforge.transfer.ResourceHandlerUtil;
@@ -51,6 +55,7 @@ import net.neoforged.neoforge.transfer.transaction.Transaction;
  *   through the player's normal block breaking (so protection, drops, tool wear and events all apply).</li>
  *   <li>{@link #onDrops}: drop perks for every block a perk tool breaks: No Drops > Silk Touch > Fortune > Auto-Smelt,
  *   then Drop Teleportation; Experience gives +1 XP for ores that don't drop themselves.</li>
+ *   <li>{@link #onIncomingDamage}: Armor Bypass, a third of a melee hit ignores the target's armor.</li>
  * </ul>
  */
 @EventBusSubscriber(modid = GeoActivity.MOD_ID)
@@ -61,6 +66,23 @@ public final class ToolEvents {
     private static final int MAX_TREE = 256;
 
     private ToolEvents() {}
+
+    /**
+     * Armor Bypass (1.10.2 only had the tooltip, "damage/3 armor bypass damage"): the target's armor reduces only
+     * the other two thirds of a melee hit.
+     */
+    @SubscribeEvent
+    static void onIncomingDamage(LivingIncomingDamageEvent event) {
+        DamageSource source = event.getSource();
+        if (!source.is(DamageTypes.PLAYER_ATTACK) || !(source.getEntity() instanceof Player player)) {
+            return;
+        }
+        ItemStack weapon = source.getWeaponItem();
+        if (weapon != null && weapon.getItem() instanceof PerkTool tool && tool.isUsable(weapon, player)
+                && ToolLogic.perks(weapon).has(ToolPerk.ARMOR_BYPASS)) {
+            event.addReductionModifier(DamageContainer.Reduction.ARMOR, (container, reduction) -> reduction * 2.0F / 3.0F);
+        }
+    }
 
     @SubscribeEvent
     static void onBreak(BreakBlockEvent event) {

@@ -39,6 +39,7 @@ public final class GATests {
         ToolTests.register();
         ArmorTests.register();
         JeiDataTests.register();
+        BalanceTests.register();
     }
 
     private GATests() {}

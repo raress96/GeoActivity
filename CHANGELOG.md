@@ -4,7 +4,7 @@ All notable changes to GeoActivity. Dates are given where the git history shows 
 
 ## [3.0.0] – Unreleased (Minecraft 26.3, NeoForge)
 
-The whole mod ported to a current Minecraft. Gameplay is kept the same as 2.4; balance changes come later.
+The whole mod ported to a current Minecraft. Gameplay is kept the same as 2.4, apart from the balance changes below.
 
 ### Changed
 - Updated to Minecraft 26.3 and NeoForge 26.3 (Java 25), from Minecraft 1.10.2 and Forge.
@@ -21,6 +21,17 @@ The whole mod ported to a current Minecraft. Gameplay is kept the same as 2.4; b
 - JEI support: recipe pages for the Coal Refiner, Atom Extractor, Chemistry Machine and Crafting Machine, plus
   description pages for the multiblocks and energy machines. Moving items into a machine from JEI (the "+" button) is
   not supported yet.
+
+### Balance
+- Lignite, Bituminous and Anthracite Coal now burn in vanilla furnaces: 1.5×, 2× and 3× as long as coal (twice as
+  fast in smokers and blast furnaces). The mod's machines and tools keep their own fuel values.
+- Reinforced armor: the chestplate now gives 6 armor and the leggings 5, like iron armor (in 2.4 the leggings gave
+  more than the chestplate).
+- Redstone tools now burn coal from all 4 fuel slots (only the first one worked before).
+- The Capitator perk now works on the Advanced Pickaxe and Advanced Shovel: it mines the column of matching blocks
+  above and below.
+- The Armor Bypass perk now works: a third of a melee hit ignores the target's armor (in 2.4 it only had a tooltip).
+- Anthracite Coal shows as uncommon.
 
 ### Fixed
 - Energy values above 32k showed wrong in the Geothermal Generator and Tool Charger GUIs.

@@ -133,7 +133,7 @@ final class ArmorTests {
         });
 
         GATests.test("reinforced_armor_values", 5, helper -> {
-            int[] expected = {2, 5, 6, 2}; // helmet, chest, legs, boots (1.10.2 order quirk: legs > chest)
+            int[] expected = {2, 6, 5, 2}; // helmet, chest, legs, boots (like vanilla iron since 3.0.0)
             Item[] pieces = {ModItems.REINFORCED_HELMET.get(), ModItems.REINFORCED_CHESTPLATE.get(),
                     ModItems.REINFORCED_LEGGINGS.get(), ModItems.REINFORCED_BOOTS.get()};
             for (int i = 0; i < pieces.length; i++) {

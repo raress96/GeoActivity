@@ -33,8 +33,8 @@ public final class ToolProfiles {
             BlockTags.INCORRECT_FOR_IRON_TOOL, 5.0F, -3.0F, 500, 498, ADV_FUEL, 0, 2, 1,
             PerkSource.NONE, 1, 0, Limits.SINGLE, Area.NONE, Capitator.NONE, "reinforced_miner", ONE_FUEL);
 
-    public static final ToolProfile ADVANCED_PICKAXE = advanced(Set.of(PICKAXE), 5.0F, Area.SAME_BLOCK, Capitator.NONE);
-    public static final ToolProfile ADVANCED_SHOVEL = advanced(Set.of(SHOVEL), 5.5F, Area.SAME_BLOCK, Capitator.NONE);
+    public static final ToolProfile ADVANCED_PICKAXE = advanced(Set.of(PICKAXE), 5.0F, Area.SAME_BLOCK, Capitator.COLUMN_SAME);
+    public static final ToolProfile ADVANCED_SHOVEL = advanced(Set.of(SHOVEL), 5.5F, Area.SAME_BLOCK, Capitator.COLUMN_SAME);
     public static final ToolProfile ADVANCED_AXE = advanced(Set.of(AXE), 6.0F, Area.NONE, Capitator.TREE_SAME);
     public static final ToolProfile ADVANCED_SWORD = new ToolProfile(Set.of(), false, 10.0F, BlockTags.INCORRECT_FOR_DIAMOND_TOOL,
             7.0F, -2.4F, 1000, 998, ADV_FUEL, 10, 1, 0, PerkSource.CRAFTED, 1, 1, Limits.SINGLE, Area.NONE, Capitator.NONE,

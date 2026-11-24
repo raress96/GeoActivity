@@ -23,6 +23,7 @@ import java.util.Map;
 import java.util.function.Supplier;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import geoactivity.item.ModFuels;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -54,9 +55,13 @@ public final class ModItems {
     public static final DeferredItem<BlockItem> THERMIC_MELTER = machineItem(ModBlocks.THERMIC_MELTER, "thermic_melter");
 
     // Coal and carbon
-    public static final DeferredItem<Item> LIGNITE_COAL = ITEMS.registerSimpleItem("lignite_coal");
-    public static final DeferredItem<Item> BITUMINOUS_COAL = ITEMS.registerSimpleItem("bituminous_coal");
-    public static final DeferredItem<Item> ANTHRACITE_COAL = ITEMS.registerSimpleItem("anthracite_coal");
+    public static final DeferredItem<Item> LIGNITE_COAL = ITEMS.registerSimpleItem("lignite_coal",
+            p -> p.cookingFuel(ModFuels.LIGNITE_COAL));
+    public static final DeferredItem<Item> BITUMINOUS_COAL = ITEMS.registerSimpleItem("bituminous_coal",
+            p -> p.cookingFuel(ModFuels.BITUMINOUS_COAL));
+    // uncommon: 1.10.2 meant this, but its name check never matched
+    public static final DeferredItem<Item> ANTHRACITE_COAL = ITEMS.registerSimpleItem("anthracite_coal",
+            p -> p.cookingFuel(ModFuels.ANTHRACITE_COAL).rarity(Rarity.UNCOMMON));
     public static final DeferredItem<Item> GRAPHITE = ITEMS.registerSimpleItem("graphite");
     public static final DeferredItem<Item> CARBON_FIBER = ITEMS.registerSimpleItem("carbon_fiber");
     public static final DeferredItem<Item> CARBON_STICK = ITEMS.registerSimpleItem("carbon_stick");
